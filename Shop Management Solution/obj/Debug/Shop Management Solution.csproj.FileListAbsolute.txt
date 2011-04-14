@@ -1,0 +1,69 @@
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\bin\Debug\Shop_Solution.exe.config
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\bin\Debug\Shop_Solution.exe.manifest
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\bin\Debug\Shop_Solution.application
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\bin\Debug\Shop_Solution.exe
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\bin\Debug\Shop_Solution.pdb
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop Management Solution.csproj.GenerateResource.Cache
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Solution.TrustInfo.xml
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Solution.exe.manifest
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Solution.application
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Solution.exe
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Solution.pdb
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.Properties.Resources.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.AboutBox.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmAccountSettings.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmAddItemType.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmAuthenticate.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmBuyItem.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmSettings.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmMainMenu.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmSaleItem.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmSearchItem.resources
+D:\Projects\Business\ExBrain Solution\ExBrain Solution\obj\Debug\Shop_Management_Solution.frmSplash.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\bin\Debug\Shop_Solution.exe.config
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Solution.exe
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Solution.pdb
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\bin\Debug\Shop_Solution.exe.manifest
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\bin\Debug\Shop_Solution.application
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\bin\Debug\Shop_Solution.exe
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\bin\Debug\Shop_Solution.pdb
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.AboutBox.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAccountSettings.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAddItemType.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAuthenticate.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmBuyItem.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSettings.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmMainMenu.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSaleItem.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSearchItem.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSplash.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.Properties.Resources.resources
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop Management Solution.csproj.GenerateResource.Cache
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Solution.TrustInfo.xml
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Solution.exe.manifest
+D:\Projects\Business\ExBrain Solution\Shop Management Solution\obj\Debug\Shop_Solution.application
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\bin\Debug\Shop_Solution.exe.config
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.exe
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.pdb
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\bin\Debug\Shop_Solution.exe.manifest
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\bin\Debug\Shop_Solution.application
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\bin\Debug\Shop_Solution.exe
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\bin\Debug\Shop_Solution.pdb
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.AboutBox.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAccountSettings.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAddItemType.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAuthenticate.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmBuyItem.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSettings.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmMainMenu.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSaleItem.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSearchItem.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSplash.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Management_Solution.Properties.Resources.resources
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop Management Solution.csproj.GenerateResource.Cache
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.TrustInfo.xml
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.exe.manifest
+D:\Projects\Business\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.application
