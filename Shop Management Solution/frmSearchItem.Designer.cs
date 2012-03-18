@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchItem));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Clear = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.cmb_itemType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,22 +39,20 @@
             this.dpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.lstViewSearch = new System.Windows.Forms.ListView();
-            this.colItemIndex = new System.Windows.Forms.ColumnHeader();
-            this.colItem = new System.Windows.Forms.ColumnHeader();
-            this.colQuantity = new System.Windows.Forms.ColumnHeader();
-            this.colPurchasePrice = new System.Windows.Forms.ColumnHeader();
-            this.colSoldPrice = new System.Windows.Forms.ColumnHeader();
-            this.colRemainingQuantity = new System.Windows.Forms.ColumnHeader();
-            this.colProfit = new System.Windows.Forms.ColumnHeader();
-            this.colTotalSalePrice = new System.Windows.Forms.ColumnHeader();
-            this.colTotalPurchasePrice = new System.Windows.Forms.ColumnHeader();
+            this.colItemIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPurchasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSoldPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colRemainingQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colProfit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTotalSalePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTotalPurchasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.lblSoldQuantity = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTotalProfit = new System.Windows.Forms.Label();
-            this.btn_search = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btn_Clear = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,8 +60,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_Clear);
-            this.groupBox1.Controls.Add(this.btn_search);
             this.groupBox1.Controls.Add(this.cmb_itemType);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -70,10 +68,34 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(75, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(374, 110);
+            this.groupBox1.Size = new System.Drawing.Size(385, 82);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Item(s)";
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.BackColor = System.Drawing.Color.White;
+            this.btn_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Clear.Location = new System.Drawing.Point(380, 100);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(80, 22);
+            this.btn_Clear.TabIndex = 7;
+            this.btn_Clear.Text = "Clear";
+            this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
+            // btn_search
+            // 
+            this.btn_search.BackColor = System.Drawing.Color.White;
+            this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_search.Location = new System.Drawing.Point(294, 100);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(80, 22);
+            this.btn_search.TabIndex = 6;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // cmb_itemType
             // 
@@ -152,7 +174,7 @@
             // 
             // colItem
             // 
-            this.colItem.Text = "Item";
+            this.colItem.Text = "Item Type";
             this.colItem.Width = 138;
             // 
             // colQuantity
@@ -195,87 +217,61 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Sienna;
+            this.label4.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(27, 333);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 16);
+            this.label4.Size = new System.Drawing.Size(147, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Total Sold Quantity";
             // 
             // lblSoldQuantity
             // 
             this.lblSoldQuantity.AutoSize = true;
-            this.lblSoldQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoldQuantity.ForeColor = System.Drawing.Color.Sienna;
+            this.lblSoldQuantity.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoldQuantity.ForeColor = System.Drawing.Color.Black;
             this.lblSoldQuantity.Location = new System.Drawing.Point(167, 333);
             this.lblSoldQuantity.Name = "lblSoldQuantity";
-            this.lblSoldQuantity.Size = new System.Drawing.Size(15, 15);
+            this.lblSoldQuantity.Size = new System.Drawing.Size(16, 18);
             this.lblSoldQuantity.TabIndex = 5;
             this.lblSoldQuantity.Text = "0";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label5.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(277, 333);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 15);
+            this.label5.Size = new System.Drawing.Size(90, 18);
             this.label5.TabIndex = 6;
             this.label5.Text = "Total Profit";
             // 
             // lblTotalProfit
             // 
             this.lblTotalProfit.AutoSize = true;
-            this.lblTotalProfit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProfit.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalProfit.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProfit.ForeColor = System.Drawing.Color.Black;
             this.lblTotalProfit.Location = new System.Drawing.Point(354, 333);
             this.lblTotalProfit.Name = "lblTotalProfit";
-            this.lblTotalProfit.Size = new System.Drawing.Size(0, 15);
+            this.lblTotalProfit.Size = new System.Drawing.Size(0, 18);
             this.lblTotalProfit.TabIndex = 7;
-            // 
-            // btn_search
-            // 
-            this.btn_search.BackgroundImage = global::Shop_Management_Solution.Properties.Resources.bg_blue;
-            this.btn_search.Image = global::Shop_Management_Solution.Properties.Resources.search_icon;
-            this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_search.Location = new System.Drawing.Point(211, 73);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(75, 29);
-            this.btn_search.TabIndex = 6;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btnClose
             // 
-            this.btnClose.BackgroundImage = global::Shop_Management_Solution.Properties.Resources.bg_blue;
-            this.btnClose.Location = new System.Drawing.Point(898, 330);
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(893, 333);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(80, 22);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btn_Clear
-            // 
-            this.btn_Clear.BackgroundImage = global::Shop_Management_Solution.Properties.Resources.bg_blue;
-            this.btn_Clear.Image = global::Shop_Management_Solution.Properties.Resources.Synchronize_icon;
-            this.btn_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Clear.Location = new System.Drawing.Point(292, 73);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(75, 29);
-            this.btn_Clear.TabIndex = 7;
-            this.btn_Clear.Text = "Clear";
-            this.btn_Clear.UseVisualStyleBackColor = true;
-            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(57, 51);
             this.pictureBox1.TabIndex = 0;
@@ -285,9 +281,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(979, 360);
+            this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.lblTotalProfit);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblSoldQuantity);
             this.Controls.Add(this.label4);

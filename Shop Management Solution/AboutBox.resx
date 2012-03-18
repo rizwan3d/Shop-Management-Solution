@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBoxDescription.Text" xml:space="preserve">
-    <value>Development Team
-Developed by: Farrukh Naveed Anjum
-Tested/QA by: Haroon Tariq Sheikh
-Design: Faisal Mehmood Anjum
-
-Contact Us
-Mobile No: +923455990351
-Email: mr.farrukh@msn.com
-Website: www.iWorker4U.com
-</value>
-  </data>
 </root>

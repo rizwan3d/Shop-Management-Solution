@@ -52,44 +52,44 @@
             this.groupBox1.Size = new System.Drawing.Size(308, 86);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Settings";
+            this.groupBox1.Text = "Settings Detail(s)";
             // 
             // txtShopName
             // 
-            this.txtShopName.Location = new System.Drawing.Point(110, 48);
+            this.txtShopName.Location = new System.Drawing.Point(97, 48);
             this.txtShopName.Name = "txtShopName";
-            this.txtShopName.Size = new System.Drawing.Size(179, 20);
+            this.txtShopName.Size = new System.Drawing.Size(202, 20);
             this.txtShopName.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 51);
+            this.label2.Location = new System.Drawing.Point(6, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Shop Name";
+            this.label2.Text = "Shop Name:";
             // 
             // txtCurrencySybmol
             // 
-            this.txtCurrencySybmol.Location = new System.Drawing.Point(110, 22);
+            this.txtCurrencySybmol.Location = new System.Drawing.Point(97, 22);
             this.txtCurrencySybmol.Name = "txtCurrencySybmol";
-            this.txtCurrencySybmol.Size = new System.Drawing.Size(179, 20);
+            this.txtCurrencySybmol.Size = new System.Drawing.Size(202, 20);
             this.txtCurrencySybmol.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 25);
+            this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Currency Symbol";
+            this.label1.Text = "Currency Symbol:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 22);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(49, 58);
             this.pictureBox1.TabIndex = 3;
@@ -97,36 +97,34 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackgroundImage = global::Shop_Management_Solution.Properties.Resources.bg_blue;
-            this.btnCancel.Image = global::Shop_Management_Solution.Properties.Resources.Cancel_icon;
+            this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(299, 104);
+            this.btnCancel.Location = new System.Drawing.Point(298, 104);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 28);
+            this.btnCancel.Size = new System.Drawing.Size(86, 24);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.BackgroundImage = global::Shop_Management_Solution.Properties.Resources.bg_blue;
-            this.btnSave.Image = global::Shop_Management_Solution.Properties.Resources.Save_icon;
+            this.btnSave.BackColor = System.Drawing.Color.White;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(207, 104);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 28);
+            this.btnSave.Size = new System.Drawing.Size(85, 24);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(397, 142);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(387, 138);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -135,7 +133,7 @@
             this.MaximizeBox = false;
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Setting";
+            this.Text = "Currency / Shop Setting";
             this.Load += new System.EventHandler(this.frmSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

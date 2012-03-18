@@ -39,13 +39,13 @@ namespace Shop_Management_Solution
                 else
                 {
                     MessageBox.Show(this, "Incorrect Username or Password", "Login Form", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    this.Close();
+                    //this.Close();
                 }
             }
             else
             {
                 MessageBox.Show(this, "Incorrect Username or Password", "Login Form", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                this.Close();
+                //this.Close();
             }
         }
 

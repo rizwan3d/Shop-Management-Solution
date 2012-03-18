@@ -137,12 +137,12 @@ namespace Shop_Management_Solution
 
         private void tsUpdates_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.iworker4u.com/");
+            System.Diagnostics.Process.Start("http://www.xtrawebapps.com/");
         }
 
         private void mb_update_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.iworker4u.com/index.php?option=com_content&view=article&id=3&Itemid=3");
+            System.Diagnostics.Process.Start("http://www.xtrawebapps.com/shop_management_system");
         }
 
         private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)

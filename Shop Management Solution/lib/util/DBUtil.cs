@@ -85,9 +85,10 @@ namespace Shop_Management_Solution.lib.util
 
             catch (Exception ex)
             {
-                throw new Exception ("Failed to Execute :"+query+ "\n"+ex.Message);
+                return 0;
+                //throw new Exception("Failed to Execute :" + query + "\n" + ex.Message);
 
-            }           
+            }
 
         }
 

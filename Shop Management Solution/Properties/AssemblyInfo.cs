@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Farrukh Technologies")]
-[assembly: AssemblyProduct("Licensed as Freeware")]
-[assembly: AssemblyCopyright("Copyright ©  2010")]
+[assembly: AssemblyProduct("Licensed as GNU General Public License (GPL)")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("Farrukh Technologies Inc")]
 [assembly: AssemblyCulture("")]
 

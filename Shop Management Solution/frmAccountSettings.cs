@@ -20,12 +20,17 @@ namespace Shop_Management_Solution
         private void btnSave_Click(object sender, EventArgs e)
         {
            try
-           { 
+           {
+                
+
                 string existingPassword = ConfigurationDAL.GetAdministratorPassword();
                 string currentPassword = SecuirtyUtil.encodePassword(txtCurrentPassword.Text);
 
                 string newPassword = txtNewPassword.Text;
                 string confirmPassword = txtConfirmPassword.Text;
+
+                newPassword = SecuirtyUtil.encodePassword(newPassword);
+                MessageBox.Show(this, newPassword, "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                
                 if (string.IsNullOrEmpty(txtCurrentPassword.Text))
                 {
@@ -36,6 +41,7 @@ namespace Shop_Management_Solution
                     if (newPassword == confirmPassword)
                     {
                         newPassword = SecuirtyUtil.encodePassword(newPassword);
+
                         ConfigurationDAL.UpdateConfigurationByName(ConfigurationDAL.ADMINISTRATOR, newPassword);
                         MessageBox.Show(this, "Password changed successfully", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();

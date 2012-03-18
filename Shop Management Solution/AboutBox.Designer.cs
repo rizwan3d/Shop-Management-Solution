@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.labelProductName = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
@@ -74,7 +73,7 @@
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(299, 17);
             this.labelProductName.TabIndex = 19;
-            this.labelProductName.Text = "Licenced as freeware";
+            this.labelProductName.Text = "Licenced as GPL";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion
@@ -86,7 +85,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(299, 17);
             this.labelVersion.TabIndex = 0;
-            this.labelVersion.Text = "Version: 1.3";
+            this.labelVersion.Text = "Version: 1.5";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright
@@ -125,7 +124,9 @@
             this.textBoxDescription.Size = new System.Drawing.Size(299, 139);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = resources.GetString("textBoxDescription.Text");
+            this.textBoxDescription.Text = "Development Team\r\nDeveloped by: Farrukh Naveed Anjum\r\nDesign: Faisal Mehmood Anju" +
+                "m\r\n\r\nContact Us\r\nMobile No: +923455990351\r\nEmail: mr.farrukh@msn.com\r\nWebsite: w" +
+                "ww.XtraWebApps.com\r\n";
             // 
             // okButton
             // 
