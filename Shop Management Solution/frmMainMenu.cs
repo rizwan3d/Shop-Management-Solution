@@ -142,7 +142,7 @@ namespace Shop_Management_Solution
 
         private void mb_update_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.xtrawebapps.com/shop_management_system");
+            System.Diagnostics.Process.Start("http://www.xtrawebapps.com/downloads/shop-management-solution");
         }
 
         private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
