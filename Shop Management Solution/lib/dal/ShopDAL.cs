@@ -378,7 +378,7 @@ namespace Shop_Management_Solution.lib.dal
 
         }
 
-        public static DataSet SearchTotalProfitDS(String startDate, String endDate, long itemTypeId)
+        public static DataSet SearchTotalProfitDS(String startDate, String endDate, long itemTypeId, int startRecord, int noOfRecords)
         {
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
             string query = "SELECT ItemType.Name, Sum(Sales.Quantity) AS Sold_Quantity, ItemType.Price AS Actual_Price, Avg(Sales.Sale_Price) AS Sold_Price, Stock_In_Hand.Quantity AS Remaining_Quantity, ((Sold_Quantity*Sold_Price)-(Actual_Price*Sold_Quantity)) AS Proft, (Sold_Price*Sold_Quantity) AS Total_Sale_Price,(Actual_Price*Sold_Quantity) AS Total_Purchase_Price   FROM (ItemType INNER JOIN Sales ON ItemType.Type_ID=Sales.Type_ID) INNER JOIN Stock_In_Hand ON ItemType.Type_ID=Stock_In_Hand.Type_ID GROUP BY ItemType.Name, Stock_In_Hand.Quantity, ItemType.Price, ItemType.Type_ID, Sales.Sale_Date, Sales.Sale_Price HAVING (((ItemType.Type_ID)=" + itemTypeId + ") And ((Sales.Sale_Date) Between #" + startDate + "# And #" + endDate + "#))";
@@ -391,10 +391,13 @@ namespace Shop_Management_Solution.lib.dal
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
 
             DataSet ds = new DataSet();
-
+            DataTable resultTable;
+            
             try
             {
-                DataAdapter.Fill(ds);
+                resultTable = ds.Tables.Add();
+                DataAdapter.Fill(startRecord, noOfRecords, resultTable);
+                int x = resultTable.Rows.Count;
                 return ds;
             }
 
@@ -404,7 +407,37 @@ namespace Shop_Management_Solution.lib.dal
                 return ds;
             }
         }
-               
+
+        //function returns number of rows found and sets referenced arguments to contain total sold quantity and total profit
+        public static int SearchTotalProfitSummary(String startDate, String endDate, long itemTypeId, ref int totalSoldQuantity, ref decimal totalProfit)
+        {
+            OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
+            string query = "SELECT ItemType.Name, Sum(Sales.Quantity) AS Sold_Quantity, ItemType.Price AS Actual_Price, Avg(Sales.Sale_Price) AS Sold_Price, Stock_In_Hand.Quantity AS Remaining_Quantity, ((Sold_Quantity*Sold_Price)-(Actual_Price*Sold_Quantity)) AS Proft, (Sold_Price*Sold_Quantity) AS Total_Sale_Price,(Actual_Price*Sold_Quantity) AS Total_Purchase_Price   FROM (ItemType INNER JOIN Sales ON ItemType.Type_ID=Sales.Type_ID) INNER JOIN Stock_In_Hand ON ItemType.Type_ID=Stock_In_Hand.Type_ID GROUP BY ItemType.Name, Stock_In_Hand.Quantity, ItemType.Price, ItemType.Type_ID, Sales.Sale_Date, Sales.Sale_Price HAVING (((ItemType.Type_ID)=" + itemTypeId + ") And ((Sales.Sale_Date) Between #" + startDate + "# And #" + endDate + "#))";
+            if (endDate.Equals(startDate))
+            {
+                query = "SELECT ItemType.Name, Sum(Sales.Quantity) AS Sold_Quantity, ItemType.Price AS Actual_Price, Avg(Sales.Sale_Price) AS Sold_Price, Stock_In_Hand.Quantity AS Remaining_Quantity, ((Sold_Quantity*Sold_Price)-(Actual_Price*Sold_Quantity)) AS Proft, (Sold_Price*Sold_Quantity) AS Total_Sale_Price,(Actual_Price*Sold_Quantity) AS Total_Purchase_Price   FROM (ItemType INNER JOIN Sales ON ItemType.Type_ID=Sales.Type_ID) INNER JOIN Stock_In_Hand ON ItemType.Type_ID=Stock_In_Hand.Type_ID GROUP BY ItemType.Name, Stock_In_Hand.Quantity, ItemType.Price, ItemType.Type_ID, Sales.Sale_Date, Sales.Sale_Price HAVING (((ItemType.Type_ID)=" + itemTypeId + ") And ((Sales.Sale_Date)  = #" + startDate + "#))";
+            }
+
+
+            OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
+
+            DataSet ds = new DataSet();            
+            
+            try
+            {                
+                DataAdapter.Fill(ds);
+                totalSoldQuantity = int.Parse(ds.Tables[0].Compute("SUM(Sold_Quantity)", "").ToString());
+                totalProfit = decimal.Parse(ds.Tables[0].Compute("SUM(Proft)", "").ToString());                
+                return ds.Tables[0].Rows.Count;
+            }
+
+            catch (Exception ex)
+            {
+                DebugUtil.genericShow(ex.Message.ToString());
+                return 0;
+            }
+        }
+
         public static BindingSource SearchTotalProfit(String startDate, String endDate, long itemTypeId)
         {
             //query to execute

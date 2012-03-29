@@ -38,24 +38,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_search = new System.Windows.Forms.Button();
-            this.lstViewSearch = new System.Windows.Forms.ListView();
-            this.colItemIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPurchasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colSoldPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colRemainingQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colProfit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTotalSalePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTotalPurchasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.lblSoldQuantity = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTotalProfit = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgSearchResults = new System.Windows.Forms.DataGridView();
+            this.btPrev = new System.Windows.Forms.Button();
+            this.btNext = new System.Windows.Forms.Button();
+            this.lbPageInfo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSearchResults)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -149,71 +144,6 @@
             this.btn_search.UseVisualStyleBackColor = false;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // lstViewSearch
-            // 
-            this.lstViewSearch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colItemIndex,
-            this.colItem,
-            this.colQuantity,
-            this.colPurchasePrice,
-            this.colSoldPrice,
-            this.colRemainingQuantity,
-            this.colProfit,
-            this.colTotalSalePrice,
-            this.colTotalPurchasePrice});
-            this.lstViewSearch.Location = new System.Drawing.Point(12, 144);
-            this.lstViewSearch.Name = "lstViewSearch";
-            this.lstViewSearch.Size = new System.Drawing.Size(961, 180);
-            this.lstViewSearch.TabIndex = 2;
-            this.lstViewSearch.UseCompatibleStateImageBehavior = false;
-            this.lstViewSearch.View = System.Windows.Forms.View.Details;
-            // 
-            // colItemIndex
-            // 
-            this.colItemIndex.Text = "S.No.";
-            // 
-            // colItem
-            // 
-            this.colItem.Text = "Item Type";
-            this.colItem.Width = 138;
-            // 
-            // colQuantity
-            // 
-            this.colQuantity.Text = "Sold Quantity";
-            this.colQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.colQuantity.Width = 85;
-            // 
-            // colPurchasePrice
-            // 
-            this.colPurchasePrice.Text = "Purchase Price / Piece";
-            this.colPurchasePrice.Width = 141;
-            // 
-            // colSoldPrice
-            // 
-            this.colSoldPrice.Text = "Sold Price / Piece";
-            this.colSoldPrice.Width = 125;
-            // 
-            // colRemainingQuantity
-            // 
-            this.colRemainingQuantity.Text = "Remaining Quantity";
-            this.colRemainingQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.colRemainingQuantity.Width = 115;
-            // 
-            // colProfit
-            // 
-            this.colProfit.Text = "Profit";
-            this.colProfit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // colTotalSalePrice
-            // 
-            this.colTotalSalePrice.Text = "Total Sale Price";
-            this.colTotalSalePrice.Width = 95;
-            // 
-            // colTotalPurchasePrice
-            // 
-            this.colTotalPurchasePrice.Text = "Total Purchase Price";
-            this.colTotalPurchasePrice.Width = 117;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -252,7 +182,7 @@
             this.lblTotalProfit.AutoSize = true;
             this.lblTotalProfit.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalProfit.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalProfit.Location = new System.Drawing.Point(354, 333);
+            this.lblTotalProfit.Location = new System.Drawing.Point(373, 333);
             this.lblTotalProfit.Name = "lblTotalProfit";
             this.lblTotalProfit.Size = new System.Drawing.Size(0, 18);
             this.lblTotalProfit.TabIndex = 7;
@@ -277,12 +207,68 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // dgSearchResults
+            // 
+            this.dgSearchResults.AllowUserToAddRows = false;
+            this.dgSearchResults.AllowUserToDeleteRows = false;
+            this.dgSearchResults.AllowUserToResizeColumns = false;
+            this.dgSearchResults.AllowUserToResizeRows = false;
+            this.dgSearchResults.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgSearchResults.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSearchResults.Location = new System.Drawing.Point(14, 153);
+            this.dgSearchResults.Name = "dgSearchResults";
+            this.dgSearchResults.ReadOnly = true;
+            this.dgSearchResults.RowHeadersVisible = false;
+            this.dgSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSearchResults.Size = new System.Drawing.Size(953, 134);
+            this.dgSearchResults.TabIndex = 8;
+            this.dgSearchResults.Click += new System.EventHandler(this.dgSearchResults_Click);
+            // 
+            // btPrev
+            // 
+            this.btPrev.Enabled = false;
+            this.btPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btPrev.Location = new System.Drawing.Point(336, 300);
+            this.btPrev.Name = "btPrev";
+            this.btPrev.Size = new System.Drawing.Size(47, 30);
+            this.btPrev.TabIndex = 9;
+            this.btPrev.Text = "<";
+            this.btPrev.UseVisualStyleBackColor = true;
+            this.btPrev.Click += new System.EventHandler(this.btPrev_Click);
+            // 
+            // btNext
+            // 
+            this.btNext.Enabled = false;
+            this.btNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btNext.Location = new System.Drawing.Point(578, 300);
+            this.btNext.Name = "btNext";
+            this.btNext.Size = new System.Drawing.Size(47, 30);
+            this.btNext.TabIndex = 10;
+            this.btNext.Text = ">";
+            this.btNext.UseVisualStyleBackColor = true;
+            this.btNext.Click += new System.EventHandler(this.btNext_Click);
+            // 
+            // lbPageInfo
+            // 
+            this.lbPageInfo.AutoSize = true;
+            this.lbPageInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbPageInfo.Location = new System.Drawing.Point(435, 309);
+            this.lbPageInfo.Name = "lbPageInfo";
+            this.lbPageInfo.Size = new System.Drawing.Size(81, 17);
+            this.lbPageInfo.TabIndex = 11;
+            this.lbPageInfo.Text = "Page 1 of 1";
+            // 
             // frmSearchItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(979, 360);
+            this.Controls.Add(this.lbPageInfo);
+            this.Controls.Add(this.btNext);
+            this.Controls.Add(this.btPrev);
+            this.Controls.Add(this.dgSearchResults);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.lblTotalProfit);
             this.Controls.Add(this.btn_search);
@@ -290,7 +276,6 @@
             this.Controls.Add(this.lblSoldQuantity);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lstViewSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -304,6 +289,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSearchResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,20 +307,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.ListView lstViewSearch;
-        private System.Windows.Forms.ColumnHeader colItem;
-        private System.Windows.Forms.ColumnHeader colQuantity;
-        private System.Windows.Forms.ColumnHeader colPurchasePrice;
-        private System.Windows.Forms.ColumnHeader colSoldPrice;
-        private System.Windows.Forms.ColumnHeader colRemainingQuantity;
-        private System.Windows.Forms.ColumnHeader colProfit;
-        private System.Windows.Forms.ColumnHeader colItemIndex;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ColumnHeader colTotalSalePrice;
-        private System.Windows.Forms.ColumnHeader colTotalPurchasePrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblSoldQuantity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTotalProfit;
+        private System.Windows.Forms.DataGridView dgSearchResults;
+        private System.Windows.Forms.Button btPrev;
+        private System.Windows.Forms.Button btNext;
+        private System.Windows.Forms.Label lbPageInfo;
     }
 }

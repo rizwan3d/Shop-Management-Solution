@@ -19,6 +19,11 @@ namespace Shop_Management_Solution
             InitializeComponent();
         }
 
+        private int currentPage;
+        private int totalPages;
+        private const int recordsPerPage = 5;
+        private int totalRecords;
+
         private void frmSearchItem_Load(object sender, EventArgs e)
         {
             lblTotalProfit.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
@@ -43,103 +48,182 @@ namespace Shop_Management_Solution
             {
                 MessageBox.Show(this, ex.Message.ToString(), "Error:Search Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
-            } 
-            
+            }
+            setupGridColumns();
+            setupColumnsWidth();            
             
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            try
+            setSummaryData();
+            performSearch(0, recordsPerPage);
+            if (totalRecords > recordsPerPage)
             {
-                String startDate = dpStartDate.Value.ToShortDateString();
-                String endDate = dpEndDate.Value.ToShortDateString();
-                long itemTypeId = long.Parse(cmb_itemType.SelectedValue.ToString());
-                DataSet ds = ShopDAL.SearchTotalProfitDS(startDate, endDate, itemTypeId);
-                //DebugUtil.displayDataSetContents(ds);
-                long totalSoldQuantity = 0;
-                long totalProfit = 0;
-
-                lstViewSearch.Items.Clear();
-                foreach (DataTable dt in ds.Tables)
-                {
-                    int rowIndex = 0;
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        string[] newRecord = new String[8];                    
-                        int recordIndex = 0;
-                        
-                        foreach (DataColumn dc in dt.Columns)
-                        {
-                            if (recordIndex == 1)
-                            {
-                                newRecord[recordIndex] = row[dc].ToString();
-                                totalSoldQuantity = totalSoldQuantity + long.Parse(row[dc].ToString());
-                            }
-                            else if (recordIndex == 2)
-                            {
-                                newRecord[recordIndex] = ConfigurationDAL.GetCurrentCurrency() + " " + row[dc].ToString();
-                            }
-                            else if (recordIndex == 3)
-                            {
-                                decimal soldPrice = decimal.Parse(row[dc].ToString());
-                                soldPrice = decimal.Round(soldPrice, 2);
-                                newRecord[recordIndex] = ConfigurationDAL.GetCurrentCurrency() + " " + soldPrice.ToString();
-                            }
-                            else if(recordIndex == 5)
-                            {
-                                decimal profit = decimal.Parse(row[dc].ToString());
-                                profit = decimal.Round(profit, 2);
-                                newRecord[recordIndex] = ConfigurationDAL.GetCurrentCurrency() + " " + profit.ToString();
-                                totalProfit = totalProfit + long.Parse(profit.ToString());
-                            }
-                            else if (recordIndex == 6)
-                            {
-                                decimal totalSalePrice = decimal.Parse(row[dc].ToString());
-                                totalSalePrice = decimal.Round(totalSalePrice, 2);
-                                newRecord[recordIndex] = ConfigurationDAL.GetCurrentCurrency() + " " + totalSalePrice.ToString();
-                               
-                            }
-                            else if (recordIndex == 7)
-                            {
-                                decimal totalPurchasePrice = decimal.Parse(row[dc].ToString());
-                                totalPurchasePrice = decimal.Round(totalPurchasePrice, 2);
-                                newRecord[recordIndex] = ConfigurationDAL.GetCurrentCurrency() + " " + totalPurchasePrice.ToString();
-                            }
-                            else
-                            {
-                                newRecord[recordIndex] = row[dc].ToString();
-                            }
-                            
-                            recordIndex++;
-                        }
-                        rowIndex++;
-                        lstViewSearch.Items.Add(rowIndex.ToString()).SubItems.AddRange(newRecord);
-                      }
-                }
-                lblSoldQuantity.Text = totalSoldQuantity.ToString();
-                lblTotalProfit.Text = ConfigurationDAL.GetCurrentCurrency() +" "+totalProfit.ToString();
-
-                //lstViewSearch.DataBindings = ds;
-
+                btNext.Enabled = true;
+                btPrev.Enabled = false;
+                totalPages = totalRecords / recordsPerPage;
+                if ((totalRecords % recordsPerPage) > 0)
+                    totalPages++;
+                currentPage = 1;
+                lbPageInfo.Text = "Page 1 of " + totalPages;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                currentPage = 1;
+                totalPages = 1;
+                btNext.Enabled = false;
+                btPrev.Enabled = false;
+                lbPageInfo.Text = "Page 1 of 1";
             }
+            lbPageInfo.Visible = true;
             
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
-            lstViewSearch.Items.Clear();
+            dgSearchResults.Rows.Clear();
+            dgSearchResults.Columns.Clear();
+            setupGridColumns();
+            setupColumnsWidth();
             lblSoldQuantity.Text = "0";
             lblTotalProfit.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00 ";
+            btPrev.Enabled = false;
+            btNext.Enabled = false;
+            lbPageInfo.Visible = false;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void setupGridColumns()
+        {
+            dgSearchResults.Columns.Clear();
+
+            dgSearchResults.Columns.Add("dcNo", "S.No.");
+            dgSearchResults.Columns.Add("dcItemType", "Item Type");
+            dgSearchResults.Columns.Add("dcSoldQuantity", "Sold Quantity");
+            dgSearchResults.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgSearchResults.Columns.Add("dcPurchasePrice", "Purchase Price/Piece");
+            dgSearchResults.Columns.Add("dcSoldPrice", "Sold Price/Piece");
+            dgSearchResults.Columns.Add("dcRemQuantity", "Remaining Quantity");
+            dgSearchResults.Columns[5].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgSearchResults.Columns.Add("dcProfit", "Profit");
+            dgSearchResults.Columns[6].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgSearchResults.Columns.Add("dcTotSalePrice", "Total Sale Price");
+            dgSearchResults.Columns.Add("dcTotPurchasePrice", "Total Purchase Price");
+        }
+
+        private void setupColumnsWidth()
+        {
+            dgSearchResults.Columns[0].Width = 50;
+            dgSearchResults.Columns[1].Width = 130;
+            dgSearchResults.Columns[2].Width = 95;
+            dgSearchResults.Columns[3].Width = 135;
+            dgSearchResults.Columns[4].Width = 115;
+            dgSearchResults.Columns[5].Width = 125;
+            dgSearchResults.Columns[6].Width = 60;
+            dgSearchResults.Columns[7].Width = 110;
+            dgSearchResults.Columns[8].Width = 130;
+            
+        }
+
+        private void dgSearchResults_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {           
+        }
+
+        private void dgSearchResults_Click(object sender, EventArgs e)
+        {
+            //dgSearchResults.ClearSelection();
+        }
+
+        private void performSearch(int startRecordNo, int noOfRecords)
+        {            
+            try
+            {
+                String startDate = dpStartDate.Value.ToShortDateString();
+                String endDate = dpEndDate.Value.ToShortDateString();
+                long itemTypeId = long.Parse(cmb_itemType.SelectedValue.ToString());
+                DataTable resultTable = ShopDAL.SearchTotalProfitDS(startDate, endDate, itemTypeId, startRecordNo, noOfRecords).Tables[0];
+                String[] dataFromTable;
+                //DebugUtil.displayDataSetContents(ds);
+
+                dgSearchResults.Columns.Clear();
+                dgSearchResults.Columns.Add("dcNo", "S.No.");
+                setupGridColumns();
+                setupColumnsWidth();
+
+                int i = startRecordNo+1;                    
+                foreach (DataRow dr in resultTable.Rows)
+                {
+                    dataFromTable = new String[] { 
+                        i.ToString(), 
+                        dr[0].ToString(), 
+                        dr[1].ToString(), 
+                        ConfigurationDAL.GetCurrentCurrency() + " " + decimal.Round(decimal.Parse(dr[2].ToString()), 2).ToString(), 
+                        ConfigurationDAL.GetCurrentCurrency() + " " + decimal.Round(decimal.Parse(dr[3].ToString()), 2).ToString(),
+                        dr[4].ToString(), 
+                        ConfigurationDAL.GetCurrentCurrency() + " " + decimal.Round(decimal.Parse(dr[5].ToString()), 2).ToString(), 
+                        ConfigurationDAL.GetCurrentCurrency() + " " + decimal.Round(decimal.Parse(dr[6].ToString()), 2).ToString(), 
+                        ConfigurationDAL.GetCurrentCurrency() + " " + decimal.Round(decimal.Parse(dr[7].ToString()), 2).ToString() 
+                        };
+                    
+                    dgSearchResults.Rows.Add(dataFromTable);                    
+                    i++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dgSearchResults.ClearSelection();
+        }
+
+        private void btPrev_Click(object sender, EventArgs e)
+        {            
+            currentPage--;            
+
+            if (currentPage == 1)
+            {
+                btPrev.Enabled = false;
+                performSearch(0, recordsPerPage);
+            }
+            else
+                performSearch(((currentPage - 1) * recordsPerPage) - 1, recordsPerPage);
+            if (currentPage < totalPages)
+                btNext.Enabled = true;
+            lbPageInfo.Text = "Page " + currentPage + " of " + totalPages;
+        }
+
+        private void btNext_Click(object sender, EventArgs e)
+        {
+            currentPage++;
+            performSearch(((currentPage - 1) * recordsPerPage), recordsPerPage);
+            lbPageInfo.Text = "Page " + currentPage + " of " + totalPages;
+            if (currentPage == totalPages)
+                btNext.Enabled = false;
+            if (currentPage > 1)
+                btPrev.Enabled = true;
+
+        }
+
+        private void setSummaryData()
+        {
+            int totalSoldQuantity = 0;
+            decimal totalProfit = 0;
+            String startDate = dpStartDate.Value.ToShortDateString();
+            String endDate = dpEndDate.Value.ToShortDateString();
+            long itemTypeId = long.Parse(cmb_itemType.SelectedValue.ToString());
+            totalRecords = ShopDAL.SearchTotalProfitSummary(startDate, endDate, itemTypeId, ref totalSoldQuantity, ref totalProfit);
+
+            lblSoldQuantity.Text = totalSoldQuantity.ToString();
+            lblTotalProfit.Text = ConfigurationDAL.GetCurrentCurrency() + " " + totalProfit.ToString();
+
+        }
+             
     }
 }
