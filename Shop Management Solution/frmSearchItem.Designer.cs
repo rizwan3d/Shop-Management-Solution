@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchItem));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_Clear = new System.Windows.Forms.Button();
-            this.btn_search = new System.Windows.Forms.Button();
             this.cmb_itemType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dpEndDate = new System.Windows.Forms.DateTimePicker();
             this.dpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Clear = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.lstViewSearch = new System.Windows.Forms.ListView();
             this.colItemIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,30 +72,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Item(s)";
-            // 
-            // btn_Clear
-            // 
-            this.btn_Clear.BackColor = System.Drawing.Color.White;
-            this.btn_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Clear.Location = new System.Drawing.Point(380, 100);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(80, 22);
-            this.btn_Clear.TabIndex = 7;
-            this.btn_Clear.Text = "Clear";
-            this.btn_Clear.UseVisualStyleBackColor = false;
-            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
-            // 
-            // btn_search
-            // 
-            this.btn_search.BackColor = System.Drawing.Color.White;
-            this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_search.Location = new System.Drawing.Point(294, 100);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(80, 22);
-            this.btn_search.TabIndex = 6;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = false;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // cmb_itemType
             // 
@@ -148,6 +124,30 @@
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "From";
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.BackColor = System.Drawing.Color.White;
+            this.btn_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Clear.Location = new System.Drawing.Point(380, 100);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(80, 22);
+            this.btn_Clear.TabIndex = 7;
+            this.btn_Clear.Text = "Clear";
+            this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
+            // btn_search
+            // 
+            this.btn_search.BackColor = System.Drawing.Color.White;
+            this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_search.Location = new System.Drawing.Point(294, 100);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(80, 22);
+            this.btn_search.TabIndex = 6;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // lstViewSearch
             // 
@@ -296,6 +296,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSearchItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Search Item(s)";

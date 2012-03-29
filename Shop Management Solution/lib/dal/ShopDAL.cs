@@ -12,12 +12,12 @@ namespace Shop_Management_Solution.lib.dal
 {
     class ShopDAL
     {
-        public static bool InsertNewItemType(string itemTypeName, float price)
+        public static bool InsertNewItemType(ItemType item)
         {
             //Create the objects we need to insert a new record
             OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString());
             OleDbCommand cmdInsert = new OleDbCommand();
-            string query = "INSERT INTO ItemType(Name,Price) VALUES(@name,@price)";
+            string query = "INSERT INTO ItemType(Name,Price,Sale_Price) VALUES(@name,@price,@salePrice)";
             int iSqlStatus;
 
             //Clear any parameters
@@ -33,8 +33,9 @@ namespace Shop_Management_Solution.lib.dal
                 //Now add the parameters to our query
                 //NOTE: Replace @value1.... with your parameter names in your query
                 //and add all your parameters in this fashion
-                cmdInsert.Parameters.AddWithValue("@name", itemTypeName);
-                cmdInsert.Parameters.AddWithValue("@price", price);
+                cmdInsert.Parameters.AddWithValue("@name", item.ItemName);
+                cmdInsert.Parameters.AddWithValue("@price", item.Price);
+                cmdInsert.Parameters.AddWithValue("@salePrice", item.SalePrice);
 
                 //Set the connection of the object
                 cmdInsert.Connection = cnInsert;
@@ -49,20 +50,16 @@ namespace Shop_Management_Solution.lib.dal
                 //Now check the status
                 if (iSqlStatus == 0)
                 {
-                    //DO your failed messaging here
                     return false;
                 }
                 else
                 {
-
-
                     return true;
                 }
             }
             catch (Exception ex)
             {
                 return false;
-                // MsgBox(ex.Message, "Error");
             }
             finally
             {
@@ -70,6 +67,26 @@ namespace Shop_Management_Solution.lib.dal
                 DBUtil.HandleConnection(cnInsert);
                 long maxId = DBUtil.GetMaxID("Type_ID", "ItemType");
                 ShopDAL.insertValueOfStockInHand(cnInsert, maxId);
+            }
+        }
+
+        public static long getItemTypeSalePrice(long typeId)
+        {
+            long quantity = 0;
+            OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
+            string query = "SELECT Sale_Price FROM ItemType WHERE Type_ID = " + typeId;
+
+            OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
+            DataSet ds = new DataSet();
+            try
+            {
+                DataAdapter.Fill(ds);
+                quantity = long.Parse(ds.Tables[0].Rows[0][0].ToString());
+                return quantity;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unable to get the Stock in hand. Please try to add some stock first." + ex.Message);
             }
         }
 
@@ -115,12 +132,16 @@ namespace Shop_Management_Solution.lib.dal
         public DataSet GetItemsType()
         {
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
-            string query = "SELECT ItemType.Type_ID, ItemType.Name,ItemType.Price FROM ItemType";
+            string query = "SELECT Type_ID, Name, Price FROM ItemType";
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
             DataSet ds = new DataSet();
 
             try
             {
+                //DataRow defaultRow = ds.Tables["ItemType"].NewRow();
+                //defaultRow["Type_ID"] = "2";
+                //defaultRow["Name"] = "-- Select Item Type --";
+                //ds.Tables[0].Rows.Add(defaultRow);
 
                 DataAdapter.Fill(ds, "ItemType");
                 return ds;

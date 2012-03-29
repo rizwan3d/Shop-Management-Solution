@@ -221,7 +221,7 @@ namespace Shop_Management_Solution
 
         private void adminAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAccountSettings frmAccount = new frmAccountSettings();
+            frmChangePassword frmAccount = new frmChangePassword();
             frmAccount.ShowDialog();
 
         }

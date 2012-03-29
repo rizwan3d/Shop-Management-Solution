@@ -51,6 +51,13 @@ namespace Shop_Management_Solution
                 {
                     ShopDAL db = new ShopDAL();
                     DataSet ds = db.GetItemsType();
+                    
+                    // Inserting Default Row for Selection
+                    DataRow defaultRow = ds.Tables[0].NewRow();
+                    defaultRow["Type_ID"] = "0";
+                    defaultRow["Name"] = "---------------- Select Item Type ----------------";
+                    ds.Tables[0].Rows.InsertAt(defaultRow, 0);
+
                     cmb_itemType.DataSource = ds.Tables[0];
                     cmb_itemType.DisplayMember = "Name";
                     cmb_itemType.ValueMember = "Type_ID";
@@ -59,6 +66,10 @@ namespace Shop_Management_Solution
                     lblItemCount.Text = "0";
                     lblTotalPrice.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
                     txtSalePrice.Text = "0";
+                  
+
+
+
                 }
             }
             catch (IndexOutOfRangeException ex)
@@ -319,7 +330,7 @@ namespace Shop_Management_Solution
                         table.AddCell(cellTotalPriceValue); 
                         
                         // Printing iWorker Footer 
-                        PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.iWorker4U.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN , 10 )));
+                        PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.XtraWebApps.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN , 10 )));
                         cellFooter.Colspan = 6;
                         cellFooter.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(cellFooter); 
@@ -430,10 +441,57 @@ namespace Shop_Management_Solution
             {
                 long itemId = long.Parse(selectedItemTypeIndex);
 
-                long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
-                lblAvailableQuantity.Text = availableQuantity.ToString();
+                if (itemId.ToString() == "0")
+                {
+                    lblAvailableQuantity.Text = "0";
+                    txtSalePrice.Text = "0";
+                    txtQuantity.Maximum = 0;
+                }
+                else
+                {
+                    long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
+                    long salePrice = ShopDAL.getItemTypeSalePrice(itemId);
+                    lblAvailableQuantity.Text = availableQuantity.ToString();
+                    txtSalePrice.Text = salePrice.ToString();
+                    txtQuantity.Maximum = availableQuantity;
+                }
+                
+
             }
 
+        }
+
+        private void txtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Code to Ensure that only numberic value with 
+            if (!char.IsControl(e.KeyChar)
+                 && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void lstView_sales_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (e.Item.Selected)
+            {
+                btn_Delete.Enabled = true;
+                // listView.ItemSettings.SelectedAppearance.BackColor = Color.LightBlue;
+                //listView.ItemSettings.SelectedAppearance.BackColor2 = SystemColors.Highlight;
+                //listView.ItemSettings.SelectedAppearance.BackGradientStyle = GradientStyle.Vertical;
+            }
+            else
+            {
+                btn_Delete.Enabled = false;
+            }
         }
 
     }

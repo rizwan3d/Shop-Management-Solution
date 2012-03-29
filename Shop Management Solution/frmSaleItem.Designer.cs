@@ -117,6 +117,7 @@
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(221, 20);
             this.txtSalePrice.TabIndex = 6;
+            this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
             // label4
             // 
@@ -202,6 +203,7 @@
             // btn_Delete
             // 
             this.btn_Delete.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Delete.Enabled = false;
             this.btn_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Delete.Location = new System.Drawing.Point(92, 3);
             this.btn_Delete.Name = "btn_Delete";
@@ -225,6 +227,7 @@
             this.lstView_sales.TabIndex = 0;
             this.lstView_sales.UseCompatibleStateImageBehavior = false;
             this.lstView_sales.View = System.Windows.Forms.View.Details;
+            this.lstView_sales.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstView_sales_ItemSelectionChanged);
             // 
             // colTypeID
             // 
@@ -358,6 +361,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSaleItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sale Item(s)";

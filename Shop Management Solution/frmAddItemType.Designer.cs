@@ -37,13 +37,15 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtExpectedSalePrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(101, 16);
+            this.txtItemName.Location = new System.Drawing.Point(122, 21);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(197, 20);
             this.txtItemName.TabIndex = 0;
@@ -51,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
@@ -60,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 43);
+            this.label2.Location = new System.Drawing.Point(6, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 2;
@@ -68,10 +70,11 @@
             // 
             // txtItemPrice
             // 
-            this.txtItemPrice.Location = new System.Drawing.Point(101, 43);
+            this.txtItemPrice.Location = new System.Drawing.Point(122, 47);
             this.txtItemPrice.Name = "txtItemPrice";
             this.txtItemPrice.Size = new System.Drawing.Size(197, 20);
             this.txtItemPrice.TabIndex = 3;
+            this.txtItemPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemPrice_KeyPress);
             // 
             // pictureBox1
             // 
@@ -86,7 +89,7 @@
             // 
             this.btn_Cancel.BackColor = System.Drawing.Color.White;
             this.btn_Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Cancel.Location = new System.Drawing.Point(314, 104);
+            this.btn_Cancel.Location = new System.Drawing.Point(336, 120);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(77, 25);
             this.btn_Cancel.TabIndex = 5;
@@ -98,7 +101,7 @@
             // 
             this.btn_Save.BackColor = System.Drawing.Color.White;
             this.btn_Save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Save.Location = new System.Drawing.Point(231, 104);
+            this.btn_Save.Location = new System.Drawing.Point(253, 120);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(77, 25);
             this.btn_Save.TabIndex = 4;
@@ -108,23 +111,42 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtExpectedSalePrice);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtItemName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtItemPrice);
             this.groupBox1.Location = new System.Drawing.Point(83, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(308, 75);
+            this.groupBox1.Size = new System.Drawing.Size(330, 102);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Detail(s)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Expected Sale Price:";
+            // 
+            // txtExpectedSalePrice
+            // 
+            this.txtExpectedSalePrice.Location = new System.Drawing.Point(122, 70);
+            this.txtExpectedSalePrice.Name = "txtExpectedSalePrice";
+            this.txtExpectedSalePrice.Size = new System.Drawing.Size(197, 20);
+            this.txtExpectedSalePrice.TabIndex = 5;
+            this.txtExpectedSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExpectedSalePrice_KeyPress);
             // 
             // frmAddItemType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(396, 142);
+            this.ClientSize = new System.Drawing.Size(421, 156);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Cancel);
@@ -132,6 +154,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddItemType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Item Type";
@@ -152,5 +175,7 @@
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtExpectedSalePrice;
     }
 }

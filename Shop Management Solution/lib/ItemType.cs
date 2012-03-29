@@ -10,6 +10,13 @@ namespace Shop_Management_Solution.lib
         private int itemId;
         private string itemName;
         private float price;
+        private float salePrice;
+
+        public float SalePrice
+        {
+            get { return salePrice; }
+            set { salePrice = value; }
+        }
 
         public int ItemId
         {

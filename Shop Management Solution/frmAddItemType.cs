@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Shop_Management_Solution.lib.util;
 using Shop_Management_Solution.lib.dal;
+using Shop_Management_Solution.lib;
 
 namespace Shop_Management_Solution
 {
@@ -27,16 +28,25 @@ namespace Shop_Management_Solution
         {
             String itemName = txtItemName.Text;
             String itemPrice = txtItemPrice.Text;
+            String itemSalePrice = txtExpectedSalePrice.Text;
+
             try
             {
-                if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice))
+                if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice) || String.IsNullOrEmpty(itemSalePrice))
                 {
                     MessageBox.Show(this, "Fill in item name and price", "Error:Add Item Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     float price = float.Parse(itemPrice);
-                    bool isInserted = ShopDAL.InsertNewItemType(itemName, price);
+                    float saleprice = float.Parse(itemSalePrice);
+
+                    ItemType item = new ItemType();
+                    item.ItemName = itemName;
+                    item.Price = price;
+                    item.SalePrice = saleprice;
+
+                    bool isInserted = ShopDAL.InsertNewItemType( item );
                     if (isInserted)
                     {
                         this.Close();
@@ -54,6 +64,42 @@ namespace Shop_Management_Solution
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message.ToString(), "Error:Add Item Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtItemPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Code to Ensure that only numberic value with 
+            if (!char.IsControl(e.KeyChar)
+                 && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtExpectedSalePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Code to Ensure that only numberic value with 
+            if (!char.IsControl(e.KeyChar)
+                 && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
             }
         }
 

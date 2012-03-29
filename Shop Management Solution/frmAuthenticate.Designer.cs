@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuthenticate));
             this.gpAuthenticate = new System.Windows.Forms.GroupBox();
-            this.btn_Cancel = new System.Windows.Forms.Button();
-            this.btn_Login = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Login = new System.Windows.Forms.Button();
             this.lblAuthenticationStatus = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,30 +55,6 @@
             this.gpAuthenticate.TabIndex = 0;
             this.gpAuthenticate.TabStop = false;
             this.gpAuthenticate.Text = "Login Detail(s)";
-            // 
-            // btn_Cancel
-            // 
-            this.btn_Cancel.BackColor = System.Drawing.Color.White;
-            this.btn_Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Cancel.Location = new System.Drawing.Point(322, 137);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(83, 22);
-            this.btn_Cancel.TabIndex = 5;
-            this.btn_Cancel.Text = "Cancel";
-            this.btn_Cancel.UseVisualStyleBackColor = false;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
-            // btn_Login
-            // 
-            this.btn_Login.BackColor = System.Drawing.Color.White;
-            this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Login.Location = new System.Drawing.Point(231, 137);
-            this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(85, 22);
-            this.btn_Login.TabIndex = 4;
-            this.btn_Login.Text = "Login";
-            this.btn_Login.UseVisualStyleBackColor = false;
-            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // txtPassword
             // 
@@ -115,6 +91,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.BackColor = System.Drawing.Color.White;
+            this.btn_Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Cancel.Location = new System.Drawing.Point(322, 137);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(83, 22);
+            this.btn_Cancel.TabIndex = 5;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
+            // btn_Login
+            // 
+            this.btn_Login.BackColor = System.Drawing.Color.White;
+            this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Login.Location = new System.Drawing.Point(231, 137);
+            this.btn_Login.Name = "btn_Login";
+            this.btn_Login.Size = new System.Drawing.Size(85, 22);
+            this.btn_Login.TabIndex = 4;
+            this.btn_Login.Text = "Login";
+            this.btn_Login.UseVisualStyleBackColor = false;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // lblAuthenticationStatus
             // 
@@ -163,6 +163,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAuthenticate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Authentication Required";
