@@ -276,6 +276,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="electronic-billing-machine.ico" />
+    <None Include="Resources\waiting.gif" />
+    <None Include="Resources\get_change.gif" />
     <None Include="Resources\sms - main.jpg" />
     <None Include="Resources\sms header-new.jpg" />
     <None Include="Resources\header-about-us.jpg" />

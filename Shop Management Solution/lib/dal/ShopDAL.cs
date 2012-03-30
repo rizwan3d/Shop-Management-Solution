@@ -70,9 +70,9 @@ namespace Shop_Management_Solution.lib.dal
             }
         }
 
-        public static long getItemTypeSalePrice(long typeId)
+        public static float getItemTypeSalePrice(long typeId)
         {
-            long quantity = 0;
+            float quantity = 0;
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
             string query = "SELECT Sale_Price FROM ItemType WHERE Type_ID = " + typeId;
 
@@ -81,7 +81,7 @@ namespace Shop_Management_Solution.lib.dal
             try
             {
                 DataAdapter.Fill(ds);
-                quantity = long.Parse(ds.Tables[0].Rows[0][0].ToString());
+                quantity = float.Parse(ds.Tables[0].Rows[0][0].ToString());
                 return quantity;
             }
             catch (Exception ex)

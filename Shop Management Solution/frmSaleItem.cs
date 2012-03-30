@@ -450,7 +450,7 @@ namespace Shop_Management_Solution
                 else
                 {
                     long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
-                    long salePrice = ShopDAL.getItemTypeSalePrice(itemId);
+                    float salePrice = ShopDAL.getItemTypeSalePrice(itemId);
                     lblAvailableQuantity.Text = availableQuantity.ToString();
                     txtSalePrice.Text = salePrice.ToString();
                     txtQuantity.Maximum = availableQuantity;

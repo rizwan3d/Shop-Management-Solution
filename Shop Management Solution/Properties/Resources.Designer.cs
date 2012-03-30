@@ -172,6 +172,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap get_change {
+            get {
+                object obj = ResourceManager.GetObject("get_change", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap header_about_us {
             get {
                 object obj = ResourceManager.GetObject("header-about-us", resourceCulture);
@@ -343,6 +350,13 @@ namespace Shop_Management_Solution.Properties {
         internal static System.Drawing.Bitmap waiting {
             get {
                 object obj = ResourceManager.GetObject("waiting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap waiting1 {
+            get {
+                object obj = ResourceManager.GetObject("waiting1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

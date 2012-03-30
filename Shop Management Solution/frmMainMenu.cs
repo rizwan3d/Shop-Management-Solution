@@ -42,7 +42,7 @@ namespace Shop_Management_Solution
             {
                 btnPaid.Enabled = true;
                 txtMoneyPaid.Enabled = true;
-                picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.payment_main;
+                picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.get_change;
                 lblPaymentStatusText.Text = "Recieve Cash";
                 lblPaymentStatusText.ForeColor = Color.Green;
             }
@@ -95,7 +95,7 @@ namespace Shop_Management_Solution
             lblCurrentDateTime.Text = DateTime.Now.ToLongTimeString().ToString();
             lblCurrentDate.Text = DateTime.Now.ToLongDateString().ToString();
             objTimer.Interval = 1000;
-            picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting;
+            picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting1;
             lblTotalGiven.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
             lblTotalPrice.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
             lblChangeToBePaid.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
