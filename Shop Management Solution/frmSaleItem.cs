@@ -24,6 +24,7 @@ namespace Shop_Management_Solution
     {
         private long saleCounter;
         private double saleTotalPrice;
+        private Dictionary<string, string> quantitiesLeft;
 
         public frmSaleItem()
         {
@@ -51,7 +52,14 @@ namespace Shop_Management_Solution
                 {
                     ShopDAL db = new ShopDAL();
                     DataSet ds = db.GetItemsType();
-                    
+
+                    //Creating dictionary to handle available quantity of all items. It's made of pair (Type_ID, Quantity)
+                    quantitiesLeft = new Dictionary<string, string>();
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        quantitiesLeft.Add(dr["Type_ID"].ToString(), ShopDAL.getStockInHandQuantity(long.Parse(dr["Type_ID"].ToString())).ToString());
+                    }
+
                     // Inserting Default Row for Selection
                     DataRow defaultRow = ds.Tables[0].NewRow();
                     defaultRow["Type_ID"] = "0";
@@ -66,8 +74,6 @@ namespace Shop_Management_Solution
                     lblItemCount.Text = "0";
                     lblTotalPrice.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
                     txtSalePrice.Text = "0";
-                  
-
 
 
                 }
@@ -106,6 +112,7 @@ namespace Shop_Management_Solution
                 double price = double.Parse(salePrice);
                 if (!String.IsNullOrEmpty(salePrice) && txtQuantity.Value > 0 && price > 0)
                 {
+
                     string[] newRecord = { itemTypeValue, quantity, salePrice };
                     lstView_sales.Items.Add(itemTypeId).SubItems.AddRange(newRecord);
                     //updateCounter("ADD");
@@ -113,6 +120,7 @@ namespace Shop_Management_Solution
                     cmb_itemType.SelectedIndex = 0;
                     txtQuantity.Value = 0;
                     txtSalePrice.Text = "0";
+                    quantitiesLeft[itemTypeId] = (Decimal.Parse(quantitiesLeft[itemTypeId]) - Decimal.Parse(quantity)).ToString();
                 }
                 else
                 {
@@ -206,6 +214,12 @@ namespace Shop_Management_Solution
                 lstView_sales.Items.Remove(item);
                 //updateCounter("REMOVE");
                 updateTotalPrice(quantity, salePrice, "REMOVE");
+
+                quantitiesLeft[item.SubItems[0].Text] = (Decimal.Parse(quantitiesLeft[item.SubItems[0].Text]) + Decimal.Parse(quantity)).ToString();
+                //Updating quantity if the same item is currently chosen in combo box
+                if ((cmb_itemType.SelectedIndex != 0) && (cmb_itemType.SelectedValue.ToString() == item.SubItems[0].Text))
+                    lblAvailableQuantity.Text = quantitiesLeft[item.SubItems[0].Text];
+
             }
 
         }
@@ -223,10 +237,10 @@ namespace Shop_Management_Solution
                     FileDialog dialog = new SaveFileDialog();
                     dialog.Title = "Save file as...";
                     long nextInvoiceId = DBUtil.GetNextID("Sale_ID", "Sales");
-                    dialog.FileName = "Sale_No_" + nextInvoiceId.ToString() + "_Dated_" + System.DateTime.Now.Day.ToString() + "-" + System.DateTime.Now.Month.ToString() + "-" + System.DateTime.Now.Year.ToString();                    
+                    dialog.FileName = "Sale_No_" + nextInvoiceId.ToString() + "_Dated_" + System.DateTime.Now.Day.ToString() + "-" + System.DateTime.Now.Month.ToString() + "-" + System.DateTime.Now.Year.ToString();
                     dialog.RestoreDirectory = true;
                     dialog.Filter = "Adobe Acrobat Reader PDF (*.pdf)|*.*";
-                    DialogResult result = dialog.ShowDialog();                    
+                    DialogResult result = dialog.ShowDialog();
 
                     if (result == DialogResult.OK)
                     {
@@ -240,7 +254,7 @@ namespace Shop_Management_Solution
                         // step 2:
                         // Now create a writer that listens to this doucment and writes the document to desired Stream.
 
-                        PdfWriter.GetInstance(myDocument, new FileStream(path+".pdf", FileMode.Create));
+                        PdfWriter.GetInstance(myDocument, new FileStream(path + ".pdf", FileMode.Create));
 
                         // step 3:  Open the document now using
                         myDocument.Open();
@@ -267,7 +281,7 @@ namespace Shop_Management_Solution
                         cellCurrentDate.Colspan = 6;
                         cellCurrentDate.BackgroundColor = new BaseColor(204, 204, 204);
                         cellCurrentDate.BorderColor = new BaseColor(204, 204, 204);
-                        cellCurrentDate.HorizontalAlignment = Element.ALIGN_CENTER;         
+                        cellCurrentDate.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(cellCurrentDate);
 
                         PdfPCell cellInvoiceID = new PdfPCell(new Paragraph("Invoice ID: " + invoiceID.ToString()));
@@ -276,7 +290,7 @@ namespace Shop_Management_Solution
                         cellInvoiceID.BorderColor = new BaseColor(204, 204, 204);
                         cellInvoiceID.HorizontalAlignment = Element.ALIGN_LEFT;
                         table.AddCell(cellInvoiceID);
-         
+
 
 
                         // Printing Items
@@ -289,7 +303,7 @@ namespace Shop_Management_Solution
                         table.AddCell(cellQuantityHeader);
                         PdfPCell cellPriceHeader = new PdfPCell(new Paragraph("Price"));
                         cellPriceHeader.Colspan = 2;
-                        table.AddCell(cellPriceHeader);                        
+                        table.AddCell(cellPriceHeader);
 
                         foreach (Sale item in saleItems)
                         {
@@ -317,23 +331,23 @@ namespace Shop_Management_Solution
 
                         PdfPCell cellTotalQtyValue = new PdfPCell(new Paragraph(this.saleCounter.ToString()));
                         cellTotalQtyValue.BackgroundColor = new BaseColor(200, 200, 200);
-                        table.AddCell(cellTotalQtyValue); 
-                        
+                        table.AddCell(cellTotalQtyValue);
+
 
                         PdfPCell cellTotalPriceHeader = new PdfPCell(new Paragraph("Total Price"));
                         cellTotalPriceHeader.BackgroundColor = new BaseColor(200, 200, 200);
-                        table.AddCell(cellTotalPriceHeader);  
+                        table.AddCell(cellTotalPriceHeader);
 
                         PdfPCell cellTotalPriceValue = new PdfPCell(new Paragraph(ConfigurationDAL.GetCurrentCurrency() + " " + this.saleTotalPrice.ToString()));
                         cellTotalPriceValue.Colspan = 2;
                         cellTotalPriceValue.BackgroundColor = new BaseColor(200, 200, 200);
-                        table.AddCell(cellTotalPriceValue); 
-                        
+                        table.AddCell(cellTotalPriceValue);
+
                         // Printing iWorker Footer 
-                        PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.XtraWebApps.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN , 10 )));
+                        PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.XtraWebApps.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
                         cellFooter.Colspan = 6;
                         cellFooter.HorizontalAlignment = Element.ALIGN_CENTER;
-                        table.AddCell(cellFooter); 
+                        table.AddCell(cellFooter);
 
                         // Add cells to table and close it.
                         myDocument.Add(table);
@@ -450,12 +464,16 @@ namespace Shop_Management_Solution
                 else
                 {
                     long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
-                    float salePrice = ShopDAL.getItemTypeSalePrice(itemId);
-                    lblAvailableQuantity.Text = availableQuantity.ToString();
+                    long salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
+
+
+                    lblAvailableQuantity.Text = quantitiesLeft[itemId.ToString()];
+                    //lblAvailableQuantity.Text = availableQuantity.ToString();
                     txtSalePrice.Text = salePrice.ToString();
-                    txtQuantity.Maximum = availableQuantity;
+                    txtQuantity.Maximum = Decimal.Parse(quantitiesLeft[itemId.ToString()]);
+                    //txtQuantity.Maximum = availableQuantity;
                 }
-                
+
 
             }
 
