@@ -69,14 +69,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Shop_Solution.exe" size="7136256">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Shop_Solution.exe" size="7136768">
       <assemblyIdentity name="Shop_Solution" version="1.3.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HUka/hBse1UTMeZYJx27+Fb/0JM=</dsig:DigestValue>
+        <dsig:DigestValue>QP1zi8bNiAHNFGLrkp8MUZDHk0A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

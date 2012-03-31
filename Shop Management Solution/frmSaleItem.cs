@@ -343,7 +343,7 @@ namespace Shop_Management_Solution
                         cellTotalPriceValue.BackgroundColor = new BaseColor(200, 200, 200);
                         table.AddCell(cellTotalPriceValue);
 
-                        // Printing iWorker Footer 
+                        // Printing XtraWebApps Footer 
                         PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.XtraWebApps.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
                         cellFooter.Colspan = 6;
                         cellFooter.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -464,7 +464,7 @@ namespace Shop_Management_Solution
                 else
                 {
                     long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
-                    long salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
+                    float salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
 
 
                     lblAvailableQuantity.Text = quantitiesLeft[itemId.ToString()];
