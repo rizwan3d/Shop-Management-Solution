@@ -28,9 +28,6 @@ namespace Shop_Management_Solution
 
                 string newPassword = txtNewPassword.Text;
                 string confirmPassword = txtConfirmPassword.Text;
-
-                newPassword = SecuirtyUtil.encodePassword(newPassword);
-                //MessageBox.Show(this, newPassword, "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                
                 if (string.IsNullOrEmpty(txtCurrentPassword.Text))
                 {

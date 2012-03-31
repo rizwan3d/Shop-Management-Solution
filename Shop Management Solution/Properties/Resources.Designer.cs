@@ -60,6 +60,20 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1_euro_rotating_lg_nwm {
+            get {
+                object obj = ResourceManager.GetObject("1_euro_rotating_lg_nwm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _1_euro_rotating_lg_nwm1 {
+            get {
+                object obj = ResourceManager.GetObject("1_euro_rotating_lg_nwm1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap add_icon {
             get {
                 object obj = ResourceManager.GetObject("add-icon", resourceCulture);
@@ -235,6 +249,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap nor_5_coin_rotating_lg_nwm {
+            get {
+                object obj = ResourceManager.GetObject("nor_5_coin_rotating_lg_nwm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap payment_256 {
             get {
                 object obj = ResourceManager.GetObject("payment_256", resourceCulture);
@@ -259,6 +280,13 @@ namespace Shop_Management_Solution.Properties {
         internal static System.Drawing.Bitmap Print_icon {
             get {
                 object obj = ResourceManager.GetObject("Print-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap recieve_cash {
+            get {
+                object obj = ResourceManager.GetObject("recieve cash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -350,6 +378,13 @@ namespace Shop_Management_Solution.Properties {
         internal static System.Drawing.Bitmap waiting {
             get {
                 object obj = ResourceManager.GetObject("waiting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap waiting_clock {
+            get {
+                object obj = ResourceManager.GetObject("waiting_clock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

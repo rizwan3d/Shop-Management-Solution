@@ -42,7 +42,7 @@ namespace Shop_Management_Solution
             {
                 btnPaid.Enabled = true;
                 txtMoneyPaid.Enabled = true;
-                picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.get_change;
+                picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.recieve_cash;
                 lblPaymentStatusText.Text = "Recieve Cash";
                 lblPaymentStatusText.ForeColor = Color.Green;
             }
@@ -95,7 +95,7 @@ namespace Shop_Management_Solution
             lblCurrentDateTime.Text = DateTime.Now.ToLongTimeString().ToString();
             lblCurrentDate.Text = DateTime.Now.ToLongDateString().ToString();
             objTimer.Interval = 1000;
-            picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting1;
+            picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting_clock;
             lblTotalGiven.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
             lblTotalPrice.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
             lblChangeToBePaid.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
@@ -161,7 +161,7 @@ namespace Shop_Management_Solution
                     lblTotalGiven.Text = ConfigurationDAL.GetCurrentCurrency() + moneyPaid.ToString();
                     lblChangeToBePaid.Text = ConfigurationDAL.GetCurrentCurrency() + changeToBeGiven.ToString();
                     btnChangeGiven.Enabled = true;
-                    picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.Coins_icon;
+                    picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources._1_euro_rotating_lg_nwm1;
                     lastInvoiceID = 0;
                     if (changeToBeGiven > 0)
                     {
@@ -200,13 +200,13 @@ namespace Shop_Management_Solution
             btnPaid.Enabled = false;
             btnChangeGiven.Enabled = false;
             txtMoneyPaid.Enabled = false;
-            picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting;
+            picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting_clock;
             lastInvoiceID = 0;
         }
 
         private void imgAdvertisment_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.iworker4u.com/");
+            System.Diagnostics.Process.Start("http://www.xtrawebapps.com/");
         }
 
         private void currencySettingToolStripMenuItem_Click(object sender, EventArgs e)

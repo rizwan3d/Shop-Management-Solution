@@ -30,17 +30,39 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_SearchItems = new System.Windows.Forms.Button();
+            this.btn_SaleItem = new System.Windows.Forms.Button();
+            this.btn_BuyItems = new System.Windows.Forms.Button();
+            this.btnAddItemType = new System.Windows.Forms.Button();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addItemTypeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addPurchasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchItemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutUsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addItemTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buyItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlsTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currencySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mb_update = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCurrentDateTime = new System.Windows.Forms.Label();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,9 +72,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMoneyPaid = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblPaymentStatusText = new System.Windows.Forms.Label();
             this.btnChangeGiven = new System.Windows.Forms.Button();
             this.btnPaid = new System.Windows.Forms.Button();
+            this.lblPaymentStatusText = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotalGiven = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,28 +84,6 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.picStatusPayment = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_SearchItems = new System.Windows.Forms.Button();
-            this.btn_SaleItem = new System.Windows.Forms.Button();
-            this.btn_BuyItems = new System.Windows.Forms.Button();
-            this.btnAddItemType = new System.Windows.Forms.Button();
-            this.addItemTypeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPurchasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saleItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchItemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutUsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addItemTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buyItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saleItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.currencySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mb_update = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -108,6 +108,69 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tasks";
+            // 
+            // btn_SearchItems
+            // 
+            this.btn_SearchItems.BackColor = System.Drawing.Color.White;
+            this.btn_SearchItems.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SearchItems.ForeColor = System.Drawing.Color.Black;
+            this.btn_SearchItems.Image = global::Shop_Management_Solution.Properties.Resources.Search_icon_l;
+            this.btn_SearchItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_SearchItems.Location = new System.Drawing.Point(17, 145);
+            this.btn_SearchItems.Name = "btn_SearchItems";
+            this.btn_SearchItems.Size = new System.Drawing.Size(146, 36);
+            this.btn_SearchItems.TabIndex = 4;
+            this.btn_SearchItems.Text = "Search Items";
+            this.btn_SearchItems.UseVisualStyleBackColor = false;
+            this.btn_SearchItems.Click += new System.EventHandler(this.btn_SearchItems_Click);
+            // 
+            // btn_SaleItem
+            // 
+            this.btn_SaleItem.BackColor = System.Drawing.Color.White;
+            this.btn_SaleItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaleItem.ForeColor = System.Drawing.Color.Black;
+            this.btn_SaleItem.Image = global::Shop_Management_Solution.Properties.Resources.cash_register_icon_m;
+            this.btn_SaleItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_SaleItem.Location = new System.Drawing.Point(17, 103);
+            this.btn_SaleItem.Name = "btn_SaleItem";
+            this.btn_SaleItem.Size = new System.Drawing.Size(146, 36);
+            this.btn_SaleItem.TabIndex = 3;
+            this.btn_SaleItem.Text = "Sale Item(s)";
+            this.btn_SaleItem.UseVisualStyleBackColor = false;
+            this.btn_SaleItem.Click += new System.EventHandler(this.btn_SaleItem_Click);
+            // 
+            // btn_BuyItems
+            // 
+            this.btn_BuyItems.BackColor = System.Drawing.Color.White;
+            this.btn_BuyItems.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BuyItems.ForeColor = System.Drawing.Color.Black;
+            this.btn_BuyItems.Image = global::Shop_Management_Solution.Properties.Resources.full_shopping_cart_icon_m;
+            this.btn_BuyItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_BuyItems.Location = new System.Drawing.Point(17, 61);
+            this.btn_BuyItems.Name = "btn_BuyItems";
+            this.btn_BuyItems.Size = new System.Drawing.Size(146, 36);
+            this.btn_BuyItems.TabIndex = 2;
+            this.btn_BuyItems.Text = "Add Purchases";
+            this.btn_BuyItems.UseVisualStyleBackColor = false;
+            this.btn_BuyItems.Click += new System.EventHandler(this.btn_BuyItems_Click);
+            // 
+            // btnAddItemType
+            // 
+            this.btnAddItemType.BackColor = System.Drawing.Color.White;
+            this.btnAddItemType.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddItemType.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnAddItemType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnAddItemType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItemType.ForeColor = System.Drawing.Color.Black;
+            this.btnAddItemType.Image = global::Shop_Management_Solution.Properties.Resources.item_type_m;
+            this.btnAddItemType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddItemType.Location = new System.Drawing.Point(17, 19);
+            this.btnAddItemType.Name = "btnAddItemType";
+            this.btnAddItemType.Size = new System.Drawing.Size(146, 36);
+            this.btnAddItemType.TabIndex = 1;
+            this.btnAddItemType.Text = "Add Item Type";
+            this.btnAddItemType.UseVisualStyleBackColor = false;
+            this.btnAddItemType.Click += new System.EventHandler(this.btnAddItemType_Click);
             // 
             // mainMenuStrip
             // 
@@ -134,10 +197,50 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
             // 
+            // addItemTypeToolStripMenuItem1
+            // 
+            this.addItemTypeToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.item_type;
+            this.addItemTypeToolStripMenuItem1.Name = "addItemTypeToolStripMenuItem1";
+            this.addItemTypeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.addItemTypeToolStripMenuItem1.Text = "Add Item Type";
+            this.addItemTypeToolStripMenuItem1.Click += new System.EventHandler(this.addItemTypeToolStripMenuItem_Click);
+            // 
+            // addPurchasesToolStripMenuItem
+            // 
+            this.addPurchasesToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.full_shopping_cart_icon_s;
+            this.addPurchasesToolStripMenuItem.Name = "addPurchasesToolStripMenuItem";
+            this.addPurchasesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addPurchasesToolStripMenuItem.Text = "Add Purchases";
+            this.addPurchasesToolStripMenuItem.Click += new System.EventHandler(this.buyItemsToolStripMenuItem_Click);
+            // 
+            // saleItemsToolStripMenuItem
+            // 
+            this.saleItemsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.cash_register_icon;
+            this.saleItemsToolStripMenuItem.Name = "saleItemsToolStripMenuItem";
+            this.saleItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saleItemsToolStripMenuItem.Text = "Sale Item(s)";
+            this.saleItemsToolStripMenuItem.Click += new System.EventHandler(this.saleItemToolStripMenuItem_Click);
+            // 
+            // searchItemToolStripMenuItem1
+            // 
+            this.searchItemToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.search_icon;
+            this.searchItemToolStripMenuItem1.Name = "searchItemToolStripMenuItem1";
+            this.searchItemToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.searchItemToolStripMenuItem1.Text = "Search Item";
+            this.searchItemToolStripMenuItem1.Click += new System.EventHandler(this.searchItemToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.Log_Out_icon;
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -147,6 +250,22 @@
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.User_icon;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.adminAccountToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.Settings_icon;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.currencySettingToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
@@ -158,10 +277,26 @@
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
+            // updatesToolStripMenuItem
+            // 
+            this.updatesToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.satellite_Vista_icon;
+            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
+            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.updatesToolStripMenuItem.Text = "Updates";
+            this.updatesToolStripMenuItem.Click += new System.EventHandler(this.mb_update_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(119, 6);
+            // 
+            // aboutUsToolStripMenuItem1
+            // 
+            this.aboutUsToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.Information_icon;
+            this.aboutUsToolStripMenuItem1.Name = "aboutUsToolStripMenuItem1";
+            this.aboutUsToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.aboutUsToolStripMenuItem1.Text = "About us";
+            this.aboutUsToolStripMenuItem1.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click_1);
             // 
             // fileToolStripMenuItem
             // 
@@ -176,10 +311,51 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // addItemTypeToolStripMenuItem
+            // 
+            this.addItemTypeToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.addItemTypeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addItemTypeToolStripMenuItem.Image")));
+            this.addItemTypeToolStripMenuItem.Name = "addItemTypeToolStripMenuItem";
+            this.addItemTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addItemTypeToolStripMenuItem.Text = "Add Item Type";
+            this.addItemTypeToolStripMenuItem.Click += new System.EventHandler(this.addItemTypeToolStripMenuItem_Click);
+            // 
+            // buyItemsToolStripMenuItem
+            // 
+            this.buyItemsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("buyItemsToolStripMenuItem.Image")));
+            this.buyItemsToolStripMenuItem.Name = "buyItemsToolStripMenuItem";
+            this.buyItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buyItemsToolStripMenuItem.Text = "Add Purchases";
+            this.buyItemsToolStripMenuItem.Click += new System.EventHandler(this.buyItemsToolStripMenuItem_Click);
+            // 
+            // saleItemToolStripMenuItem
+            // 
+            this.saleItemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saleItemToolStripMenuItem.Image")));
+            this.saleItemToolStripMenuItem.Name = "saleItemToolStripMenuItem";
+            this.saleItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saleItemToolStripMenuItem.Text = "Sale Item(s)";
+            this.saleItemToolStripMenuItem.Click += new System.EventHandler(this.saleItemToolStripMenuItem_Click);
+            // 
+            // searchItemToolStripMenuItem
+            // 
+            this.searchItemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchItemToolStripMenuItem.Image")));
+            this.searchItemToolStripMenuItem.Name = "searchItemToolStripMenuItem";
+            this.searchItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchItemToolStripMenuItem.Text = "Search Item";
+            this.searchItemToolStripMenuItem.Click += new System.EventHandler(this.searchItemToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // tlsTools
             // 
@@ -189,6 +365,22 @@
             this.tlsTools.Name = "tlsTools";
             this.tlsTools.Size = new System.Drawing.Size(48, 20);
             this.tlsTools.Text = "Tools";
+            // 
+            // adminAccountToolStripMenuItem
+            // 
+            this.adminAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("adminAccountToolStripMenuItem.Image")));
+            this.adminAccountToolStripMenuItem.Name = "adminAccountToolStripMenuItem";
+            this.adminAccountToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.adminAccountToolStripMenuItem.Text = "Change Password";
+            this.adminAccountToolStripMenuItem.Click += new System.EventHandler(this.adminAccountToolStripMenuItem_Click);
+            // 
+            // currencySettingToolStripMenuItem
+            // 
+            this.currencySettingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("currencySettingToolStripMenuItem.Image")));
+            this.currencySettingToolStripMenuItem.Name = "currencySettingToolStripMenuItem";
+            this.currencySettingToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.currencySettingToolStripMenuItem.Text = "Other Settings";
+            this.currencySettingToolStripMenuItem.Click += new System.EventHandler(this.currencySettingToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -200,10 +392,26 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // mb_update
+            // 
+            this.mb_update.Image = ((System.Drawing.Image)(resources.GetObject("mb_update.Image")));
+            this.mb_update.Name = "mb_update";
+            this.mb_update.Size = new System.Drawing.Size(122, 22);
+            this.mb_update.Text = "Updates";
+            this.mb_update.Click += new System.EventHandler(this.mb_update_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(119, 6);
+            // 
+            // aboutUsToolStripMenuItem
+            // 
+            this.aboutUsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutUsToolStripMenuItem.Image")));
+            this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutUsToolStripMenuItem.Text = "About us";
+            this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click_1);
             // 
             // lblCurrentDateTime
             // 
@@ -300,16 +508,6 @@
             this.groupBox2.Text = " Payment Section ";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // lblPaymentStatusText
-            // 
-            this.lblPaymentStatusText.AutoSize = true;
-            this.lblPaymentStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentStatusText.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPaymentStatusText.Location = new System.Drawing.Point(275, 321);
-            this.lblPaymentStatusText.Name = "lblPaymentStatusText";
-            this.lblPaymentStatusText.Size = new System.Drawing.Size(0, 24);
-            this.lblPaymentStatusText.TabIndex = 15;
-            // 
             // btnChangeGiven
             // 
             this.btnChangeGiven.BackColor = System.Drawing.Color.LightGreen;
@@ -335,6 +533,16 @@
             this.btnPaid.Text = "Paid";
             this.btnPaid.UseVisualStyleBackColor = false;
             this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
+            // 
+            // lblPaymentStatusText
+            // 
+            this.lblPaymentStatusText.AutoSize = true;
+            this.lblPaymentStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaymentStatusText.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPaymentStatusText.Location = new System.Drawing.Point(30, 309);
+            this.lblPaymentStatusText.Name = "lblPaymentStatusText";
+            this.lblPaymentStatusText.Size = new System.Drawing.Size(0, 24);
+            this.lblPaymentStatusText.TabIndex = 15;
             // 
             // panel2
             // 
@@ -412,10 +620,10 @@
             // 
             // picStatusPayment
             // 
-            this.picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.get_change;
-            this.picStatusPayment.Location = new System.Drawing.Point(303, 182);
+            this.picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting_clock;
+            this.picStatusPayment.Location = new System.Drawing.Point(303, 164);
             this.picStatusPayment.Name = "picStatusPayment";
-            this.picStatusPayment.Size = new System.Drawing.Size(207, 121);
+            this.picStatusPayment.Size = new System.Drawing.Size(205, 195);
             this.picStatusPayment.TabIndex = 14;
             this.picStatusPayment.TabStop = false;
             // 
@@ -427,214 +635,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(715, 91);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // btn_SearchItems
-            // 
-            this.btn_SearchItems.BackColor = System.Drawing.Color.White;
-            this.btn_SearchItems.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SearchItems.ForeColor = System.Drawing.Color.Black;
-            this.btn_SearchItems.Image = global::Shop_Management_Solution.Properties.Resources.Search_icon_l;
-            this.btn_SearchItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_SearchItems.Location = new System.Drawing.Point(17, 145);
-            this.btn_SearchItems.Name = "btn_SearchItems";
-            this.btn_SearchItems.Size = new System.Drawing.Size(146, 36);
-            this.btn_SearchItems.TabIndex = 4;
-            this.btn_SearchItems.Text = "Search Items";
-            this.btn_SearchItems.UseVisualStyleBackColor = false;
-            this.btn_SearchItems.Click += new System.EventHandler(this.btn_SearchItems_Click);
-            // 
-            // btn_SaleItem
-            // 
-            this.btn_SaleItem.BackColor = System.Drawing.Color.White;
-            this.btn_SaleItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaleItem.ForeColor = System.Drawing.Color.Black;
-            this.btn_SaleItem.Image = global::Shop_Management_Solution.Properties.Resources.cash_register_icon_m;
-            this.btn_SaleItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_SaleItem.Location = new System.Drawing.Point(17, 103);
-            this.btn_SaleItem.Name = "btn_SaleItem";
-            this.btn_SaleItem.Size = new System.Drawing.Size(146, 36);
-            this.btn_SaleItem.TabIndex = 3;
-            this.btn_SaleItem.Text = "Sale Item(s)";
-            this.btn_SaleItem.UseVisualStyleBackColor = false;
-            this.btn_SaleItem.Click += new System.EventHandler(this.btn_SaleItem_Click);
-            // 
-            // btn_BuyItems
-            // 
-            this.btn_BuyItems.BackColor = System.Drawing.Color.White;
-            this.btn_BuyItems.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_BuyItems.ForeColor = System.Drawing.Color.Black;
-            this.btn_BuyItems.Image = global::Shop_Management_Solution.Properties.Resources.full_shopping_cart_icon_m;
-            this.btn_BuyItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_BuyItems.Location = new System.Drawing.Point(17, 61);
-            this.btn_BuyItems.Name = "btn_BuyItems";
-            this.btn_BuyItems.Size = new System.Drawing.Size(146, 36);
-            this.btn_BuyItems.TabIndex = 2;
-            this.btn_BuyItems.Text = "Add Purchases";
-            this.btn_BuyItems.UseVisualStyleBackColor = false;
-            this.btn_BuyItems.Click += new System.EventHandler(this.btn_BuyItems_Click);
-            // 
-            // btnAddItemType
-            // 
-            this.btnAddItemType.BackColor = System.Drawing.Color.White;
-            this.btnAddItemType.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAddItemType.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnAddItemType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnAddItemType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItemType.ForeColor = System.Drawing.Color.Black;
-            this.btnAddItemType.Image = global::Shop_Management_Solution.Properties.Resources.item_type_m;
-            this.btnAddItemType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddItemType.Location = new System.Drawing.Point(17, 19);
-            this.btnAddItemType.Name = "btnAddItemType";
-            this.btnAddItemType.Size = new System.Drawing.Size(146, 36);
-            this.btnAddItemType.TabIndex = 1;
-            this.btnAddItemType.Text = "Add Item Type";
-            this.btnAddItemType.UseVisualStyleBackColor = false;
-            this.btnAddItemType.Click += new System.EventHandler(this.btnAddItemType_Click);
-            // 
-            // addItemTypeToolStripMenuItem1
-            // 
-            this.addItemTypeToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.item_type;
-            this.addItemTypeToolStripMenuItem1.Name = "addItemTypeToolStripMenuItem1";
-            this.addItemTypeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.addItemTypeToolStripMenuItem1.Text = "Add Item Type";
-            this.addItemTypeToolStripMenuItem1.Click += new System.EventHandler(this.addItemTypeToolStripMenuItem_Click);
-            // 
-            // addPurchasesToolStripMenuItem
-            // 
-            this.addPurchasesToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.full_shopping_cart_icon_s;
-            this.addPurchasesToolStripMenuItem.Name = "addPurchasesToolStripMenuItem";
-            this.addPurchasesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.addPurchasesToolStripMenuItem.Text = "Add Purchases";
-            this.addPurchasesToolStripMenuItem.Click += new System.EventHandler(this.buyItemsToolStripMenuItem_Click);
-            // 
-            // saleItemsToolStripMenuItem
-            // 
-            this.saleItemsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.cash_register_icon;
-            this.saleItemsToolStripMenuItem.Name = "saleItemsToolStripMenuItem";
-            this.saleItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saleItemsToolStripMenuItem.Text = "Sale Item(s)";
-            this.saleItemsToolStripMenuItem.Click += new System.EventHandler(this.saleItemToolStripMenuItem_Click);
-            // 
-            // searchItemToolStripMenuItem1
-            // 
-            this.searchItemToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.search_icon;
-            this.searchItemToolStripMenuItem1.Name = "searchItemToolStripMenuItem1";
-            this.searchItemToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.searchItemToolStripMenuItem1.Text = "Search Item";
-            this.searchItemToolStripMenuItem1.Click += new System.EventHandler(this.searchItemToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.Log_Out_icon;
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.User_icon;
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.adminAccountToolStripMenuItem_Click);
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.Settings_icon;
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.currencySettingToolStripMenuItem_Click);
-            // 
-            // updatesToolStripMenuItem
-            // 
-            this.updatesToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.satellite_Vista_icon;
-            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.updatesToolStripMenuItem.Text = "Updates";
-            this.updatesToolStripMenuItem.Click += new System.EventHandler(this.mb_update_Click);
-            // 
-            // aboutUsToolStripMenuItem1
-            // 
-            this.aboutUsToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.Information_icon;
-            this.aboutUsToolStripMenuItem1.Name = "aboutUsToolStripMenuItem1";
-            this.aboutUsToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
-            this.aboutUsToolStripMenuItem1.Text = "About us";
-            this.aboutUsToolStripMenuItem1.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click_1);
-            // 
-            // addItemTypeToolStripMenuItem
-            // 
-            this.addItemTypeToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.addItemTypeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addItemTypeToolStripMenuItem.Image")));
-            this.addItemTypeToolStripMenuItem.Name = "addItemTypeToolStripMenuItem";
-            this.addItemTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.addItemTypeToolStripMenuItem.Text = "Add Item Type";
-            this.addItemTypeToolStripMenuItem.Click += new System.EventHandler(this.addItemTypeToolStripMenuItem_Click);
-            // 
-            // buyItemsToolStripMenuItem
-            // 
-            this.buyItemsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("buyItemsToolStripMenuItem.Image")));
-            this.buyItemsToolStripMenuItem.Name = "buyItemsToolStripMenuItem";
-            this.buyItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.buyItemsToolStripMenuItem.Text = "Add Purchases";
-            this.buyItemsToolStripMenuItem.Click += new System.EventHandler(this.buyItemsToolStripMenuItem_Click);
-            // 
-            // saleItemToolStripMenuItem
-            // 
-            this.saleItemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saleItemToolStripMenuItem.Image")));
-            this.saleItemToolStripMenuItem.Name = "saleItemToolStripMenuItem";
-            this.saleItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saleItemToolStripMenuItem.Text = "Sale Item(s)";
-            this.saleItemToolStripMenuItem.Click += new System.EventHandler(this.saleItemToolStripMenuItem_Click);
-            // 
-            // searchItemToolStripMenuItem
-            // 
-            this.searchItemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchItemToolStripMenuItem.Image")));
-            this.searchItemToolStripMenuItem.Name = "searchItemToolStripMenuItem";
-            this.searchItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.searchItemToolStripMenuItem.Text = "Search Item";
-            this.searchItemToolStripMenuItem.Click += new System.EventHandler(this.searchItemToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // adminAccountToolStripMenuItem
-            // 
-            this.adminAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("adminAccountToolStripMenuItem.Image")));
-            this.adminAccountToolStripMenuItem.Name = "adminAccountToolStripMenuItem";
-            this.adminAccountToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.adminAccountToolStripMenuItem.Text = "Change Password";
-            this.adminAccountToolStripMenuItem.Click += new System.EventHandler(this.adminAccountToolStripMenuItem_Click);
-            // 
-            // currencySettingToolStripMenuItem
-            // 
-            this.currencySettingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("currencySettingToolStripMenuItem.Image")));
-            this.currencySettingToolStripMenuItem.Name = "currencySettingToolStripMenuItem";
-            this.currencySettingToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.currencySettingToolStripMenuItem.Text = "Other Settings";
-            this.currencySettingToolStripMenuItem.Click += new System.EventHandler(this.currencySettingToolStripMenuItem_Click);
-            // 
-            // mb_update
-            // 
-            this.mb_update.Image = ((System.Drawing.Image)(resources.GetObject("mb_update.Image")));
-            this.mb_update.Name = "mb_update";
-            this.mb_update.Size = new System.Drawing.Size(122, 22);
-            this.mb_update.Text = "Updates";
-            this.mb_update.Click += new System.EventHandler(this.mb_update_Click);
-            // 
-            // aboutUsToolStripMenuItem
-            // 
-            this.aboutUsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutUsToolStripMenuItem.Image")));
-            this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.aboutUsToolStripMenuItem.Text = "About us";
-            this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click_1);
             // 
             // frmMainMenu
             // 
