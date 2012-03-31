@@ -98,7 +98,7 @@
             this.cmb_itemType.Location = new System.Drawing.Point(107, 42);
             this.cmb_itemType.Name = "cmb_itemType";
             this.cmb_itemType.Size = new System.Drawing.Size(221, 21);
-            this.cmb_itemType.TabIndex = 3;
+            this.cmb_itemType.TabIndex = 1;
             this.cmb_itemType.SelectedIndexChanged += new System.EventHandler(this.onItemTypeChange);
             this.cmb_itemType.SelectedValueChanged += new System.EventHandler(this.onItemTypeValueChange);
             // 
@@ -116,7 +116,7 @@
             this.txtSalePrice.Location = new System.Drawing.Point(107, 120);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(221, 20);
-            this.txtSalePrice.TabIndex = 6;
+            this.txtSalePrice.TabIndex = 3;
             this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
             // label4
@@ -175,7 +175,7 @@
             0});
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(221, 20);
-            this.txtQuantity.TabIndex = 10;
+            this.txtQuantity.TabIndex = 2;
             // 
             // btn_Reset
             // 
@@ -184,7 +184,7 @@
             this.btn_Reset.Location = new System.Drawing.Point(362, 177);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(80, 23);
-            this.btn_Reset.TabIndex = 9;
+            this.btn_Reset.TabIndex = 4;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
@@ -208,7 +208,7 @@
             this.btn_Delete.Location = new System.Drawing.Point(92, 3);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(80, 24);
-            this.btn_Delete.TabIndex = 1;
+            this.btn_Delete.TabIndex = 7;
             this.btn_Delete.Text = "Delete";
             this.btn_Delete.UseVisualStyleBackColor = false;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
@@ -224,7 +224,7 @@
             this.lstView_sales.Location = new System.Drawing.Point(3, 30);
             this.lstView_sales.Name = "lstView_sales";
             this.lstView_sales.Size = new System.Drawing.Size(417, 216);
-            this.lstView_sales.TabIndex = 0;
+            this.lstView_sales.TabIndex = 6;
             this.lstView_sales.UseCompatibleStateImageBehavior = false;
             this.lstView_sales.View = System.Windows.Forms.View.Details;
             this.lstView_sales.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstView_sales_ItemSelectionChanged);
@@ -259,7 +259,7 @@
             this.btn_Add.Location = new System.Drawing.Point(6, 2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(80, 25);
-            this.btn_Add.TabIndex = 8;
+            this.btn_Add.TabIndex = 5;
             this.btn_Add.Text = "Add";
             this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
@@ -315,7 +315,7 @@
             this.btn_Save_And_Print.Location = new System.Drawing.Point(201, 510);
             this.btn_Save_And_Print.Name = "btn_Save_And_Print";
             this.btn_Save_And_Print.Size = new System.Drawing.Size(121, 24);
-            this.btn_Save_And_Print.TabIndex = 10;
+            this.btn_Save_And_Print.TabIndex = 8;
             this.btn_Save_And_Print.Text = "Save and Print";
             this.btn_Save_And_Print.UseVisualStyleBackColor = false;
             this.btn_Save_And_Print.Click += new System.EventHandler(this.btn_Save_And_Print_Click);
@@ -337,7 +337,7 @@
             this.btn_cancel.Location = new System.Drawing.Point(328, 510);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(121, 24);
-            this.btn_cancel.TabIndex = 11;
+            this.btn_cancel.TabIndex = 9;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);

@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBoxDescription.Text" xml:space="preserve">
+    <value>Development Team
+Developed by: Farrukh Naveed Anjum, Lukasz Marciniak
+Design: Faisal Mehmood Anjum
+
+Contact Us
+Email: shop_management@xtrawebapps.com
+Website: www.XtraWebApps.com
+
+For Latest Release:
+https://sourceforge.net/projects/shopmanagement/files/latest/download</value>
+  </data>
 </root>
