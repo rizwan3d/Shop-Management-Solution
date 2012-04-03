@@ -512,5 +512,13 @@ namespace Shop_Management_Solution
             }
         }
 
+        private void lstView_sales_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Delete) && (lstView_sales.Items.Count > 0) && (lstView_sales.SelectedItems.Count > 0))
+            {
+                btn_Delete_Click(lstView_sales, null);
+            }
+        }
+
     }
 }

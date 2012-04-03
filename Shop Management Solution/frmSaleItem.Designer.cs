@@ -228,6 +228,7 @@
             this.lstView_sales.UseCompatibleStateImageBehavior = false;
             this.lstView_sales.View = System.Windows.Forms.View.Details;
             this.lstView_sales.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstView_sales_ItemSelectionChanged);
+            this.lstView_sales.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstView_sales_KeyDown);
             // 
             // colTypeID
             // 
