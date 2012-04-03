@@ -63,6 +63,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(236, 20);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // txtUsername
             // 
@@ -146,7 +147,7 @@
             this.label3.Size = new System.Drawing.Size(271, 30);
             this.label3.TabIndex = 6;
             this.label3.Text = "Default Password is \'password\' without quotes. \r\nChange your password  for secuir" +
-                "ty reasons";
+    "ty reasons";
             // 
             // frmAuthenticate
             // 

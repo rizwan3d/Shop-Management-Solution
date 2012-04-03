@@ -68,5 +68,11 @@ namespace Shop_Management_Solution
         {
 
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_Login_Click(txtPassword, null);
+        }
     }
 }
