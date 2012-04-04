@@ -168,6 +168,7 @@
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="lib\dal\ShopDAL.cs" />
+    <Compile Include="lib\dal\XtraTreeDAL.cs" />
     <Compile Include="lib\ItemType.cs" />
     <Compile Include="lib\Sale.cs" />
     <Compile Include="lib\util\ConfigurationDAL.cs" />
@@ -177,6 +178,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="lib\util\SecuirtyUtil.cs" />
+    <Compile Include="lib\XtraNodeType.cs" />
+    <Compile Include="lib\XtraTreeNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">
