@@ -174,6 +174,7 @@
     <Compile Include="lib\util\ConfigurationDAL.cs" />
     <Compile Include="lib\util\DBUtil.cs" />
     <Compile Include="lib\util\DebugUtil.cs" />
+    <Compile Include="lib\util\NumberUtils.cs" />
     <Compile Include="lib\util\PCPrint.cs">
       <SubType>Component</SubType>
     </Compile>

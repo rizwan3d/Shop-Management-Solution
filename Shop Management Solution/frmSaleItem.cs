@@ -147,7 +147,8 @@ namespace Shop_Management_Solution
                 long itemTypeId = long.Parse(lvi.SubItems[0].Text);
                 string itemTypeName = lvi.SubItems[1].Text;
                 long quantity = long.Parse(lvi.SubItems[2].Text);
-                double price = double.Parse(lvi.SubItems[3].Text);
+                double price = NumberUtils.SafeParse( lvi.SubItems[3].Text );
+
                 Sale item = new Sale();
                 item.ItemTypeId = itemTypeId;
                 item.ItemName = itemTypeName;

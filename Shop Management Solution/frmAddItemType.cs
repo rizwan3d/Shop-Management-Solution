@@ -38,8 +38,8 @@ namespace Shop_Management_Solution
                 }
                 else
                 {
-                    float price = float.Parse(itemPrice);
-                    float saleprice = float.Parse(itemSalePrice);
+                    float price = NumberUtils.SafeParse(itemPrice ); // float.Parse(itemPrice);
+                    float saleprice = NumberUtils.SafeParse(itemSalePrice); //float.Parse(itemSalePrice);
 
                     ItemType item = new ItemType();
                     item.ItemName = itemName;
