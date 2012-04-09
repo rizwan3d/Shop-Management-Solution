@@ -11,6 +11,14 @@ namespace Shop_Management_Solution.lib
         private string itemName;
         private float price;
         private float salePrice;
+        private UoM uom;
+
+        internal UoM Uom
+        {
+            get { return uom; }
+            set { uom = value; }
+        }
+
 
         public float SalePrice
         {

@@ -17,7 +17,7 @@ namespace Shop_Management_Solution.lib.dal
             //Create the objects we need to insert a new record
             OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString());
             OleDbCommand cmdInsert = new OleDbCommand();
-            string query = "INSERT INTO ItemType(Name,Price,Sale_Price) VALUES(@name,@price,@salePrice)";
+            string query = "INSERT INTO ItemType(Name,Price,Sale_Price,UoM_ID) VALUES(@name,@price,@salePrice,@uomId)";
             int iSqlStatus;
 
             //Clear any parameters
@@ -36,6 +36,7 @@ namespace Shop_Management_Solution.lib.dal
                 cmdInsert.Parameters.AddWithValue("@name", item.ItemName);
                 cmdInsert.Parameters.AddWithValue("@price", item.Price);
                 cmdInsert.Parameters.AddWithValue("@salePrice", item.SalePrice);
+                cmdInsert.Parameters.AddWithValue("@uomId", item.Uom.Id);
 
                 //Set the connection of the object
                 cmdInsert.Connection = cnInsert;
@@ -87,6 +88,28 @@ namespace Shop_Management_Solution.lib.dal
             catch (Exception ex)
             {
                 throw new Exception("Unable to get the Stock in hand. Please try to add some stock first." + ex.Message);
+            }
+        }
+
+        public static string getItemTypeUoM(long typeId)
+        {
+            string uom = null;
+            OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
+            string query =  "SELECT UoM.UoM_Name FROM ItemType " + 
+                            "LEFT JOIN UoM ON (ItemType.UoM_ID = UoM.ID ) " +
+                            "WHERE Type_ID = " + typeId;
+
+            OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
+            DataSet ds = new DataSet();
+            try
+            {
+                DataAdapter.Fill(ds);
+                uom = ds.Tables[0].Rows[0][0].ToString();
+                return uom;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unable to get UoM." + ex.Message);
             }
         }
 

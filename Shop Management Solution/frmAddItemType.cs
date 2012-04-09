@@ -29,12 +29,13 @@ namespace Shop_Management_Solution
             String itemName = txtItemName.Text;
             String itemPrice = txtItemPrice.Text;
             String itemSalePrice = txtExpectedSalePrice.Text;
+            String uom = cmbUoM.SelectedValue.ToString();
 
             try
             {
-                if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice) || String.IsNullOrEmpty(itemSalePrice))
+                if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice) || String.IsNullOrEmpty(itemSalePrice) || String.IsNullOrEmpty(uom))
                 {
-                    MessageBox.Show(this, "Fill in item name and price", "Error:Add Item Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Fill in item name, price, sale price and Unit of Measurement", "Error:Add Item Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -45,6 +46,11 @@ namespace Shop_Management_Solution
                     item.ItemName = itemName;
                     item.Price = price;
                     item.SalePrice = saleprice;
+
+                    UoM objUoM = new UoM();
+                    objUoM.Id = int.Parse(uom);
+                    
+                    item.Uom = objUoM;
 
                     bool isInserted = ShopDAL.InsertNewItemType( item );
                     if (isInserted)
@@ -100,6 +106,28 @@ namespace Shop_Management_Solution
                 && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void frmAddItemType_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                    
+                    DataSet ds = UoMDAL.GetUoMsDataSet();
+                    cmbUoM.DataSource = ds.Tables[0];
+                    cmbUoM.DisplayMember = "UoM_Name";
+                    cmbUoM.ValueMember = "ID";
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show(this, "Add atleast one item type to add purchase", "Error:Add new stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message.ToString(), "Error:Add New Stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 

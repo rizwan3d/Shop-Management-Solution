@@ -37,6 +37,8 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbUoM = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtExpectedSalePrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,7 +91,7 @@
             // 
             this.btn_Cancel.BackColor = System.Drawing.Color.White;
             this.btn_Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Cancel.Location = new System.Drawing.Point(336, 120);
+            this.btn_Cancel.Location = new System.Drawing.Point(337, 157);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(77, 25);
             this.btn_Cancel.TabIndex = 5;
@@ -101,7 +103,7 @@
             // 
             this.btn_Save.BackColor = System.Drawing.Color.White;
             this.btn_Save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Save.Location = new System.Drawing.Point(253, 120);
+            this.btn_Save.Location = new System.Drawing.Point(254, 157);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(77, 25);
             this.btn_Save.TabIndex = 4;
@@ -111,6 +113,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbUoM);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtExpectedSalePrice);
             this.groupBox1.Controls.Add(this.label1);
@@ -119,10 +123,28 @@
             this.groupBox1.Controls.Add(this.txtItemPrice);
             this.groupBox1.Location = new System.Drawing.Point(83, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 102);
+            this.groupBox1.Size = new System.Drawing.Size(330, 127);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Detail(s)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Unit of Measurement:";
+            // 
+            // cmbUoM
+            // 
+            this.cmbUoM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUoM.FormattingEnabled = true;
+            this.cmbUoM.Location = new System.Drawing.Point(122, 97);
+            this.cmbUoM.Name = "cmbUoM";
+            this.cmbUoM.Size = new System.Drawing.Size(197, 21);
+            this.cmbUoM.TabIndex = 6;
             // 
             // label3
             // 
@@ -146,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(421, 156);
+            this.ClientSize = new System.Drawing.Size(423, 194);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Cancel);
@@ -158,6 +180,7 @@
             this.Name = "frmAddItemType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Item Type";
+            this.Load += new System.EventHandler(this.frmAddItemType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -177,5 +200,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtExpectedSalePrice;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbUoM;
     }
 }

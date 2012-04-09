@@ -107,19 +107,21 @@ namespace Shop_Management_Solution
             String itemTypeValue = cmb_itemType.Text;
             String quantity = txtQuantity.Value.ToString();
             String salePrice = txtSalePrice.Text;
+            String uom = lblUoM.Text;
             try
             {
                 double price = double.Parse(salePrice);
                 if (!String.IsNullOrEmpty(salePrice) && txtQuantity.Value > 0 && price > 0)
                 {
 
-                    string[] newRecord = { itemTypeValue, quantity, salePrice };
+                    string[] newRecord = { itemTypeValue, quantity, salePrice, uom };
                     lstView_sales.Items.Add(itemTypeId).SubItems.AddRange(newRecord);
                     //updateCounter("ADD");
                     updateTotalPrice(quantity, salePrice, "ADD");
                     cmb_itemType.SelectedIndex = 0;
                     txtQuantity.Value = 0;
                     txtSalePrice.Text = "0";
+                    lblUoM.Text = "N/A";
                     quantitiesLeft[itemTypeId] = (Decimal.Parse(quantitiesLeft[itemTypeId]) - Decimal.Parse(quantity)).ToString();
                 }
                 else
@@ -148,12 +150,14 @@ namespace Shop_Management_Solution
                 string itemTypeName = lvi.SubItems[1].Text;
                 long quantity = long.Parse(lvi.SubItems[2].Text);
                 double price = NumberUtils.SafeParse( lvi.SubItems[3].Text );
+                string uom = lvi.SubItems[4].Text;
 
                 Sale item = new Sale();
                 item.ItemTypeId = itemTypeId;
                 item.ItemName = itemTypeName;
                 item.Quantity = quantity;
                 item.SalePrice = price;
+                item.UomName = uom;
                 lstOfSaleItem.Add(item);
             }
             return lstOfSaleItem;
@@ -299,9 +303,11 @@ namespace Shop_Management_Solution
                         PdfPCell cellItemHeader = new PdfPCell(new Paragraph("Item Name"));
                         cellItemHeader.Colspan = 2;
                         table.AddCell(cellItemHeader);
+
                         PdfPCell cellQuantityHeader = new PdfPCell(new Paragraph("Quantity"));
                         cellQuantityHeader.Colspan = 2;
                         table.AddCell(cellQuantityHeader);
+
                         PdfPCell cellPriceHeader = new PdfPCell(new Paragraph("Price"));
                         cellPriceHeader.Colspan = 2;
                         table.AddCell(cellPriceHeader);
@@ -313,11 +319,12 @@ namespace Shop_Management_Solution
                             cellItemName.Colspan = 2;
                             table.AddCell(cellItemName);
 
-                            PdfPCell cellQuantity = new PdfPCell(new Paragraph(item.Quantity.ToString()));
+                            PdfPCell cellQuantity = new PdfPCell(new Paragraph(item.Quantity.ToString() + "  " +item.UomName ) );
                             cellQuantity.Colspan = 2;
                             table.AddCell(cellQuantity);
 
-                            PdfPCell cellPrice = new PdfPCell(new Paragraph(ConfigurationDAL.GetCurrentCurrency() + " " + item.SalePrice.ToString()));
+                            string pricewithUnit = ConfigurationDAL.GetCurrentCurrency() + " " + string.Format("{0:N2}", item.SalePrice);
+                            PdfPCell cellPrice = new PdfPCell(new Paragraph(pricewithUnit));
                             cellPrice.Colspan = 2;
                             table.AddCell(cellPrice);
 
@@ -440,6 +447,7 @@ namespace Shop_Management_Solution
             cmb_itemType.SelectedIndex = 0;
             txtQuantity.Value = 0;
             txtSalePrice.Text = "0";
+            lblUoM.Text = "N/A";
         }
 
         private void onItemTypeChange(object sender, EventArgs e)
@@ -466,9 +474,10 @@ namespace Shop_Management_Solution
                 {
                     long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
                     float salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
-
+                    string uomName = ShopDAL.getItemTypeUoM(itemId);
 
                     lblAvailableQuantity.Text = quantitiesLeft[itemId.ToString()];
+                    lblUoM.Text = uomName;
                     //lblAvailableQuantity.Text = availableQuantity.ToString();
                     txtSalePrice.Text = salePrice.ToString();
                     txtQuantity.Maximum = Decimal.Parse(quantitiesLeft[itemId.ToString()]);

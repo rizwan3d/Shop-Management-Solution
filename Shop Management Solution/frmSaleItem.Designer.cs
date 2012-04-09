@@ -56,6 +56,9 @@
             this.btn_Save_And_Print = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblUoM = new System.Windows.Forms.Label();
+            this.colUoM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).BeginInit();
             this.panel1.SuspendLayout();
@@ -65,9 +68,9 @@
             // dateOfSale
             // 
             this.dateOfSale.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOfSale.Location = new System.Drawing.Point(107, 16);
+            this.dateOfSale.Location = new System.Drawing.Point(123, 16);
             this.dateOfSale.Name = "dateOfSale";
-            this.dateOfSale.Size = new System.Drawing.Size(221, 20);
+            this.dateOfSale.Size = new System.Drawing.Size(205, 20);
             this.dateOfSale.TabIndex = 0;
             // 
             // label1
@@ -95,9 +98,9 @@
             this.cmb_itemType.Items.AddRange(new object[] {
             "CD-Software",
             "DVD-Software"});
-            this.cmb_itemType.Location = new System.Drawing.Point(107, 42);
+            this.cmb_itemType.Location = new System.Drawing.Point(123, 42);
             this.cmb_itemType.Name = "cmb_itemType";
-            this.cmb_itemType.Size = new System.Drawing.Size(221, 21);
+            this.cmb_itemType.Size = new System.Drawing.Size(205, 21);
             this.cmb_itemType.TabIndex = 1;
             this.cmb_itemType.SelectedIndexChanged += new System.EventHandler(this.onItemTypeChange);
             this.cmb_itemType.SelectedValueChanged += new System.EventHandler(this.onItemTypeValueChange);
@@ -113,9 +116,9 @@
             // 
             // txtSalePrice
             // 
-            this.txtSalePrice.Location = new System.Drawing.Point(107, 120);
+            this.txtSalePrice.Location = new System.Drawing.Point(123, 120);
             this.txtSalePrice.Name = "txtSalePrice";
-            this.txtSalePrice.Size = new System.Drawing.Size(221, 20);
+            this.txtSalePrice.Size = new System.Drawing.Size(205, 20);
             this.txtSalePrice.TabIndex = 3;
             this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
@@ -130,6 +133,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblUoM);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lblAvailableQuantity);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtQuantity);
@@ -142,7 +147,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(96, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(346, 159);
+            this.groupBox1.Size = new System.Drawing.Size(346, 170);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sale Item";
@@ -150,7 +155,7 @@
             // lblAvailableQuantity
             // 
             this.lblAvailableQuantity.AutoSize = true;
-            this.lblAvailableQuantity.Location = new System.Drawing.Point(104, 99);
+            this.lblAvailableQuantity.Location = new System.Drawing.Point(120, 99);
             this.lblAvailableQuantity.Name = "lblAvailableQuantity";
             this.lblAvailableQuantity.Size = new System.Drawing.Size(13, 13);
             this.lblAvailableQuantity.TabIndex = 12;
@@ -167,21 +172,21 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(107, 67);
+            this.txtQuantity.Location = new System.Drawing.Point(123, 67);
             this.txtQuantity.Maximum = new decimal(new int[] {
             1215752192,
             23,
             0,
             0});
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(221, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(205, 20);
             this.txtQuantity.TabIndex = 2;
             // 
             // btn_Reset
             // 
             this.btn_Reset.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Reset.Location = new System.Drawing.Point(362, 177);
+            this.btn_Reset.Location = new System.Drawing.Point(362, 188);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(80, 23);
             this.btn_Reset.TabIndex = 2;
@@ -219,7 +224,8 @@
             this.colTypeID,
             this.colTypeName,
             this.colQuantity,
-            this.colSalePrice});
+            this.colSalePrice,
+            this.colUoM});
             this.lstView_sales.FullRowSelect = true;
             this.lstView_sales.Location = new System.Drawing.Point(3, 30);
             this.lstView_sales.Name = "lstView_sales";
@@ -343,6 +349,28 @@
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Unit of Measurement:";
+            // 
+            // lblUoM
+            // 
+            this.lblUoM.AutoSize = true;
+            this.lblUoM.Location = new System.Drawing.Point(120, 143);
+            this.lblUoM.Name = "lblUoM";
+            this.lblUoM.Size = new System.Drawing.Size(27, 13);
+            this.lblUoM.TabIndex = 14;
+            this.lblUoM.Text = "N/A";
+            // 
+            // colUoM
+            // 
+            this.colUoM.Text = "UoM";
+            // 
             // frmSaleItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,5 +434,8 @@
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Label lblAvailableQuantity;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblUoM;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ColumnHeader colUoM;
     }
 }

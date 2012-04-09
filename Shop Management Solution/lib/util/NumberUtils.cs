@@ -18,7 +18,7 @@ namespace Shop_Management_Solution.lib.util
                 return res;
             }
 
-            return 0.0f; // Or perhaps throw your own exception type
+            return 0.0f;
         }
 
     }

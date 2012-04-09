@@ -168,9 +168,11 @@
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="lib\dal\ShopDAL.cs" />
+    <Compile Include="lib\dal\UoMDAL.cs" />
     <Compile Include="lib\dal\XtraTreeDAL.cs" />
     <Compile Include="lib\ItemType.cs" />
     <Compile Include="lib\Sale.cs" />
+    <Compile Include="lib\UoM.cs" />
     <Compile Include="lib\util\ConfigurationDAL.cs" />
     <Compile Include="lib\util\DBUtil.cs" />
     <Compile Include="lib\util\DebugUtil.cs" />

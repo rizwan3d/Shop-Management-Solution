@@ -11,6 +11,14 @@ namespace Shop_Management_Solution.lib
         private string itemName;        
         private long quantity;      
         private double salePrice;
+        private string uomName;
+
+        public string UomName
+        {
+            get { return uomName; }
+            set { uomName = value; }
+        }
+
 
         public long ItemTypeId
         {
