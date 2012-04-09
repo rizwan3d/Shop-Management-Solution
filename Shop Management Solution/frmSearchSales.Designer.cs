@@ -1,6 +1,6 @@
 ﻿namespace Shop_Management_Solution
 {
-    partial class frmSearchItem
+    partial class frmSearchSales
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchItem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchSales));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmb_itemType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -284,7 +284,7 @@
             this.MinimizeBox = false;
             this.Name = "frmSearchItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Search Item(s)";
+            this.Text = "Search Sales";
             this.Load += new System.EventHandler(this.frmSearchItem_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -31,7 +31,7 @@ namespace Shop_Management_Solution
                     gpAuthenticate.Hide();
                     lblAuthenticationStatus.Text = "Authentication Passed";
                     lblAuthenticationStatus.Show();
-                    frmSearchItem frmSearch = new frmSearchItem();
+                    frmSearchSales frmSearch = new frmSearchSales();
                     frmSearch.ShowDialog();
                     this.Close();
                     

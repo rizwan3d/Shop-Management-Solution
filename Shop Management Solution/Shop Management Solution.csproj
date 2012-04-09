@@ -155,11 +155,11 @@
     <Compile Include="frmSaleItem.Designer.cs">
       <DependentUpon>frmSaleItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSearchItem.cs">
+    <Compile Include="frmSearchSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSearchItem.Designer.cs">
-      <DependentUpon>frmSearchItem.cs</DependentUpon>
+    <Compile Include="frmSearchSales.Designer.cs">
+      <DependentUpon>frmSearchSales.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSplash.cs">
       <SubType>Form</SubType>
@@ -217,8 +217,8 @@
       <DependentUpon>frmSaleItem.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSearchItem.resx">
-      <DependentUpon>frmSearchItem.cs</DependentUpon>
+    <EmbeddedResource Include="frmSearchSales.resx">
+      <DependentUpon>frmSearchSales.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplash.resx">

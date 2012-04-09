@@ -12,9 +12,9 @@ using Shop_Management_Solution.lib.dal;
 
 namespace Shop_Management_Solution
 {
-    public partial class frmSearchItem : Form
+    public partial class frmSearchSales : Form
     {
-        public frmSearchItem()
+        public frmSearchSales()
         {
             InitializeComponent();
         }

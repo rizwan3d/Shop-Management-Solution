@@ -120,7 +120,7 @@
             this.btn_SearchItems.Name = "btn_SearchItems";
             this.btn_SearchItems.Size = new System.Drawing.Size(146, 36);
             this.btn_SearchItems.TabIndex = 4;
-            this.btn_SearchItems.Text = "Search Items";
+            this.btn_SearchItems.Text = "Search Sales";
             this.btn_SearchItems.UseVisualStyleBackColor = false;
             this.btn_SearchItems.Click += new System.EventHandler(this.btn_SearchItems_Click);
             // 
