@@ -10,15 +10,14 @@ using Shop_Management_Solution.lib.util;
 
 namespace Shop_Management_Solution.lib.dal
 {
-    class XtraTreeDAL
+    class VendorDAL
     {
-        public bool InsertXtraTreeNode(XtraTreeNode node)
+        public bool InsertVendor(Vendor node)
         {
-            //Create the objects we need to insert a new record
             OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString());
             OleDbCommand cmdInsert = new OleDbCommand();
-            string query = "INSERT INTO Xtra_Tree(Name,Parent_ID,Type,Email,Mobile_No,Contact_No,Location,Is_Deleted)" + 
-                            "VALUES(@name,@parentId,@type,@email,@mobile,@contactNo,@location,0)";
+            string query =  "INSERT INTO Vendor(Name,E-mail,Mobile,Phone,Location,Is_Deleted)" + 
+                            "VALUES (@name,@email,@mobile,@phone,@location,0) ";
             
             int iSqlStatus;
             cmdInsert.Parameters.Clear();
@@ -28,12 +27,11 @@ namespace Shop_Management_Solution.lib.dal
                 cmdInsert.CommandText = query;
                 cmdInsert.CommandType = CommandType.Text;
 
+
                 cmdInsert.Parameters.AddWithValue("@name", node.Name);
-                cmdInsert.Parameters.AddWithValue("@parentId", node.Parent.Id);
-                cmdInsert.Parameters.AddWithValue("@type",node.NodeType.Name );
                 cmdInsert.Parameters.AddWithValue("@email", node.Email);
                 cmdInsert.Parameters.AddWithValue("@mobile", node.MobileNo);
-                cmdInsert.Parameters.AddWithValue("@contactNo", node.ContactNo);
+                cmdInsert.Parameters.AddWithValue("@phone", node.ContactNo);
                 cmdInsert.Parameters.AddWithValue("@location", node.Location);
 
                 cmdInsert.Connection = cnInsert;
@@ -60,5 +58,6 @@ namespace Shop_Management_Solution.lib.dal
                 DBUtil.HandleConnection(cnInsert);
             }
         }
+
     }
 }

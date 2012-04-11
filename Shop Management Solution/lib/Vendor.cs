@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Shop_Management_Solution.lib
 {
-    class XtraTreeNode
+    class Vendor
     {
         private int id;
 
@@ -48,22 +48,6 @@ namespace Shop_Management_Solution.lib
         {
             get { return location; }
             set { location = value; }
-        }
-
-        private XtraTreeNode parent;
-
-        internal XtraTreeNode Parent
-        {
-            get { return parent; }
-            set { parent = value; }
-        }
-
-        private XtraNodeType nodeType;
-
-        internal XtraNodeType NodeType
-        {
-            get { return nodeType; }
-            set { nodeType = value; }
         }
 
 
