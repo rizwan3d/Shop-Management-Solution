@@ -13,7 +13,7 @@ namespace Shop_Management_Solution.lib.util
             if (String.IsNullOrEmpty(input)) { throw new ArgumentNullException("input"); }
 
             float res;
-            if (Single.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out res))
+            if (Single.TryParse(input, NumberStyles.Float, CultureInfo.CurrentCulture, out res))
             {
                 return res;
             }

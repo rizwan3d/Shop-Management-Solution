@@ -7,6 +7,7 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 using Shop_Management_Solution.lib.util;
 using Shop_Management_Solution.lib;
 using Shop_Management_Solution.lib.dal;
@@ -110,7 +111,7 @@ namespace Shop_Management_Solution
             String uom = lblUoM.Text;
             try
             {
-                double price = double.Parse(salePrice);
+                float price = NumberUtils.SafeParse(salePrice);
                 if (!String.IsNullOrEmpty(salePrice) && txtQuantity.Value > 0 && price > 0)
                 {
 
@@ -168,10 +169,10 @@ namespace Shop_Management_Solution
 
 
             long actualQuantity = long.Parse(quantity);
-            double actualPrice = double.Parse(price);
+            float actualPrice = NumberUtils.SafeParse(price);
 
             double totalPrice = actualPrice * actualQuantity;
-
+            totalPrice = Math.Round(totalPrice, 2);
             if (action == "ADD")
             {
                 this.saleTotalPrice = this.saleTotalPrice + totalPrice;
@@ -491,17 +492,19 @@ namespace Shop_Management_Solution
 
         private void txtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
         {
+            CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            char separator = char.Parse(ci.NumberFormat.CurrencyDecimalSeparator);
             // Code to Ensure that only numberic value with 
             if (!char.IsControl(e.KeyChar)
                  && !char.IsDigit(e.KeyChar)
-                 && e.KeyChar != '.')
+                 && e.KeyChar != separator)
             {
                 e.Handled = true;
             }
 
             // only allow one decimal point
-            if (e.KeyChar == '.'
-                && (sender as TextBox).Text.IndexOf('.') > -1)
+            if (e.KeyChar == separator
+                && (sender as TextBox).Text.IndexOf(separator) > -1)
             {
                 e.Handled = true;
             }
