@@ -497,14 +497,14 @@ namespace Shop_Management_Solution
             // Code to Ensure that only numberic value with 
             if (!char.IsControl(e.KeyChar)
                  && !char.IsDigit(e.KeyChar)
-                 && e.KeyChar != separator)
+                 && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
 
             // only allow one decimal point
-            if (e.KeyChar == separator
-                && (sender as TextBox).Text.IndexOf(separator) > -1)
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
