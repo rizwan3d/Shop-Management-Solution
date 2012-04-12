@@ -492,8 +492,6 @@ namespace Shop_Management_Solution
 
         private void txtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
-            char separator = char.Parse(ci.NumberFormat.CurrencyDecimalSeparator);
             // Code to Ensure that only numberic value with 
             if (!char.IsControl(e.KeyChar)
                  && !char.IsDigit(e.KeyChar)
