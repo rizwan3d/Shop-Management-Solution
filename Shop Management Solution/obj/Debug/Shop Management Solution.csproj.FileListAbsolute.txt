@@ -96,27 +96,3 @@ D:\Projekty\dotNet\Shop Management Solution\Shop Management Solution\obj\Debug\R
 D:\Projekty\dotNet\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.TrustInfo.xml
 D:\Projekty\dotNet\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.exe.manifest
 D:\Projekty\dotNet\Shop Management Solution\Shop Management Solution\obj\Debug\Shop_Solution.application
-D:\shopmanagement\Shop Management Solution\bin\Debug\Shop_Solution.exe.config
-D:\shopmanagement\Shop Management Solution\bin\Debug\Shop_Solution.exe.manifest
-D:\shopmanagement\Shop Management Solution\bin\Debug\Shop_Solution.application
-D:\shopmanagement\Shop Management Solution\bin\Debug\Shop_Solution.exe
-D:\shopmanagement\Shop Management Solution\bin\Debug\Shop_Solution.pdb
-D:\shopmanagement\Shop Management Solution\obj\Debug\ResolveAssemblyReference.cache
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.AboutBox.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmChangePassword.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAddItemType.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmAuthenticate.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmBuyItem.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSettings.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmMainMenu.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSaleItem.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSplash.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.Properties.Resources.resources
-D:\shopmanagement\Shop Management Solution\obj\Debug\ResGen.read.1.tlog
-D:\shopmanagement\Shop Management Solution\obj\Debug\ResGen.write.1.tlog
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Solution.TrustInfo.xml
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Solution.exe.manifest
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Solution.application
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Solution.exe
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Solution.pdb
-D:\shopmanagement\Shop Management Solution\obj\Debug\Shop_Management_Solution.frmSearchSales.resources
