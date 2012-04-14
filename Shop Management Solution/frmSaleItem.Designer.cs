@@ -37,6 +37,8 @@
             this.txtSalePrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblUoM = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblAvailableQuantity = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.NumericUpDown();
@@ -48,17 +50,19 @@
             this.colTypeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSalePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colUoM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Add = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblItemCount = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btn_Save_And_Print = new System.Windows.Forms.Button();
+            this.btnSaveAsPDF = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblUoM = new System.Windows.Forms.Label();
-            this.colUoM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSaveAndPrint = new System.Windows.Forms.Button();
+            this.prnDialog = new System.Windows.Forms.PrintDialog();
+            this.prnDocument = new System.Drawing.Printing.PrintDocument();
+            this.prnPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).BeginInit();
             this.panel1.SuspendLayout();
@@ -151,6 +155,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sale Item";
+            // 
+            // lblUoM
+            // 
+            this.lblUoM.AutoSize = true;
+            this.lblUoM.Location = new System.Drawing.Point(120, 143);
+            this.lblUoM.Name = "lblUoM";
+            this.lblUoM.Size = new System.Drawing.Size(27, 13);
+            this.lblUoM.TabIndex = 14;
+            this.lblUoM.Text = "N/A";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Unit of Measurement:";
             // 
             // lblAvailableQuantity
             // 
@@ -259,6 +281,10 @@
             this.colSalePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.colSalePrice.Width = 96;
             // 
+            // colUoM
+            // 
+            this.colUoM.Text = "UoM";
+            // 
             // btn_Add
             // 
             this.btn_Add.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -314,18 +340,18 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Total Price:";
             // 
-            // btn_Save_And_Print
+            // btnSaveAsPDF
             // 
-            this.btn_Save_And_Print.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Save_And_Print.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save_And_Print.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Save_And_Print.Location = new System.Drawing.Point(201, 510);
-            this.btn_Save_And_Print.Name = "btn_Save_And_Print";
-            this.btn_Save_And_Print.Size = new System.Drawing.Size(121, 24);
-            this.btn_Save_And_Print.TabIndex = 4;
-            this.btn_Save_And_Print.Text = "Save and Print";
-            this.btn_Save_And_Print.UseVisualStyleBackColor = false;
-            this.btn_Save_And_Print.Click += new System.EventHandler(this.btn_Save_And_Print_Click);
+            this.btnSaveAsPDF.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSaveAsPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAsPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAsPDF.Location = new System.Drawing.Point(164, 510);
+            this.btnSaveAsPDF.Name = "btnSaveAsPDF";
+            this.btnSaveAsPDF.Size = new System.Drawing.Size(136, 24);
+            this.btnSaveAsPDF.TabIndex = 4;
+            this.btnSaveAsPDF.Text = "Save and Generate PDF";
+            this.btnSaveAsPDF.UseVisualStyleBackColor = false;
+            this.btnSaveAsPDF.Click += new System.EventHandler(this.btnSaveAsPDF_Click);
             // 
             // pictureBox1
             // 
@@ -341,35 +367,44 @@
             this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cancel.Location = new System.Drawing.Point(328, 510);
+            this.btn_cancel.Location = new System.Drawing.Point(306, 510);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(121, 24);
+            this.btn_cancel.Size = new System.Drawing.Size(136, 24);
             this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // label7
+            // btnSaveAndPrint
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 143);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Unit of Measurement:";
+            this.btnSaveAndPrint.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSaveAndPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAndPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAndPrint.Location = new System.Drawing.Point(22, 510);
+            this.btnSaveAndPrint.Name = "btnSaveAndPrint";
+            this.btnSaveAndPrint.Size = new System.Drawing.Size(136, 24);
+            this.btnSaveAndPrint.TabIndex = 17;
+            this.btnSaveAndPrint.Text = "Save and Print";
+            this.btnSaveAndPrint.UseVisualStyleBackColor = false;
+            this.btnSaveAndPrint.Click += new System.EventHandler(this.btnSaveAndPrint_Click);
             // 
-            // lblUoM
+            // prnDialog
             // 
-            this.lblUoM.AutoSize = true;
-            this.lblUoM.Location = new System.Drawing.Point(120, 143);
-            this.lblUoM.Name = "lblUoM";
-            this.lblUoM.Size = new System.Drawing.Size(27, 13);
-            this.lblUoM.TabIndex = 14;
-            this.lblUoM.Text = "N/A";
+            this.prnDialog.UseEXDialog = true;
             // 
-            // colUoM
+            // prnDocument
             // 
-            this.colUoM.Text = "UoM";
+            this.prnDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prnDocument_PrintPage);
+            // 
+            // prnPreview
+            // 
+            this.prnPreview.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.prnPreview.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.prnPreview.ClientSize = new System.Drawing.Size(400, 300);
+            this.prnPreview.Enabled = true;
+            this.prnPreview.Icon = ((System.Drawing.Icon)(resources.GetObject("prnPreview.Icon")));
+            this.prnPreview.Name = "prnPreview";
+            this.prnPreview.Visible = false;
             // 
             // frmSaleItem
             // 
@@ -377,11 +412,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(454, 542);
+            this.Controls.Add(this.btnSaveAndPrint);
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblItemCount);
             this.Controls.Add(this.btn_Reset);
-            this.Controls.Add(this.btn_Save_And_Print);
+            this.Controls.Add(this.btnSaveAsPDF);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_cancel);
@@ -423,7 +459,7 @@
         private System.Windows.Forms.ColumnHeader colTypeName;
         private System.Windows.Forms.ColumnHeader colQuantity;
         private System.Windows.Forms.ColumnHeader colSalePrice;
-        private System.Windows.Forms.Button btn_Save_And_Print;
+        private System.Windows.Forms.Button btnSaveAsPDF;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.NumericUpDown txtQuantity;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -437,5 +473,9 @@
         private System.Windows.Forms.Label lblUoM;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ColumnHeader colUoM;
+        private System.Windows.Forms.Button btnSaveAndPrint;
+        private System.Windows.Forms.PrintDialog prnDialog;
+        private System.Drawing.Printing.PrintDocument prnDocument;
+        private System.Windows.Forms.PrintPreviewDialog prnPreview;
     }
 }

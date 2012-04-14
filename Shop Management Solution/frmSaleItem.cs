@@ -17,8 +17,6 @@ using System.Diagnostics;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-
-
 namespace Shop_Management_Solution
 {
     public partial class frmSaleItem : Form
@@ -26,6 +24,54 @@ namespace Shop_Management_Solution
         private long saleCounter;
         private double saleTotalPrice;
         private Dictionary<string, string> quantitiesLeft;
+        private long invoiceID;
+
+        // for Invoice Head:
+        private string invoiceTitle;
+        private string invoiceSubTitle1;
+        private string invoiceSubTitle2;
+        private string invoiceSubTitle3;
+        private string invoiceImage;
+
+        // for Report:
+        private int currentY;
+        private int currentX;
+        private int leftMargin;
+        private int rightMargin;
+        private int topMargin;
+        private int bottomMargin;
+        private int InvoiceWidth;
+        private int InvoiceHeight;
+        private string customerName;
+        private string customerCity;
+        private string sellerName;
+        private string saleID;
+        private string saleDate;
+        private decimal saleFreight;
+        private decimal subTotal;
+        private decimal invoiceTotal;
+        private bool readInvoice;
+        private int amountPosition;
+
+        // Font and Color:------------------
+        // Title Font
+        private System.Drawing.Font invoiceTitleFont = new System.Drawing.Font("Arial", 24, FontStyle.Regular);
+        // Title Font height
+        private int invoiceTitleHeight;
+        // SubTitle Font
+        private System.Drawing.Font invoiceSubTitleFont = new System.Drawing.Font("Arial", 14, FontStyle.Regular);
+        // SubTitle Font height
+        private int InvSubTitleHeight;
+        // Invoice Font
+        private System.Drawing.Font invoiceFont = new System.Drawing.Font("Arial", 12, FontStyle.Regular);
+        // Invoice Font height
+        private int invoiceFontHeight;
+        // Blue Color
+        private SolidBrush blueBrush = new SolidBrush(Color.Blue);
+        // Red Color
+        private SolidBrush redBrush = new SolidBrush(Color.Red);
+        // Black Color
+        private SolidBrush blackBrush = new SolidBrush(Color.Black);
 
         public frmSaleItem()
         {
@@ -230,9 +276,97 @@ namespace Shop_Management_Solution
 
         }
 
-        private void btn_Save_And_Print_Click(object sender, EventArgs e)
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            cmb_itemType.SelectedIndex = 0;
+            txtQuantity.Value = 0;
+            txtSalePrice.Text = "0";
+            lblUoM.Text = "N/A";
+        }
+
+        private void onItemTypeChange(object sender, EventArgs e)
         {
 
+        }
+
+        private void onItemTypeValueChange(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+
+            String selectedItemTypeIndex = cb.SelectedValue.ToString();
+            if (selectedItemTypeIndex != "System.Data.DataRowView")
+            {
+                long itemId = long.Parse(selectedItemTypeIndex);
+
+                if (itemId.ToString() == "0")
+                {
+                    lblAvailableQuantity.Text = "0";
+                    txtSalePrice.Text = "0";
+                    txtQuantity.Maximum = 0;
+                }
+                else
+                {
+                    long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
+                    float salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
+                    string uomName = ShopDAL.getItemTypeUoM(itemId);
+
+                    lblAvailableQuantity.Text = quantitiesLeft[itemId.ToString()];
+                    lblUoM.Text = uomName;
+                    //lblAvailableQuantity.Text = availableQuantity.ToString();
+                    txtSalePrice.Text = salePrice.ToString();
+                    txtQuantity.Maximum = Decimal.Parse(quantitiesLeft[itemId.ToString()]);
+                    //txtQuantity.Maximum = availableQuantity;
+                }
+
+
+            }
+
+        }
+
+        private void txtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Code to Ensure that only numberic value with 
+            if (!char.IsControl(e.KeyChar)
+                 && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void lstView_sales_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (e.Item.Selected)
+            {
+                btn_Delete.Enabled = true;
+                // listView.ItemSettings.SelectedAppearance.BackColor = Color.LightBlue;
+                //listView.ItemSettings.SelectedAppearance.BackColor2 = SystemColors.Highlight;
+                //listView.ItemSettings.SelectedAppearance.BackGradientStyle = GradientStyle.Vertical;
+            }
+            else
+            {
+                btn_Delete.Enabled = false;
+            }
+        }
+
+        private void lstView_sales_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Delete) && (lstView_sales.Items.Count > 0) && (lstView_sales.SelectedItems.Count > 0))
+            {
+                btn_Delete_Click(lstView_sales, null);
+            }
+        }
+
+        private void btnSaveAsPDF_Click(object sender, EventArgs e)
+        {
             try
             {
                 List<Sale> saleItems = this.getListofItemsToBeAdded();
@@ -320,7 +454,7 @@ namespace Shop_Management_Solution
                             cellItemName.Colspan = 2;
                             table.AddCell(cellItemName);
 
-                            PdfPCell cellQuantity = new PdfPCell(new Paragraph(item.Quantity.ToString() + "  " +item.UomName ) );
+                            PdfPCell cellQuantity = new PdfPCell(new Paragraph(item.Quantity.ToString() + "  " + item.UomName));
                             cellQuantity.Colspan = 2;
                             table.AddCell(cellQuantity);
 
@@ -388,146 +522,202 @@ namespace Shop_Management_Solution
             {
                 MessageBox.Show(this, ex.Message.ToString(), "Error: Sale Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
-
-            /* try
-             {
-                 List<Sale> saleItems = this.getListofItemsToBeAdded();
-                 if (saleItems.Count >= 1)
-                 {
-                     String saleDate = dateOfSale.Text;
-                     ShopDAL.SaleItems(saleDate, saleItems);
-
-                   
-                     dateOfSale.Format = DateTimePickerFormat.Long;                   
-                     String displayDate = dateOfSale.Text;
-                     PCPrint printer = new PCPrint();
-                   
-                     printer.PrinterFont = new Font("Times New Roman", 18);
-                     printer.TextToPrint = " \n " + ConfigurationDAL.GetShopName();
-                     printer.PrinterFont = new Font("Verdana", 10);
-                     printer.TextToPrint += " \n Dated: " + displayDate;                   
-                     printer.TextToPrint += " \n_________________________________";
-
-                     printer.TextToPrint += " \n Item Name  Quantity    Price";
-                     printer.TextToPrint += " \n_________________________________";
-                     foreach (Sale item in saleItems)
-                     {
-                         printer.TextToPrint += " \n  " + item.ItemName + "    " + item.Quantity+"    "+ ConfigurationDAL.GetCurrentCurrency() + " " + +item.SalePrice;
-
-                     }
-                     printer.TextToPrint += " \n_________________________________";
-                     printer.PrinterFont = new Font("Verdana", 12);
-                     printer.TextToPrint += " \n Total Items:  " + this.saleCounter + "       Total Price:  "+ConfigurationDAL.GetCurrentCurrency() +" "+ this.saleTotalPrice;
-                     printer.TextToPrint += " \n_________________________________";
-                     printer.TextToPrint += " \nProduct by: www.iWorker4U.com";
-
-
-                     printer.Print();
-                     this.Close();
-                     MessageBox.Show(this, "Item sold successfully.", "Sale Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 }
-                 else
-                 {
-                     throw new Exception("Please add some item(s) in list");
-                 }
-               
-               
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(this, ex.Message.ToString(), "Error: Sale Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }*/
-
         }
 
-        private void btn_Reset_Click(object sender, EventArgs e)
+        private void prnDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            cmb_itemType.SelectedIndex = 0;
-            txtQuantity.Value = 0;
-            txtSalePrice.Text = "0";
-            lblUoM.Text = "N/A";
+            leftMargin = (int)e.MarginBounds.Left;
+            rightMargin = (int)e.MarginBounds.Right;
+            topMargin = (int)e.MarginBounds.Top;
+            bottomMargin = (int)e.MarginBounds.Bottom;
+            InvoiceWidth = (int)e.MarginBounds.Width;
+            InvoiceHeight = (int)e.MarginBounds.Height;
+
+            setInvoiceHead(e.Graphics); // Draw Invoice Head
+            setOrderData(e.Graphics); // Draw Order Data
+            setInvoiceData(e.Graphics, e); // Draw Invoice Data
+
+            readInvoice = true;
         }
 
-        private void onItemTypeChange(object sender, EventArgs e)
+        private void readInvoiceHead()
         {
+            dateOfSale.Format = DateTimePickerFormat.Long;
+            String displayDate = dateOfSale.Text;
 
+            //Titles and Image of invoice:
+            invoiceTitle = ConfigurationDAL.GetShopName(); // "International Food Company";
+            invoiceSubTitle1 = "Dated :" + displayDate.ToString();
+            invoiceImage = Application.StartupPath + @"\Images\" + "Header.jpg";
         }
 
-        private void onItemTypeValueChange(object sender, EventArgs e)
+        private void setInvoiceHead(Graphics g)
         {
-            ComboBox cb = (ComboBox)sender;
+            readInvoiceHead();
 
-            String selectedItemTypeIndex = cb.SelectedValue.ToString();
-            if (selectedItemTypeIndex != "System.Data.DataRowView")
+            currentY = topMargin;
+            currentX = leftMargin;
+            int ImageHeight = 0;
+
+            // Draw Invoice image:
+            if (System.IO.File.Exists(invoiceImage))
             {
-                long itemId = long.Parse(selectedItemTypeIndex);
+                Bitmap oinvoiceImage = new Bitmap(invoiceImage);
+                // Set Image Left to center Image:
+                int xImage = currentX + (InvoiceWidth - oinvoiceImage.Width) / 2;
+                ImageHeight = oinvoiceImage.Height; // Get Image Height
+                g.DrawImage(oinvoiceImage, xImage, currentY);
+            }
 
-                if (itemId.ToString() == "0")
+            invoiceTitleHeight = (int)(invoiceTitleFont.GetHeight(g));
+            InvSubTitleHeight = (int)(invoiceSubTitleFont.GetHeight(g));
+
+            // Get Titles Length:
+            int leninvoiceTitle = (int)g.MeasureString(invoiceTitle, invoiceTitleFont).Width;
+            int leninvoiceSubTitle1 = (int)g.MeasureString(invoiceSubTitle1, invoiceSubTitleFont).Width;
+
+            // Set Titles Left:
+            int xinvoiceTitle = currentX + (InvoiceWidth - leninvoiceTitle) / 2;
+            int xinvoiceSubTitle1 = currentX + (InvoiceWidth - leninvoiceSubTitle1) / 2;
+
+            // Draw Invoice Head:
+            if (invoiceTitle != "")
+            {
+                currentY = currentY + ImageHeight;
+                g.DrawString(invoiceTitle, invoiceTitleFont, blueBrush, xinvoiceTitle, currentY);
+            }
+            if (invoiceSubTitle1 != "")
+            {
+                currentY = currentY + invoiceTitleHeight;
+                g.DrawString(invoiceSubTitle1, invoiceSubTitleFont, blueBrush, xinvoiceSubTitle1, currentY);
+            }
+
+            // Draw line:
+            currentY = currentY + InvSubTitleHeight + 8;
+            g.DrawLine(new Pen(Brushes.Black, 2), currentX, currentY, rightMargin, currentY);
+        }
+
+        private void setOrderData(Graphics g)
+        {
+
+            // Set Invoice
+            string FieldValue = "";
+            invoiceFontHeight = (int)(invoiceFont.GetHeight(g));
+
+            // Set Invoice Value:
+            currentX = leftMargin;
+            currentY = currentY + 8;
+            FieldValue = "Invoice ID: " + invoiceID.ToString();
+            g.DrawString(FieldValue, invoiceFont, blackBrush, currentX, currentY);
+
+            // Draw line:
+            currentY = currentY + invoiceFontHeight + 8;
+            g.DrawLine(new Pen(Brushes.Black), leftMargin, currentY, rightMargin, currentY);
+        }
+
+        private void setInvoiceData(Graphics g, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            List<Sale> saleItems = this.getListofItemsToBeAdded();
+
+            // Set Invoice Table:
+            string FieldValue = "";
+            int CurrentRecord = 0;
+            int RecordsPerPage = 20; // twenty items in a page
+            decimal Amount = 0;
+            bool StopReading = false;
+
+            // Set Table Head:
+
+            int xItemName = leftMargin;
+            currentY = currentY + invoiceFontHeight;
+            g.DrawString("Item Name", invoiceFont, blueBrush, xItemName, currentY);
+
+            int xQuantity = xItemName + (int)g.MeasureString("Quantity", invoiceFont).Width + 72;
+            g.DrawString("Quantity", invoiceFont, blueBrush, xQuantity, currentY);
+
+            int xUnitPrice = xQuantity + (int)g.MeasureString("Unit Price", invoiceFont).Width + 72;
+            g.DrawString("Unit Price", invoiceFont, blueBrush, xUnitPrice, currentY);
+
+
+            currentY = currentY + invoiceFontHeight + 8;
+            foreach( Sale item in saleItems)
+            {
+                FieldValue = item.ItemName;
+                g.DrawString(FieldValue, invoiceFont, blackBrush, xItemName, currentY);
+
+                FieldValue = item.Quantity + " "+item.UomName;
+                g.DrawString(FieldValue, invoiceFont, blackBrush, xQuantity, currentY);
+
+                FieldValue = ConfigurationDAL.GetCurrentCurrency() + " " + string.Format("{0:N2}", item.SalePrice);
+                g.DrawString(FieldValue, invoiceFont, blackBrush, xUnitPrice, currentY);
+
+                currentY = currentY + invoiceFontHeight;
+            }
+            setinvoiceTotal(g);
+
+            g.Dispose();
+        }
+
+        private void setinvoiceTotal(Graphics g)
+        {
+            string fieldValue = "";
+            string totalQuantity = this.saleCounter.ToString();
+            string totalPrice = ConfigurationDAL.GetCurrentCurrency() + " " + this.saleTotalPrice.ToString(); this.saleCounter.ToString();
+            
+            // Draw line:
+            currentY = currentY + 8;
+            g.DrawLine(new Pen(Brushes.Black), leftMargin, currentY, rightMargin, currentY);
+
+            invoiceFontHeight = (int)(invoiceFont.GetHeight(g));
+            // Set Total Quantity:
+            currentX = leftMargin;
+            currentY =currentY + 8;
+            fieldValue = "Total Quantity:     " + totalQuantity;
+            g.DrawString(fieldValue, invoiceFont, blackBrush, currentX, currentY);
+
+            // Set Total Price:
+            currentX = currentX + (int)g.MeasureString(fieldValue, invoiceFont).Width + 25;
+            fieldValue = "Total Price:      " + totalPrice;
+            g.DrawString(fieldValue, invoiceFont, blackBrush, currentX, currentY);
+
+        }
+
+        private void btnSaveAndPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Sale> saleItems = this.getListofItemsToBeAdded();
+                if (saleItems.Count >= 1)
                 {
-                    lblAvailableQuantity.Text = "0";
-                    txtSalePrice.Text = "0";
-                    txtQuantity.Maximum = 0;
+                 
+                        String saleDate = dateOfSale.Text;
+                        invoiceID = ShopDAL.SaleItems(saleDate, saleItems);
+
+                         prnDialog.Document = this.prnDocument;
+                         prnDialog.ShowDialog();
+                         //prnPreview.Document = this.prnDocument;
+                         //prnPreview.ShowDialog();
+
                 }
                 else
                 {
-                    long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
-                    float salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
-                    string uomName = ShopDAL.getItemTypeUoM(itemId);
-
-                    lblAvailableQuantity.Text = quantitiesLeft[itemId.ToString()];
-                    lblUoM.Text = uomName;
-                    //lblAvailableQuantity.Text = availableQuantity.ToString();
-                    txtSalePrice.Text = salePrice.ToString();
-                    txtQuantity.Maximum = Decimal.Parse(quantitiesLeft[itemId.ToString()]);
-                    //txtQuantity.Maximum = availableQuantity;
+                    throw new Exception("Please add some item(s) in list");
                 }
 
-
             }
-
-        }
-
-        private void txtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Code to Ensure that only numberic value with 
-            if (!char.IsControl(e.KeyChar)
-                 && !char.IsDigit(e.KeyChar)
-                 && e.KeyChar != '.')
+            catch (DocumentException de)
             {
-                e.Handled = true;
+
+                MessageBox.Show(de.Message);
             }
-
-            // only allow one decimal point
-            if (e.KeyChar == '.'
-                && (sender as TextBox).Text.IndexOf('.') > -1)
+            catch (IOException ioe)
             {
-                e.Handled = true;
+                MessageBox.Show(ioe.Message);
             }
-        }
-
-        private void lstView_sales_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            if (e.Item.Selected)
+            catch (Exception ex)
             {
-                btn_Delete.Enabled = true;
-                // listView.ItemSettings.SelectedAppearance.BackColor = Color.LightBlue;
-                //listView.ItemSettings.SelectedAppearance.BackColor2 = SystemColors.Highlight;
-                //listView.ItemSettings.SelectedAppearance.BackGradientStyle = GradientStyle.Vertical;
-            }
-            else
-            {
-                btn_Delete.Enabled = false;
-            }
-        }
-
-        private void lstView_sales_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.KeyCode == Keys.Delete) && (lstView_sales.Items.Count > 0) && (lstView_sales.SelectedItems.Count > 0))
-            {
-                btn_Delete_Click(lstView_sales, null);
+                MessageBox.Show(this, ex.Message.ToString(), "Error: Sale Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
