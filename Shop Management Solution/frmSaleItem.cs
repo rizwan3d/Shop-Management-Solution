@@ -314,7 +314,7 @@ namespace Shop_Management_Solution
                     lblAvailableQuantity.Text = quantitiesLeft[itemId.ToString()];
                     lblUoM.Text = uomName;
                     //lblAvailableQuantity.Text = availableQuantity.ToString();
-                    txtSalePrice.Text = salePrice.ToString();
+                    txtSalePrice.Text = salePrice.ToString(CultureInfo.InvariantCulture); //NumberUtils.SafeParse(salePrice.ToString()).ToString(); 
                     txtQuantity.Maximum = Decimal.Parse(quantitiesLeft[itemId.ToString()]);
                     //txtQuantity.Maximum = availableQuantity;
                 }
