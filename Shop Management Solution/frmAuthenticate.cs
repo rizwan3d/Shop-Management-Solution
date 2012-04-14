@@ -12,6 +12,13 @@ namespace Shop_Management_Solution
 {
     public partial class frmAuthenticate : Form
     {
+        private Boolean authenticated= false;
+
+        public Boolean isAuthenticated
+        {
+            get { return authenticated; }
+        }
+
         public frmAuthenticate()
         {
             InitializeComponent();
@@ -31,8 +38,10 @@ namespace Shop_Management_Solution
                     gpAuthenticate.Hide();
                     lblAuthenticationStatus.Text = "Authentication Passed";
                     lblAuthenticationStatus.Show();
-                    frmSearchSales frmSearch = new frmSearchSales();
-                    frmSearch.ShowDialog();
+                    //frmSearchSales frmSearch = new frmSearchSales();
+                    //frmSearch.ShowDialog();
+                    authenticated = true;
+
                     this.Close();
                     
                 }
