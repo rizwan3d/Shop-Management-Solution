@@ -507,9 +507,11 @@ namespace Shop_Management_Solution.lib.dal
             {
                 throw new Exception(ex.Message);
             }
+            
+            DBUtil.HandleConnection(cnGetRecords);
             //now we close the connection
             return null;
-            DBUtil.HandleConnection(cnGetRecords);
+            
         }
 
         public static long GetItemPrice(long typeId)
