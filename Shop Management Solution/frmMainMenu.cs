@@ -140,6 +140,13 @@ namespace Shop_Management_Solution
         {
             frmAuthenticate frmAuth = new frmAuthenticate();
             frmAuth.ShowDialog();
+            if (frmAuth.isAuthenticated)
+            {
+                frmSearchSales frmSearch = new frmSearchSales();
+                frmSearch.ShowDialog();
+                frmSearch.Dispose();
+            }
+            frmAuth.Dispose();
         }
 
         private void tsUpdates_Click(object sender, EventArgs e)
