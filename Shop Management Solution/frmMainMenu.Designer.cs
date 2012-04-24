@@ -40,6 +40,7 @@
             this.addPurchasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saleItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchItemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contractorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -191,6 +192,7 @@
             this.addPurchasesToolStripMenuItem,
             this.saleItemsToolStripMenuItem,
             this.searchItemToolStripMenuItem1,
+            this.contractorsToolStripMenuItem,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem1});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -201,7 +203,7 @@
             // 
             this.addItemTypeToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.item_type;
             this.addItemTypeToolStripMenuItem1.Name = "addItemTypeToolStripMenuItem1";
-            this.addItemTypeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.addItemTypeToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.addItemTypeToolStripMenuItem1.Text = "Add Item Type";
             this.addItemTypeToolStripMenuItem1.Click += new System.EventHandler(this.addItemTypeToolStripMenuItem_Click);
             // 
@@ -209,7 +211,7 @@
             // 
             this.addPurchasesToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.full_shopping_cart_icon_s;
             this.addPurchasesToolStripMenuItem.Name = "addPurchasesToolStripMenuItem";
-            this.addPurchasesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addPurchasesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.addPurchasesToolStripMenuItem.Text = "Add Purchases";
             this.addPurchasesToolStripMenuItem.Click += new System.EventHandler(this.buyItemsToolStripMenuItem_Click);
             // 
@@ -217,7 +219,7 @@
             // 
             this.saleItemsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.cash_register_icon;
             this.saleItemsToolStripMenuItem.Name = "saleItemsToolStripMenuItem";
-            this.saleItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saleItemsToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.saleItemsToolStripMenuItem.Text = "Sale Item(s)";
             this.saleItemsToolStripMenuItem.Click += new System.EventHandler(this.saleItemToolStripMenuItem_Click);
             // 
@@ -225,20 +227,27 @@
             // 
             this.searchItemToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.search_icon;
             this.searchItemToolStripMenuItem1.Name = "searchItemToolStripMenuItem1";
-            this.searchItemToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.searchItemToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.searchItemToolStripMenuItem1.Text = "Search Item";
             this.searchItemToolStripMenuItem1.Click += new System.EventHandler(this.searchItemToolStripMenuItem_Click);
+            // 
+            // contractorsToolStripMenuItem
+            // 
+            this.contractorsToolStripMenuItem.Name = "contractorsToolStripMenuItem";
+            this.contractorsToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.contractorsToolStripMenuItem.Text = "Contractors Management";
+            this.contractorsToolStripMenuItem.Click += new System.EventHandler(this.contractorsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(207, 6);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.Log_Out_icon;
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -565,7 +574,7 @@
             this.lblTotalGiven.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalGiven.Location = new System.Drawing.Point(350, -2);
             this.lblTotalGiven.Name = "lblTotalGiven";
-            this.lblTotalGiven.Size = new System.Drawing.Size(0, 19);
+            this.lblTotalGiven.Size = new System.Drawing.Size(0, 20);
             this.lblTotalGiven.TabIndex = 13;
             // 
             // label3
@@ -585,7 +594,7 @@
             this.lblChangeToBePaid.ForeColor = System.Drawing.Color.Red;
             this.lblChangeToBePaid.Location = new System.Drawing.Point(350, 22);
             this.lblChangeToBePaid.Name = "lblChangeToBePaid";
-            this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 19);
+            this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 20);
             this.lblChangeToBePaid.TabIndex = 11;
             // 
             // label2
@@ -615,7 +624,7 @@
             this.lblTotalPrice.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPrice.Location = new System.Drawing.Point(113, -2);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(0, 25);
+            this.lblTotalPrice.Size = new System.Drawing.Size(0, 26);
             this.lblTotalPrice.TabIndex = 8;
             // 
             // picStatusPayment
@@ -737,6 +746,7 @@
         private System.Windows.Forms.ToolStripMenuItem updatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.Label lblPaymentStatusText;
+        private System.Windows.Forms.ToolStripMenuItem contractorsToolStripMenuItem;
 
     }
 }

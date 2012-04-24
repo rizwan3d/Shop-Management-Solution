@@ -7,47 +7,56 @@ namespace Shop_Management_Solution.lib
 {
     class Vendor
     {
-        private int id;
+        public Vendor(int id, string name, string email, string phoneNo, string mobileNo, string location)
+        {
+            _id = id;
+            _name = name;
+            _phoneNo = phoneNo;
+            _mobileNo = mobileNo;            
+            _location = location;
+        }
+
+        private int _id;
 
         public int Id
         {
-            get { return id; }
-            set { id = value; }
+            get { return _id; }
+            set { _id = value; }
         }
-        private string name;
+        private string _name;
 
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
-        private string email;
+        private string _email;
 
         public string Email
         {
-            get { return email; }
-            set { email = value; }
+            get { return _email; }
+            set { _email = value; }
         }
-        private string mobileNo;
+        private string _mobileNo;
 
         public string MobileNo
         {
-            get { return mobileNo; }
-            set { mobileNo = value; }
+            get { return _mobileNo; }
+            set { _mobileNo = value; }
         }
-        private string contactNo;
+        private string _phoneNo;
 
-        public string ContactNo
+        public string PhoneNo
         {
-            get { return contactNo; }
-            set { contactNo = value; }
+            get { return _phoneNo; }
+            set { _phoneNo = value; }
         }
-        private string location;
+        private string _location;
 
         public string Location
         {
-            get { return location; }
-            set { location = value; }
+            get { return _location; }
+            set { _location = value; }
         }
 
 
