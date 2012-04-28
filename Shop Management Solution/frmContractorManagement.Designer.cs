@@ -55,6 +55,7 @@
             this.dgContractors = new System.Windows.Forms.DataGridView();
             this.btUpdateContractor = new System.Windows.Forms.Button();
             this.btSaveContractors = new System.Windows.Forms.Button();
+            this.cbShowDeleted = new System.Windows.Forms.CheckBox();
             this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +68,6 @@
             this.clCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIsDeleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.cbShowDeleted = new System.Windows.Forms.CheckBox();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(300, 87);
+            this.lbEmail.Location = new System.Drawing.Point(314, 87);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(35, 13);
             this.lbEmail.TabIndex = 1;
@@ -93,7 +93,7 @@
             // lbPhone
             // 
             this.lbPhone.AutoSize = true;
-            this.lbPhone.Location = new System.Drawing.Point(300, 27);
+            this.lbPhone.Location = new System.Drawing.Point(314, 27);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(78, 13);
             this.lbPhone.TabIndex = 2;
@@ -102,7 +102,7 @@
             // lbMobile
             // 
             this.lbMobile.AutoSize = true;
-            this.lbMobile.Location = new System.Drawing.Point(300, 57);
+            this.lbMobile.Location = new System.Drawing.Point(314, 57);
             this.lbMobile.Name = "lbMobile";
             this.lbMobile.Size = new System.Drawing.Size(78, 13);
             this.lbMobile.TabIndex = 3;
@@ -166,17 +166,16 @@
             this.gbContractorDetails.Controls.Add(this.lbPostCode);
             this.gbContractorDetails.Controls.Add(this.lbAddrLine2);
             this.gbContractorDetails.Controls.Add(this.txtName);
-            this.gbContractorDetails.Enabled = false;
             this.gbContractorDetails.Location = new System.Drawing.Point(12, 12);
             this.gbContractorDetails.Name = "gbContractorDetails";
-            this.gbContractorDetails.Size = new System.Drawing.Size(545, 202);
+            this.gbContractorDetails.Size = new System.Drawing.Size(565, 202);
             this.gbContractorDetails.TabIndex = 1;
             this.gbContractorDetails.TabStop = false;
             this.gbContractorDetails.Text = "Contractor details";
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(77, 144);
+            this.txtCity.Location = new System.Drawing.Point(89, 144);
             this.txtCity.MaxLength = 100;
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(146, 20);
@@ -193,7 +192,7 @@
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(453, 168);
+            this.btClear.Location = new System.Drawing.Point(477, 167);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
@@ -205,18 +204,18 @@
             // 
             this.cbDeleted.AutoSize = true;
             this.cbDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbDeleted.Location = new System.Drawing.Point(299, 116);
+            this.cbDeleted.Location = new System.Drawing.Point(313, 116);
             this.cbDeleted.Name = "cbDeleted";
-            this.cbDeleted.Size = new System.Drawing.Size(101, 17);
+            this.cbDeleted.Size = new System.Drawing.Size(107, 17);
             this.cbDeleted.TabIndex = 18;
-            this.cbDeleted.Text = "Is Deleted         ";
+            this.cbDeleted.Text = "Is Deleted           ";
             this.cbDeleted.UseVisualStyleBackColor = true;
             // 
             // combCountries
             // 
             this.combCountries.DisplayMember = "CountryName";
             this.combCountries.FormattingEnabled = true;
-            this.combCountries.Location = new System.Drawing.Point(77, 174);
+            this.combCountries.Location = new System.Drawing.Point(89, 174);
             this.combCountries.Name = "combCountries";
             this.combCountries.Size = new System.Drawing.Size(121, 21);
             this.combCountries.TabIndex = 13;
@@ -224,7 +223,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(382, 84);
+            this.txtEmail.Location = new System.Drawing.Point(406, 84);
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(146, 20);
@@ -232,7 +231,7 @@
             // 
             // txtMobileNo
             // 
-            this.txtMobileNo.Location = new System.Drawing.Point(382, 54);
+            this.txtMobileNo.Location = new System.Drawing.Point(406, 54);
             this.txtMobileNo.MaxLength = 30;
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(146, 20);
@@ -240,7 +239,7 @@
             // 
             // txtPhoneNo
             // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(382, 24);
+            this.txtPhoneNo.Location = new System.Drawing.Point(406, 24);
             this.txtPhoneNo.MaxLength = 30;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(146, 20);
@@ -248,7 +247,7 @@
             // 
             // txtPostCode
             // 
-            this.txtPostCode.Location = new System.Drawing.Point(77, 114);
+            this.txtPostCode.Location = new System.Drawing.Point(89, 114);
             this.txtPostCode.MaxLength = 30;
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(100, 20);
@@ -256,7 +255,7 @@
             // 
             // txtAddrLine2
             // 
-            this.txtAddrLine2.Location = new System.Drawing.Point(77, 84);
+            this.txtAddrLine2.Location = new System.Drawing.Point(89, 84);
             this.txtAddrLine2.MaxLength = 255;
             this.txtAddrLine2.Name = "txtAddrLine2";
             this.txtAddrLine2.Size = new System.Drawing.Size(208, 20);
@@ -264,7 +263,7 @@
             // 
             // txtAddrLine1
             // 
-            this.txtAddrLine1.Location = new System.Drawing.Point(77, 54);
+            this.txtAddrLine1.Location = new System.Drawing.Point(89, 54);
             this.txtAddrLine1.MaxLength = 255;
             this.txtAddrLine1.Name = "txtAddrLine1";
             this.txtAddrLine1.Size = new System.Drawing.Size(208, 20);
@@ -272,7 +271,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(77, 24);
+            this.txtName.Location = new System.Drawing.Point(89, 24);
             this.txtName.MaxLength = 255;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(208, 20);
@@ -280,7 +279,7 @@
             // 
             // btAddNewContractor
             // 
-            this.btAddNewContractor.Location = new System.Drawing.Point(394, 231);
+            this.btAddNewContractor.Location = new System.Drawing.Point(421, 231);
             this.btAddNewContractor.Name = "btAddNewContractor";
             this.btAddNewContractor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewContractor.TabIndex = 2;
@@ -291,7 +290,7 @@
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
-            this.lbFilter.Location = new System.Drawing.Point(82, 268);
+            this.lbFilter.Location = new System.Drawing.Point(82, 263);
             this.lbFilter.Name = "lbFilter";
             this.lbFilter.Size = new System.Drawing.Size(72, 13);
             this.lbFilter.TabIndex = 9;
@@ -299,7 +298,7 @@
             // 
             // txtNameFilter
             // 
-            this.txtNameFilter.Location = new System.Drawing.Point(160, 265);
+            this.txtNameFilter.Location = new System.Drawing.Point(160, 260);
             this.txtNameFilter.MaxLength = 30;
             this.txtNameFilter.Name = "txtNameFilter";
             this.txtNameFilter.Size = new System.Drawing.Size(146, 20);
@@ -324,19 +323,19 @@
             this.clCountryName,
             this.clCity,
             this.clIsDeleted});
-            this.dgContractors.Location = new System.Drawing.Point(0, 291);
+            this.dgContractors.Location = new System.Drawing.Point(0, 284);
             this.dgContractors.Name = "dgContractors";
             this.dgContractors.ReadOnly = true;
             this.dgContractors.RowHeadersVisible = false;
             this.dgContractors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgContractors.Size = new System.Drawing.Size(964, 234);
+            this.dgContractors.Size = new System.Drawing.Size(988, 234);
             this.dgContractors.TabIndex = 15;
             this.dgContractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgContractors_CellDoubleClick);
             // 
             // btUpdateContractor
             // 
             this.btUpdateContractor.Enabled = false;
-            this.btUpdateContractor.Location = new System.Drawing.Point(475, 231);
+            this.btUpdateContractor.Location = new System.Drawing.Point(502, 231);
             this.btUpdateContractor.Name = "btUpdateContractor";
             this.btUpdateContractor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateContractor.TabIndex = 4;
@@ -346,13 +345,25 @@
             // 
             // btSaveContractors
             // 
-            this.btSaveContractors.Location = new System.Drawing.Point(552, 531);
+            this.btSaveContractors.Location = new System.Drawing.Point(885, 524);
             this.btSaveContractors.Name = "btSaveContractors";
             this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
             this.btSaveContractors.TabIndex = 17;
             this.btSaveContractors.Text = "Save Changes";
             this.btSaveContractors.UseVisualStyleBackColor = true;
             this.btSaveContractors.Click += new System.EventHandler(this.btSaveContractors_Click);
+            // 
+            // cbShowDeleted
+            // 
+            this.cbShowDeleted.AutoSize = true;
+            this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbShowDeleted.Location = new System.Drawing.Point(484, 263);
+            this.cbShowDeleted.Name = "cbShowDeleted";
+            this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
+            this.cbShowDeleted.TabIndex = 18;
+            this.cbShowDeleted.Text = "Show Deleted";
+            this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
             // 
             // clName
             // 
@@ -451,23 +462,13 @@
             this.clIsDeleted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clIsDeleted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.clIsDeleted.TrueValue = "1";
-            // 
-            // cbShowDeleted
-            // 
-            this.cbShowDeleted.AutoSize = true;
-            this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowDeleted.Location = new System.Drawing.Point(370, 268);
-            this.cbShowDeleted.Name = "cbShowDeleted";
-            this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
-            this.cbShowDeleted.TabIndex = 18;
-            this.cbShowDeleted.Text = "Show Deleted";
-            this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.clIsDeleted.Width = 80;
             // 
             // frmContractorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 558);
+            this.ClientSize = new System.Drawing.Size(994, 558);
             this.Controls.Add(this.cbShowDeleted);
             this.Controls.Add(this.btSaveContractors);
             this.Controls.Add(this.btUpdateContractor);
@@ -477,10 +478,14 @@
             this.Controls.Add(this.lbFilter);
             this.Controls.Add(this.gbContractorDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "frmContractorManagement";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Contractor Management";
             this.Load += new System.EventHandler(this.ContractorManagement_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmContractorManagement_KeyDown);
             this.gbContractorDetails.ResumeLayout(false);
             this.gbContractorDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).EndInit();
@@ -518,6 +523,7 @@
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lbCity;
         private System.Windows.Forms.Button btSaveContractors;
+        private System.Windows.Forms.CheckBox cbShowDeleted;
         private System.Windows.Forms.DataGridViewTextBoxColumn clName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clEmail;
@@ -530,6 +536,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clCountryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clCity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
-        private System.Windows.Forms.CheckBox cbShowDeleted;
     }
 }

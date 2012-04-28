@@ -15,7 +15,6 @@ namespace Shop_Management_Solution
     public partial class frmContractorManagement : Form
     {
         private DataSet _contractorsDs;
-        private bool _contractorPreInsertMode = true;
         private int _contractorChangedId;
         private OleDbDataAdapter _contractorAdapter;
 
@@ -57,106 +56,199 @@ namespace Shop_Management_Solution
             {
                 fillContractorControls();
                 _contractorChangedId = int.Parse(dgContractors.CurrentRow.Cells[0].Value.ToString());
-                _contractorPreInsertMode = false;
-                gbContractorDetails.Enabled = true;
                 btUpdateContractor.Enabled = true;
-                //foreach (DataGridViewCell item in dgContractors.CurrentRow.Cells)
-                //{
-                //    MessageBox.Show(item.Value.ToString());
-                //}
-                //sprawdzanie czy uzytkownik nie byl w trakcie wprowadzania jakichs danych- czyli insert mode + spr czy textboxy cos maja
             }
         }
 
         private void btAddNew_Click(object sender, EventArgs e)
         {
-            if (_contractorPreInsertMode)
+
+            if (validateContractorData())
             {
-                gbContractorDetails.Enabled = true;
-                _contractorPreInsertMode = false;
-                txtName.Focus();
+                String deleted = "0";
+                if (cbDeleted.Checked)
+                    deleted = "1";
+                DataRow newRow = _contractorsDs.Tables[0].NewRow();
+                newRow["Name"] = txtName.Text;
+                newRow["E-mail"] = txtEmail.Text;
+                newRow["Phone"] = txtPhoneNo.Text;
+                newRow["Mobile"] = txtMobileNo.Text;
+                newRow["AddressLine1"] = txtAddrLine1.Text;
+                newRow["AddressLine2"] = txtAddrLine2.Text;
+                newRow["PostCode"] = txtPostCode.Text;
+                newRow["Country"] = combCountries.SelectedValue.ToString();
+                newRow["CountryName"] = combCountries.SelectedText.ToString();
+                newRow["City"] = txtCity.Text;
+                newRow["IsDeleted"] = deleted;
+
+                _contractorsDs.Tables[0].Rows.Add(newRow);
+                dgContractors.Refresh();
+
+                clearData();
+                //gbContractorDetails.Enabled = false;
+                btUpdateContractor.Enabled = false;
             }
             else
             {
-                if (validateContractorData())
-                {
-                    String deleted = "0";
-                    if (cbDeleted.Checked)
-                        deleted = "1";
-                    DataRow newRow = _contractorsDs.Tables[0].NewRow();
-                    newRow["Name"] = txtName.Text;
-                    newRow["E-mail"] = txtEmail.Text;
-                    newRow["Phone"] = txtPhoneNo.Text;
-                    newRow["Mobile"] = txtMobileNo.Text;
-                    newRow["AddressLine1"] = txtAddrLine1.Text;
-                    newRow["AddressLine2"] = txtAddrLine2.Text;
-                    newRow["PostCode"] = txtPostCode.Text;
-                    newRow["Country"] = combCountries.SelectedValue.ToString();
-                    newRow["CountryName"] = combCountries.SelectedText.ToString();
-                    newRow["City"] = txtCity.Text;
-                    newRow["IsDeleted"] = deleted;
-
-                    _contractorsDs.Tables[0].Rows.Add(newRow);
-                    dgContractors.Refresh();
-
-                    btClearContractor_Click(this, null);
-                    _contractorPreInsertMode = true;
-                    btAddNewContractor.Text = "Add New";
-                    gbContractorDetails.Enabled = false;
-                    btUpdateContractor.Enabled = false;
-                }
-                else
-                    MessageBox.Show("Please fill all necessary data", "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Please fill all necessary data", "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                highlitghtMissingContractorData();
             }
+
         }
 
         private void btUpdateContractor_Click(object sender, EventArgs e)
         {
-            String deleted = "0";
-            if (cbDeleted.Checked)
-                deleted = "1";
-            //nie nowy lecz istniejacy!!! (w oparciu o ID zapisane w zmiennej!)
-            DataRow[] rowsTab = _contractorsDs.Tables[0].Select("ID = " + _contractorChangedId);
-            
-            rowsTab[0]["Name"] = txtName.Text;
-            rowsTab[0]["E-mail"] = txtEmail.Text;
-            rowsTab[0]["Phone"] = txtPhoneNo.Text;
-            rowsTab[0]["Mobile"] = txtMobileNo.Text;
-            rowsTab[0]["AddressLine1"] = txtAddrLine1.Text;
-            rowsTab[0]["AddressLine2"] = txtAddrLine2.Text;
-            rowsTab[0]["PostCode"] = txtPostCode.Text;
-            rowsTab[0]["Country"] = combCountries.SelectedValue.ToString();
-            rowsTab[0]["CountryName"] = combCountries.SelectedText.ToString();
-            rowsTab[0]["City"] = txtCity.Text;
-            rowsTab[0]["IsDeleted"] = deleted;
-            
-            //_contractorsDs.Tables[0].Rows.Add(newRow);
-            dgContractors.Refresh();
+            if (validateContractorData())
+            {
+                String deleted = "0";
+                if (cbDeleted.Checked)
+                    deleted = "1";
+
+                DataRow[] rowsTab = _contractorsDs.Tables[0].Select("ID = " + _contractorChangedId);
+
+                rowsTab[0]["Name"] = txtName.Text;
+                rowsTab[0]["E-mail"] = txtEmail.Text;
+                rowsTab[0]["Phone"] = txtPhoneNo.Text;
+                rowsTab[0]["Mobile"] = txtMobileNo.Text;
+                rowsTab[0]["AddressLine1"] = txtAddrLine1.Text;
+                rowsTab[0]["AddressLine2"] = txtAddrLine2.Text;
+                rowsTab[0]["PostCode"] = txtPostCode.Text;
+                rowsTab[0]["Country"] = combCountries.SelectedValue.ToString();
+                rowsTab[0]["CountryName"] = combCountries.SelectedText.ToString();
+                rowsTab[0]["City"] = txtCity.Text;
+                rowsTab[0]["IsDeleted"] = deleted;
+
+                dgContractors.Refresh();
+                clearData();
+            }
+            else
+            {
+                MessageBox.Show("Please fill all necessary data", "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                highlitghtMissingContractorData();
+            }
         }
 
         private bool validateContractorData()
         {
             bool positiveValidated = true;
+            //checking if all but Address Line 2 text fields have any data
             if (String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtPhoneNo.Text) ||
-                String.IsNullOrEmpty(txtMobileNo.Text) || String.IsNullOrEmpty(txtAddrLine1.Text) || String.IsNullOrEmpty(txtPostCode.Text) ||
-                String.IsNullOrEmpty(txtCity.Text))
+                String.IsNullOrEmpty(txtMobileNo.Text) || String.IsNullOrEmpty(txtAddrLine1.Text) ||
+                String.IsNullOrEmpty(txtPostCode.Text) || String.IsNullOrEmpty(txtCity.Text))
                 positiveValidated = false;
 
             return positiveValidated;
         }
 
+        private bool checkIfThereIsDataLeft()
+        {
+            bool isDataLeft = false;
+            if (!(String.IsNullOrEmpty(txtName.Text) && String.IsNullOrEmpty(txtEmail.Text) && String.IsNullOrEmpty(txtPhoneNo.Text) &&
+                    String.IsNullOrEmpty(txtMobileNo.Text) && String.IsNullOrEmpty(txtAddrLine1.Text) && String.IsNullOrEmpty(txtAddrLine2.Text) &&
+                    String.IsNullOrEmpty(txtPostCode.Text) && String.IsNullOrEmpty(txtCity.Text)))
+                isDataLeft = true;
+
+            return isDataLeft;
+        }
+
         private void highlitghtMissingContractorData()
         {
+            if (String.IsNullOrEmpty(txtName.Text))
+            {
+                lbName.Font = new Font(lbName.Font, FontStyle.Bold);
+                lbName.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbName.Font = new Font(lbName.Font, FontStyle.Regular);
+                lbName.ForeColor = Color.Black;
+            }
 
+            if (String.IsNullOrEmpty(txtEmail.Text))
+            {
+                lbEmail.Font = new Font(lbEmail.Font, FontStyle.Bold);
+                lbEmail.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbEmail.Font = new Font(lbEmail.Font, FontStyle.Regular);
+                lbEmail.ForeColor = Color.Black;
+            }
+
+            if (String.IsNullOrEmpty(txtPhoneNo.Text))
+            {
+                lbPhone.Font = new Font(lbPhone.Font, FontStyle.Bold);
+                lbPhone.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbPhone.Font = new Font(lbPhone.Font, FontStyle.Regular);
+                lbPhone.ForeColor = Color.Black;
+            }
+
+            if (String.IsNullOrEmpty(txtMobileNo.Text))
+            {
+                lbMobile.Font = new Font(lbMobile.Font, FontStyle.Bold);
+                lbMobile.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbMobile.Font = new Font(lbMobile.Font, FontStyle.Regular);
+                lbMobile.ForeColor = Color.Black;
+            }
+
+            if (String.IsNullOrEmpty(txtAddrLine1.Text))
+            {
+                lbAddrLine1.Font = new Font(lbAddrLine1.Font, FontStyle.Bold);
+                lbAddrLine1.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbAddrLine1.Font = new Font(lbAddrLine1.Font, FontStyle.Regular);
+                lbAddrLine1.ForeColor = Color.Black;
+            }
+
+            if (String.IsNullOrEmpty(txtPostCode.Text))
+            {
+                lbPostCode.Font = new Font(lbPostCode.Font, FontStyle.Bold);
+                lbPostCode.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbPostCode.Font = new Font(lbPostCode.Font, FontStyle.Regular);
+                lbPostCode.ForeColor = Color.Black;
+            }
+
+            if (String.IsNullOrEmpty(txtCity.Text))
+            {
+                lbCity.Font = new Font(lbCity.Font, FontStyle.Bold);
+                lbCity.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbCity.Font = new Font(lbCity.Font, FontStyle.Regular);
+                lbCity.ForeColor = Color.Black;
+            }
         }
 
-        private void setupContractorColumnWidth()
-        {
+        //private void setupContractorColumnWidth()
+        //{
 
-        }
+        //}
 
         private void btClearContractor_Click(object sender, EventArgs e)
+        {
+            //ckeck if user is sure to clear data
+            if (checkIfThereIsDataLeft())
+            {
+                if (MessageBox.Show("There is some data left in the fields. Do you want to clear it anyway?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    clearData();
+                }
+            }
+        }
+
+        private void clearData()
         {
             txtName.Text = "";
             txtAddrLine1.Text = "";
@@ -174,20 +266,43 @@ namespace Shop_Management_Solution
         {
             if (_contractorsDs.HasChanges())
             {
-                //_contractorsDs.AcceptChanges();
-//                _contractorsDs.
                 _contractorAdapter.Update(_contractorsDs);
+                this.Close();
             }
         }
 
         private void txtNameFilter_TextChanged(object sender, EventArgs e)
         {
-                int showDeleted = 0;
-                if (cbDeleted.Checked)
-                    showDeleted = 1;
-                DataView dv = _contractorsDs.Tables[0].DefaultView;
+            DataView dv = _contractorsDs.Tables[0].DefaultView;
+            if (cbShowDeleted.Checked)
+                dv.RowFilter = "Name LIKE '*" + txtNameFilter.Text + "*'";
+            else
                 dv.RowFilter = "isDeleted = 0 and Name LIKE '*" + txtNameFilter.Text + "*'";
-            
+
+        }
+
+        private void cbShowDeleted_CheckStateChanged(object sender, EventArgs e)
+        {
+            DataView dv = _contractorsDs.Tables[0].DefaultView;
+            if (cbShowDeleted.Checked)
+                dv.RowFilter = "Name LIKE '*" + txtNameFilter.Text + "*'";
+            else
+                dv.RowFilter = "isDeleted = 0 and Name LIKE '*" + txtNameFilter.Text + "*'";
+
+        }
+
+        private void frmContractorManagement_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((Keys)e.KeyValue == Keys.Escape)
+            {
+                if (checkIfThereIsDataLeft())
+                {
+                    if (MessageBox.Show("There is some data left in the fields. Do you want to close window anyway?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                        this.Close();
+                }
+                else
+                    this.Close();
+            }
         }
     }
 }
