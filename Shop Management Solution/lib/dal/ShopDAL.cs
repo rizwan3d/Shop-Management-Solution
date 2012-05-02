@@ -95,8 +95,8 @@ namespace Shop_Management_Solution.lib.dal
         {
             string uom = null;
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
-            string query =  "SELECT UoM.UoM_Name FROM ItemType " + 
-                            "LEFT JOIN UoM ON (ItemType.UoM_ID = UoM.ID ) " +
+            string query =  "SELECT Uom.UoM_Name FROM ItemType " + 
+                            "LEFT JOIN Uom ON ItemType.UoM_ID = Uom.ID  " +
                             "WHERE Type_ID = " + typeId;
 
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);

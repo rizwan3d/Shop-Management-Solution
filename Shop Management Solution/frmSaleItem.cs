@@ -690,14 +690,18 @@ namespace Shop_Management_Solution
                 List<Sale> saleItems = this.getListofItemsToBeAdded();
                 if (saleItems.Count >= 1)
                 {
-                 
-                        String saleDate = dateOfSale.Text;
-                        invoiceID = ShopDAL.SaleItems(saleDate, saleItems);
-
                          prnDialog.Document = this.prnDocument;
-                         prnDialog.ShowDialog();
-                         //prnPreview.Document = this.prnDocument;
-                         //prnPreview.ShowDialog();
+                         DialogResult result = prnDialog.ShowDialog();
+                         if (result == DialogResult.OK)
+                         {
+                             String saleDate = dateOfSale.Text;
+                             invoiceID = ShopDAL.SaleItems(saleDate, saleItems);
+
+                             prnDialog.Document.Print();
+
+                             this.Close();
+                             MessageBox.Show(this, "Item sold successfully. Collect printout from printer.", "Sale Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                         }
 
                 }
                 else

@@ -252,8 +252,8 @@ namespace Shop_Management_Solution
 
         private void contractorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmContractorManagement cm = new frmContractorManagement();
-            cm.ShowDialog();
+            //frmContractorManagement cm = new frmContractorManagement();
+            //cm.ShowDialog();
         }
 
     }

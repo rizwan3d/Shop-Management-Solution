@@ -17,13 +17,13 @@ namespace Shop_Management_Solution.lib.dal
             List<UoM> uoms = new List<UoM>();
 
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
-            string query = "SELECT UoM.ID, UoM.UoM_Name FROM UoM";
+            string query = "SELECT ID,UoM_Name FROM Uom";
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
             DataSet ds = new DataSet();
 
             try
             {
-                DataAdapter.Fill(ds, "UoM");
+                DataAdapter.Fill(ds, "Uom");
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace Shop_Management_Solution.lib.dal
         public static DataSet GetUoMsDataSet()
         {
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
-            string query = "SELECT UoM.ID, UoM.UoM_Name FROM UoM";
+            string query = "SELECT ID, UoM_Name FROM Uom";
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
             DataSet ds = new DataSet();
 
