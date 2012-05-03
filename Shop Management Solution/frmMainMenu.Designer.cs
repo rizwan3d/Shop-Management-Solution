@@ -233,6 +233,7 @@
             // 
             // contractorsToolStripMenuItem
             // 
+            this.contractorsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.home_icon;
             this.contractorsToolStripMenuItem.Name = "contractorsToolStripMenuItem";
             this.contractorsToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.contractorsToolStripMenuItem.Text = "Contractors Management";
@@ -574,7 +575,7 @@
             this.lblTotalGiven.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalGiven.Location = new System.Drawing.Point(350, -2);
             this.lblTotalGiven.Name = "lblTotalGiven";
-            this.lblTotalGiven.Size = new System.Drawing.Size(0, 20);
+            this.lblTotalGiven.Size = new System.Drawing.Size(0, 19);
             this.lblTotalGiven.TabIndex = 13;
             // 
             // label3
@@ -594,7 +595,7 @@
             this.lblChangeToBePaid.ForeColor = System.Drawing.Color.Red;
             this.lblChangeToBePaid.Location = new System.Drawing.Point(350, 22);
             this.lblChangeToBePaid.Name = "lblChangeToBePaid";
-            this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 20);
+            this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 19);
             this.lblChangeToBePaid.TabIndex = 11;
             // 
             // label2
@@ -624,7 +625,7 @@
             this.lblTotalPrice.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPrice.Location = new System.Drawing.Point(113, -2);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(0, 26);
+            this.lblTotalPrice.Size = new System.Drawing.Size(0, 25);
             this.lblTotalPrice.TabIndex = 8;
             // 
             // picStatusPayment
