@@ -1,0 +1,391 @@
+﻿namespace Shop_Management_Solution
+{
+    partial class frmVendorManagement
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.gbContractorDetails = new System.Windows.Forms.GroupBox();
+            this.btClear = new System.Windows.Forms.Button();
+            this.cbDeleted = new System.Windows.Forms.CheckBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtMobileNo = new System.Windows.Forms.TextBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.lbName = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbMobile = new System.Windows.Forms.Label();
+            this.lbLocation = new System.Windows.Forms.Label();
+            this.lbPhone = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.cbShowDeleted = new System.Windows.Forms.CheckBox();
+            this.btUpdateVendor = new System.Windows.Forms.Button();
+            this.btAddNewVendor = new System.Windows.Forms.Button();
+            this.txtNameFilter = new System.Windows.Forms.TextBox();
+            this.lbFilter = new System.Windows.Forms.Label();
+            this.btSaveVendors = new System.Windows.Forms.Button();
+            this.dgVendors = new System.Windows.Forms.DataGridView();
+            this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIsDeleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gbContractorDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // gbContractorDetails
+            // 
+            this.gbContractorDetails.Controls.Add(this.btClear);
+            this.gbContractorDetails.Controls.Add(this.cbDeleted);
+            this.gbContractorDetails.Controls.Add(this.txtEmail);
+            this.gbContractorDetails.Controls.Add(this.txtMobileNo);
+            this.gbContractorDetails.Controls.Add(this.txtPhoneNo);
+            this.gbContractorDetails.Controls.Add(this.txtLocation);
+            this.gbContractorDetails.Controls.Add(this.lbName);
+            this.gbContractorDetails.Controls.Add(this.lbEmail);
+            this.gbContractorDetails.Controls.Add(this.lbMobile);
+            this.gbContractorDetails.Controls.Add(this.lbLocation);
+            this.gbContractorDetails.Controls.Add(this.lbPhone);
+            this.gbContractorDetails.Controls.Add(this.txtName);
+            this.gbContractorDetails.Location = new System.Drawing.Point(63, 23);
+            this.gbContractorDetails.Name = "gbContractorDetails";
+            this.gbContractorDetails.Size = new System.Drawing.Size(628, 160);
+            this.gbContractorDetails.TabIndex = 2;
+            this.gbContractorDetails.TabStop = false;
+            this.gbContractorDetails.Text = "Please specify contractor detail(s)";
+            // 
+            // btClear
+            // 
+            this.btClear.Location = new System.Drawing.Point(531, 120);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(75, 23);
+            this.btClear.TabIndex = 17;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            // 
+            // cbDeleted
+            // 
+            this.cbDeleted.AutoSize = true;
+            this.cbDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbDeleted.Location = new System.Drawing.Point(313, 86);
+            this.cbDeleted.Name = "cbDeleted";
+            this.cbDeleted.Size = new System.Drawing.Size(110, 17);
+            this.cbDeleted.TabIndex = 18;
+            this.cbDeleted.Text = "Is Deleted:           ";
+            this.cbDeleted.UseVisualStyleBackColor = true;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(406, 54);
+            this.txtEmail.MaxLength = 100;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.TabIndex = 16;
+            // 
+            // txtMobileNo
+            // 
+            this.txtMobileNo.Location = new System.Drawing.Point(406, 24);
+            this.txtMobileNo.MaxLength = 30;
+            this.txtMobileNo.Name = "txtMobileNo";
+            this.txtMobileNo.Size = new System.Drawing.Size(200, 20);
+            this.txtMobileNo.TabIndex = 15;
+            // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Location = new System.Drawing.Point(89, 84);
+            this.txtPhoneNo.MaxLength = 30;
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(208, 20);
+            this.txtPhoneNo.TabIndex = 14;
+            // 
+            // txtLocation
+            // 
+            this.txtLocation.Location = new System.Drawing.Point(89, 54);
+            this.txtLocation.MaxLength = 255;
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(208, 20);
+            this.txtLocation.TabIndex = 9;
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Location = new System.Drawing.Point(6, 27);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(38, 13);
+            this.lbName.TabIndex = 0;
+            this.lbName.Text = "Name:";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(314, 57);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(38, 13);
+            this.lbEmail.TabIndex = 1;
+            this.lbEmail.Text = "E-mail:";
+            // 
+            // lbMobile
+            // 
+            this.lbMobile.AutoSize = true;
+            this.lbMobile.Location = new System.Drawing.Point(314, 27);
+            this.lbMobile.Name = "lbMobile";
+            this.lbMobile.Size = new System.Drawing.Size(81, 13);
+            this.lbMobile.TabIndex = 3;
+            this.lbMobile.Text = "Mobile Number:";
+            // 
+            // lbLocation
+            // 
+            this.lbLocation.AutoSize = true;
+            this.lbLocation.Location = new System.Drawing.Point(6, 57);
+            this.lbLocation.Name = "lbLocation";
+            this.lbLocation.Size = new System.Drawing.Size(51, 13);
+            this.lbLocation.TabIndex = 4;
+            this.lbLocation.Text = "Location:";
+            // 
+            // lbPhone
+            // 
+            this.lbPhone.AutoSize = true;
+            this.lbPhone.Location = new System.Drawing.Point(8, 87);
+            this.lbPhone.Name = "lbPhone";
+            this.lbPhone.Size = new System.Drawing.Size(81, 13);
+            this.lbPhone.TabIndex = 2;
+            this.lbPhone.Text = "Phone Number:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(89, 24);
+            this.txtName.MaxLength = 255;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(208, 20);
+            this.txtName.TabIndex = 8;
+            // 
+            // cbShowDeleted
+            // 
+            this.cbShowDeleted.AutoSize = true;
+            this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbShowDeleted.Location = new System.Drawing.Point(576, 221);
+            this.cbShowDeleted.Name = "cbShowDeleted";
+            this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
+            this.cbShowDeleted.TabIndex = 23;
+            this.cbShowDeleted.Text = "Show Deleted";
+            this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
+            // 
+            // btUpdateVendor
+            // 
+            this.btUpdateVendor.Enabled = false;
+            this.btUpdateVendor.Location = new System.Drawing.Point(594, 189);
+            this.btUpdateVendor.Name = "btUpdateVendor";
+            this.btUpdateVendor.Size = new System.Drawing.Size(75, 23);
+            this.btUpdateVendor.TabIndex = 21;
+            this.btUpdateVendor.Text = "Update";
+            this.btUpdateVendor.UseVisualStyleBackColor = true;
+            this.btUpdateVendor.Click += new System.EventHandler(this.btUpdateVendor_Click);
+            // 
+            // btAddNewVendor
+            // 
+            this.btAddNewVendor.Location = new System.Drawing.Point(513, 189);
+            this.btAddNewVendor.Name = "btAddNewVendor";
+            this.btAddNewVendor.Size = new System.Drawing.Size(75, 23);
+            this.btAddNewVendor.TabIndex = 19;
+            this.btAddNewVendor.Text = "Add New";
+            this.btAddNewVendor.UseVisualStyleBackColor = true;
+            this.btAddNewVendor.Click += new System.EventHandler(this.btAddNewVendor_Click);
+            // 
+            // txtNameFilter
+            // 
+            this.txtNameFilter.Location = new System.Drawing.Point(152, 192);
+            this.txtNameFilter.MaxLength = 30;
+            this.txtNameFilter.Name = "txtNameFilter";
+            this.txtNameFilter.Size = new System.Drawing.Size(208, 20);
+            this.txtNameFilter.TabIndex = 20;
+            this.txtNameFilter.TextChanged += new System.EventHandler(this.txtNameFilter_TextChanged);
+            // 
+            // lbFilter
+            // 
+            this.lbFilter.AutoSize = true;
+            this.lbFilter.Location = new System.Drawing.Point(74, 195);
+            this.lbFilter.Name = "lbFilter";
+            this.lbFilter.Size = new System.Drawing.Size(72, 13);
+            this.lbFilter.TabIndex = 22;
+            this.lbFilter.Text = "Filter by name";
+            // 
+            // btSaveVendors
+            // 
+            this.btSaveVendors.Location = new System.Drawing.Point(885, 497);
+            this.btSaveVendors.Name = "btSaveVendors";
+            this.btSaveVendors.Size = new System.Drawing.Size(97, 23);
+            this.btSaveVendors.TabIndex = 25;
+            this.btSaveVendors.Text = "Save Changes";
+            this.btSaveVendors.UseVisualStyleBackColor = true;
+            this.btSaveVendors.Click += new System.EventHandler(this.btSaveVendors_Click);
+            // 
+            // dgVendors
+            // 
+            this.dgVendors.AllowUserToAddRows = false;
+            this.dgVendors.AllowUserToResizeRows = false;
+            this.dgVendors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgVendors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clName,
+            this.clId,
+            this.clEmail,
+            this.clPhone,
+            this.clMobile,
+            this.clLocation,
+            this.clIsDeleted});
+            this.dgVendors.Location = new System.Drawing.Point(0, 257);
+            this.dgVendors.Name = "dgVendors";
+            this.dgVendors.ReadOnly = true;
+            this.dgVendors.RowHeadersVisible = false;
+            this.dgVendors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgVendors.Size = new System.Drawing.Size(988, 234);
+            this.dgVendors.TabIndex = 24;
+            this.dgVendors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVendors_CellDoubleClick);
+            // 
+            // clName
+            // 
+            this.clName.DataPropertyName = "Name";
+            this.clName.HeaderText = "Name";
+            this.clName.MaxInputLength = 255;
+            this.clName.Name = "clName";
+            this.clName.ReadOnly = true;
+            // 
+            // clId
+            // 
+            this.clId.DataPropertyName = "ID";
+            this.clId.HeaderText = "ID";
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            this.clId.Visible = false;
+            // 
+            // clEmail
+            // 
+            this.clEmail.DataPropertyName = "E-mail";
+            this.clEmail.HeaderText = "E-mail";
+            this.clEmail.MaxInputLength = 100;
+            this.clEmail.Name = "clEmail";
+            this.clEmail.ReadOnly = true;
+            // 
+            // clPhone
+            // 
+            this.clPhone.DataPropertyName = "Phone";
+            this.clPhone.HeaderText = "Phone";
+            this.clPhone.MaxInputLength = 30;
+            this.clPhone.Name = "clPhone";
+            this.clPhone.ReadOnly = true;
+            // 
+            // clMobile
+            // 
+            this.clMobile.DataPropertyName = "Mobile";
+            this.clMobile.HeaderText = "Mobile";
+            this.clMobile.MaxInputLength = 30;
+            this.clMobile.Name = "clMobile";
+            this.clMobile.ReadOnly = true;
+            // 
+            // clLocation
+            // 
+            this.clLocation.DataPropertyName = "Location";
+            this.clLocation.HeaderText = "Location";
+            this.clLocation.MaxInputLength = 255;
+            this.clLocation.Name = "clLocation";
+            this.clLocation.ReadOnly = true;
+            // 
+            // clIsDeleted
+            // 
+            this.clIsDeleted.DataPropertyName = "IsDeleted";
+            this.clIsDeleted.FalseValue = "0";
+            this.clIsDeleted.HeaderText = "Is deleted";
+            this.clIsDeleted.IndeterminateValue = "0";
+            this.clIsDeleted.Name = "clIsDeleted";
+            this.clIsDeleted.ReadOnly = true;
+            this.clIsDeleted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clIsDeleted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clIsDeleted.TrueValue = "1";
+            this.clIsDeleted.Width = 80;
+            // 
+            // frmVendorManagement
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(984, 548);
+            this.Controls.Add(this.btSaveVendors);
+            this.Controls.Add(this.dgVendors);
+            this.Controls.Add(this.cbShowDeleted);
+            this.Controls.Add(this.btUpdateVendor);
+            this.Controls.Add(this.btAddNewVendor);
+            this.Controls.Add(this.txtNameFilter);
+            this.Controls.Add(this.lbFilter);
+            this.Controls.Add(this.gbContractorDetails);
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.Name = "frmVendorManagement";
+            this.ShowInTaskbar = false;
+            this.Text = "frmVendorManagement";
+            this.Load += new System.EventHandler(this.frmVendorManagement_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVendorManagement_KeyDown);
+            this.gbContractorDetails.ResumeLayout(false);
+            this.gbContractorDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox gbContractorDetails;
+        private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.CheckBox cbDeleted;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtMobileNo;
+        private System.Windows.Forms.TextBox txtPhoneNo;
+        private System.Windows.Forms.TextBox txtLocation;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label lbMobile;
+        private System.Windows.Forms.Label lbLocation;
+        private System.Windows.Forms.Label lbPhone;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.CheckBox cbShowDeleted;
+        private System.Windows.Forms.Button btUpdateVendor;
+        private System.Windows.Forms.Button btAddNewVendor;
+        private System.Windows.Forms.TextBox txtNameFilter;
+        private System.Windows.Forms.Label lbFilter;
+        private System.Windows.Forms.Button btSaveVendors;
+        private System.Windows.Forms.DataGridView dgVendors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMobile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clLocation;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
+    }
+}

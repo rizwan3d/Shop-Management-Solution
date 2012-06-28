@@ -85,6 +85,7 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.picStatusPayment = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.vendorsManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -193,6 +194,7 @@
             this.saleItemsToolStripMenuItem,
             this.searchItemToolStripMenuItem1,
             this.contractorsToolStripMenuItem,
+            this.vendorsManagementToolStripMenuItem,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem1});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -233,7 +235,7 @@
             // 
             // contractorsToolStripMenuItem
             // 
-            this.contractorsToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.home_icon;
+            this.contractorsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contractorsToolStripMenuItem.Image")));
             this.contractorsToolStripMenuItem.Name = "contractorsToolStripMenuItem";
             this.contractorsToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.contractorsToolStripMenuItem.Text = "Contractors Management";
@@ -575,7 +577,7 @@
             this.lblTotalGiven.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalGiven.Location = new System.Drawing.Point(350, -2);
             this.lblTotalGiven.Name = "lblTotalGiven";
-            this.lblTotalGiven.Size = new System.Drawing.Size(0, 19);
+            this.lblTotalGiven.Size = new System.Drawing.Size(0, 20);
             this.lblTotalGiven.TabIndex = 13;
             // 
             // label3
@@ -595,7 +597,7 @@
             this.lblChangeToBePaid.ForeColor = System.Drawing.Color.Red;
             this.lblChangeToBePaid.Location = new System.Drawing.Point(350, 22);
             this.lblChangeToBePaid.Name = "lblChangeToBePaid";
-            this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 19);
+            this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 20);
             this.lblChangeToBePaid.TabIndex = 11;
             // 
             // label2
@@ -625,7 +627,7 @@
             this.lblTotalPrice.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPrice.Location = new System.Drawing.Point(113, -2);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(0, 25);
+            this.lblTotalPrice.Size = new System.Drawing.Size(0, 26);
             this.lblTotalPrice.TabIndex = 8;
             // 
             // picStatusPayment
@@ -645,6 +647,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(715, 91);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // vendorsManagementToolStripMenuItem
+            // 
+            this.vendorsManagementToolStripMenuItem.Name = "vendorsManagementToolStripMenuItem";
+            this.vendorsManagementToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.vendorsManagementToolStripMenuItem.Text = "Vendors Management";
+            this.vendorsManagementToolStripMenuItem.Click += new System.EventHandler(this.vendorsManagementToolStripMenuItem_Click);
             // 
             // frmMainMenu
             // 
@@ -748,6 +757,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.Label lblPaymentStatusText;
         private System.Windows.Forms.ToolStripMenuItem contractorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendorsManagementToolStripMenuItem;
 
     }
 }

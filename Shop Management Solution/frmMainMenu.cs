@@ -256,5 +256,11 @@ namespace Shop_Management_Solution
             cm.ShowDialog();
         }
 
+        private void vendorsManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVendorManagement vm = new frmVendorManagement();
+            vm.ShowDialog();
+        }
+
     }
 }

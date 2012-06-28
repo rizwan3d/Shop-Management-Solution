@@ -246,7 +246,7 @@ namespace Shop_Management_Solution.lib.dal
             String query = "SELECT [c].[ID], [c].[Name], [c].[E-mail], [c].[Phone], [c].[Mobile], [c].[AddressLine1], [c].[AddressLine2], " +
                             "[c].[PostCode], [c].[Country], [ct].[CountryName], [c].[IsDeleted], [c].[City] " +
                             "FROM Contractor c INNER JOIN Countries ct ON [ct].[ID] = [c].[Country]";
-            OleDbConnection conn = new OleDbConnection(DBUtil.GetConnectionString());
+            OleDbConnection conn = new OleDbConnection(DBUtil.GetConnectionString()); //zbedne, polaczenie nie jest tu uzywane
             OleDbDataAdapter resultAdapter = new OleDbDataAdapter(query, DBUtil.GetConnectionString());
             resultAdapter.InsertCommand = new OleDbCommand("INSERT INTO Contractor ([Name], [E-mail], [Phone], [Mobile], [AddressLine1], [AddressLine2], [PostCode], [Country], [IsDeleted], [City]) " +
                             "VALUES (@Name, @Email, @Phone, @Mobile, @AddressLine1, @AddressLine2, @PostCode, @Country, @IsDeleted, @City) ", conn);

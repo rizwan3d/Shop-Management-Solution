@@ -113,6 +113,18 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmContractorManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContractorManagement.Designer.cs">
+      <DependentUpon>frmContractorManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContractorVendorManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractorVendorManagement.Designer.cs">
+      <DependentUpon>ContractorVendorManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +179,15 @@
     <Compile Include="frmSplash.Designer.cs">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVendorManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVendorManagement.Designer.cs">
+      <DependentUpon>frmVendorManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Contractor.cs" />
+    <Compile Include="lib\dal\ContractorDAL.cs" />
+    <Compile Include="lib\dal\CountryDAL.cs" />
     <Compile Include="lib\dal\ShopDAL.cs" />
     <Compile Include="lib\dal\UoMDAL.cs" />
     <Compile Include="lib\dal\VendorDAL.cs" />
@@ -187,6 +208,12 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContractorManagement.resx">
+      <DependentUpon>frmContractorManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContractorVendorManagement.resx">
+      <DependentUpon>ContractorVendorManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
@@ -223,6 +250,9 @@
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVendorManagement.resx">
+      <DependentUpon>frmVendorManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -281,6 +311,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="electronic-billing-machine.ico" />
+    <None Include="Resources\home_icon.png" />
+    <None Include="Resources\home_icon.bmp" />
     <None Include="Resources\waiting_clock.gif" />
     <None Include="Resources\1_euro_rotating_lg_nwm1.gif" />
     <None Include="Resources\nor_5_coin_rotating_lg_nwm.gif" />

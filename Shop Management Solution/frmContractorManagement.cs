@@ -288,7 +288,7 @@ namespace Shop_Management_Solution
                 dv.RowFilter = "Name LIKE '*" + txtNameFilter.Text + "*'";
             else
                 dv.RowFilter = "isDeleted = 0 and Name LIKE '*" + txtNameFilter.Text + "*'";
-
+            
         }
 
         private void frmContractorManagement_KeyDown(object sender, KeyEventArgs e)
