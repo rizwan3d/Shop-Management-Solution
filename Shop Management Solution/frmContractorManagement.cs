@@ -57,6 +57,7 @@ namespace Shop_Management_Solution
                 fillContractorControls();
                 _contractorChangedId = int.Parse(dgContractors.CurrentRow.Cells[0].Value.ToString());
                 btUpdateContractor.Enabled = true;
+                btnDeleteContactor.Enabled = true;
             }
         }
 
@@ -87,6 +88,7 @@ namespace Shop_Management_Solution
                 clearData();
                 //gbContractorDetails.Enabled = false;
                 btUpdateContractor.Enabled = false;
+                btnDeleteContactor.Enabled = false;
             }
             else
             {
@@ -102,7 +104,10 @@ namespace Shop_Management_Solution
             {
                 String deleted = "0";
                 if (cbDeleted.Checked)
+                {
                     deleted = "1";
+                }
+                    
 
                 DataRow[] rowsTab = _contractorsDs.Tables[0].Select("ID = " + _contractorChangedId);
 
@@ -303,6 +308,18 @@ namespace Shop_Management_Solution
                 else
                     this.Close();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataRow[] rowsTab = _contractorsDs.Tables[0].Select("ID = " + _contractorChangedId);
+            rowsTab[0]["IsDeleted"] = "1";
+            dgContractors.Refresh();
+        }
+
+        private void dgContractors_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

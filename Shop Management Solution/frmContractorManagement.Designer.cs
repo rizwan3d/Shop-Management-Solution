@@ -46,10 +46,10 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtMobileNo = new System.Windows.Forms.TextBox();
             this.txtPostCode = new System.Windows.Forms.TextBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtAddrLine2 = new System.Windows.Forms.TextBox();
             this.txtAddrLine1 = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.btAddNewContractor = new System.Windows.Forms.Button();
             this.lbFilter = new System.Windows.Forms.Label();
             this.txtNameFilter = new System.Windows.Forms.TextBox();
@@ -69,10 +69,9 @@
             this.btUpdateContractor = new System.Windows.Forms.Button();
             this.btSaveContractors = new System.Windows.Forms.Button();
             this.cbShowDeleted = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDeleteContactor = new System.Windows.Forms.Button();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbName
@@ -199,7 +198,7 @@
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
-            this.btClear.Text = "Clear";
+            this.btClear.Text = "Reset";
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.btClearContractor_Click);
             // 
@@ -249,6 +248,14 @@
             this.txtPostCode.Size = new System.Drawing.Size(208, 20);
             this.txtPostCode.TabIndex = 11;
             // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Location = new System.Drawing.Point(406, 24);
+            this.txtPhoneNo.MaxLength = 30;
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(208, 20);
+            this.txtPhoneNo.TabIndex = 14;
+            // 
             // txtAddrLine2
             // 
             this.txtAddrLine2.Location = new System.Drawing.Point(89, 84);
@@ -273,28 +280,20 @@
             this.txtName.Size = new System.Drawing.Size(208, 20);
             this.txtName.TabIndex = 8;
             // 
-            // txtPhoneNo
-            // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(406, 24);
-            this.txtPhoneNo.MaxLength = 30;
-            this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(208, 20);
-            this.txtPhoneNo.TabIndex = 14;
-            // 
             // btAddNewContractor
             // 
-            this.btAddNewContractor.Location = new System.Drawing.Point(513, 231);
+            this.btAddNewContractor.Location = new System.Drawing.Point(63, 259);
             this.btAddNewContractor.Name = "btAddNewContractor";
             this.btAddNewContractor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewContractor.TabIndex = 2;
-            this.btAddNewContractor.Text = "Add New";
+            this.btAddNewContractor.Text = "Add";
             this.btAddNewContractor.UseVisualStyleBackColor = true;
             this.btAddNewContractor.Click += new System.EventHandler(this.btAddNew_Click);
             // 
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
-            this.lbFilter.Location = new System.Drawing.Point(74, 237);
+            this.lbFilter.Location = new System.Drawing.Point(69, 237);
             this.lbFilter.Name = "lbFilter";
             this.lbFilter.Size = new System.Drawing.Size(72, 13);
             this.lbFilter.TabIndex = 9;
@@ -327,14 +326,15 @@
             this.clCountryName,
             this.clCity,
             this.clIsDeleted});
-            this.dgContractors.Location = new System.Drawing.Point(0, 284);
+            this.dgContractors.Location = new System.Drawing.Point(0, 289);
             this.dgContractors.Name = "dgContractors";
             this.dgContractors.ReadOnly = true;
             this.dgContractors.RowHeadersVisible = false;
             this.dgContractors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgContractors.Size = new System.Drawing.Size(988, 234);
+            this.dgContractors.Size = new System.Drawing.Size(691, 229);
             this.dgContractors.TabIndex = 15;
             this.dgContractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgContractors_CellDoubleClick);
+            this.dgContractors.SelectionChanged += new System.EventHandler(this.dgContractors_SelectionChanged);
             // 
             // clName
             // 
@@ -437,8 +437,7 @@
             // 
             // btUpdateContractor
             // 
-            this.btUpdateContractor.Enabled = false;
-            this.btUpdateContractor.Location = new System.Drawing.Point(594, 231);
+            this.btUpdateContractor.Location = new System.Drawing.Point(144, 259);
             this.btUpdateContractor.Name = "btUpdateContractor";
             this.btUpdateContractor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateContractor.TabIndex = 4;
@@ -448,7 +447,7 @@
             // 
             // btSaveContractors
             // 
-            this.btSaveContractors.Location = new System.Drawing.Point(885, 524);
+            this.btSaveContractors.Location = new System.Drawing.Point(594, 523);
             this.btSaveContractors.Name = "btSaveContractors";
             this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
             this.btSaveContractors.TabIndex = 17;
@@ -460,7 +459,7 @@
             // 
             this.cbShowDeleted.AutoSize = true;
             this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowDeleted.Location = new System.Drawing.Point(576, 263);
+            this.cbShowDeleted.Location = new System.Drawing.Point(366, 236);
             this.cbShowDeleted.Name = "cbShowDeleted";
             this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
             this.cbShowDeleted.TabIndex = 18;
@@ -468,21 +467,23 @@
             this.cbShowDeleted.UseVisualStyleBackColor = true;
             this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
             // 
-            // pictureBox1
+            // btnDeleteContactor
             // 
-            this.pictureBox1.Image = global::Shop_Management_Solution.Properties.Resources.home_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 50);
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.btnDeleteContactor.Enabled = false;
+            this.btnDeleteContactor.Location = new System.Drawing.Point(225, 260);
+            this.btnDeleteContactor.Name = "btnDeleteContactor";
+            this.btnDeleteContactor.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteContactor.TabIndex = 20;
+            this.btnDeleteContactor.Text = "Delete";
+            this.btnDeleteContactor.UseVisualStyleBackColor = true;
+            this.btnDeleteContactor.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmContractorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 558);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(698, 552);
+            this.Controls.Add(this.btnDeleteContactor);
             this.Controls.Add(this.cbShowDeleted);
             this.Controls.Add(this.btSaveContractors);
             this.Controls.Add(this.btUpdateContractor);
@@ -504,7 +505,6 @@
             this.gbContractorDetails.ResumeLayout(false);
             this.gbContractorDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,6 +552,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clCountryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clCity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDeleteContactor;
     }
 }
