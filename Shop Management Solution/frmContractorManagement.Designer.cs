@@ -70,6 +70,7 @@
             this.btSaveContractors = new System.Windows.Forms.Button();
             this.cbShowDeleted = new System.Windows.Forms.CheckBox();
             this.btnDeleteContactor = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).BeginInit();
             this.SuspendLayout();
@@ -447,7 +448,7 @@
             // 
             // btSaveContractors
             // 
-            this.btSaveContractors.Location = new System.Drawing.Point(594, 523);
+            this.btSaveContractors.Location = new System.Drawing.Point(491, 524);
             this.btSaveContractors.Name = "btSaveContractors";
             this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
             this.btSaveContractors.TabIndex = 17;
@@ -478,11 +479,22 @@
             this.btnDeleteContactor.UseVisualStyleBackColor = true;
             this.btnDeleteContactor.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(594, 524);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(97, 23);
+            this.btnCancel.TabIndex = 21;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmContractorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 552);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDeleteContactor);
             this.Controls.Add(this.cbShowDeleted);
             this.Controls.Add(this.btSaveContractors);
@@ -553,5 +565,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clCity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
         private System.Windows.Forms.Button btnDeleteContactor;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

@@ -321,5 +321,10 @@ namespace Shop_Management_Solution
         {
 
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -27,15 +27,15 @@ namespace Shop_Management_Solution
         private void frmVendorManagement_Load(object sender, EventArgs e)
         {
             VendorDAL vendor = new VendorDAL();
-            _vendorsDs = vendor.getContractorsPresentationDs();
+            _vendorsDs = vendor.getVendorsPresentationDs();
             DataView dv = _vendorsDs.Tables[0].DefaultView;
             dv.RowFilter = "IsDeleted = 0";
             dgVendors.DataSource = dv;            
             btAddNewVendor.Focus();
-            _vendorAdapter = vendor.getContractorAdapter();
+            _vendorAdapter = vendor.getVendorAdapter();
         }
 
-        private void fillContractorControls()
+        private void fillVendorControls()
         {
             txtName.Text = dgVendors.CurrentRow.Cells["clName"].Value.ToString();
             txtLocation.Text = dgVendors.CurrentRow.Cells["clLocation"].Value.ToString();            
@@ -50,7 +50,7 @@ namespace Shop_Management_Solution
         {
             if ((e.ColumnIndex >= 0) && (e.RowIndex >= 0))
             {
-                fillContractorControls();
+                fillVendorControls();
                 _vendorChangedId = int.Parse(dgVendors.CurrentRow.Cells[0].Value.ToString());
                 btUpdateVendor.Enabled = true;
             }
@@ -257,6 +257,11 @@ namespace Shop_Management_Solution
                 else
                     this.Close();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }    
            
     }

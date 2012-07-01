@@ -38,5 +38,10 @@ namespace Shop_Management_Solution
         {
             pbLoading.Increment(10);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -219,7 +219,7 @@ namespace Shop_Management_Solution.lib.dal
             return ds;
         }
 
-        public DataSet getContractorsPresentationDs()
+        public DataSet getVendorsPresentationDs()
         {
             OleDbConnection cnGet = new OleDbConnection(DBUtil.GetConnectionString());
             String query = "SELECT [v].[ID], [v].[Name], [v].[E-mail], [v].[Phone], [v].[Mobile], [v].[PostCode], " +
@@ -241,10 +241,10 @@ namespace Shop_Management_Solution.lib.dal
             return ds;
         }
 
-        public OleDbDataAdapter getContractorAdapter()
+        public OleDbDataAdapter getVendorAdapter()
         {
             String query = "SELECT [v].[ID], [v].[Name], [v].[E-mail], [v].[Phone], [v].[Mobile],  " +
-                            "[v].[Location], [v].[IdDeleted] " +
+                            "[v].[Location], [v].[IsDeleted] " +
                             "FROM Vendor v";
             OleDbConnection conn = new OleDbConnection(DBUtil.GetConnectionString()); //zbedne, polaczenie nie jest tu uzywane
             OleDbDataAdapter resultAdapter = new OleDbDataAdapter(query, DBUtil.GetConnectionString());

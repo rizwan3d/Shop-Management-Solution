@@ -48,12 +48,14 @@
             this.lbFilter = new System.Windows.Forms.Label();
             this.btSaveVendors = new System.Windows.Forms.Button();
             this.dgVendors = new System.Windows.Forms.DataGridView();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPostCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIsDeleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).BeginInit();
@@ -86,7 +88,7 @@
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
-            this.btClear.Text = "Clear";
+            this.btClear.Text = "Reset";
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
@@ -190,7 +192,7 @@
             // 
             this.cbShowDeleted.AutoSize = true;
             this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowDeleted.Location = new System.Drawing.Point(576, 221);
+            this.cbShowDeleted.Location = new System.Drawing.Point(366, 195);
             this.cbShowDeleted.Name = "cbShowDeleted";
             this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
             this.cbShowDeleted.TabIndex = 23;
@@ -201,7 +203,7 @@
             // btUpdateVendor
             // 
             this.btUpdateVendor.Enabled = false;
-            this.btUpdateVendor.Location = new System.Drawing.Point(594, 189);
+            this.btUpdateVendor.Location = new System.Drawing.Point(144, 224);
             this.btUpdateVendor.Name = "btUpdateVendor";
             this.btUpdateVendor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateVendor.TabIndex = 21;
@@ -211,7 +213,7 @@
             // 
             // btAddNewVendor
             // 
-            this.btAddNewVendor.Location = new System.Drawing.Point(513, 189);
+            this.btAddNewVendor.Location = new System.Drawing.Point(63, 224);
             this.btAddNewVendor.Name = "btAddNewVendor";
             this.btAddNewVendor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewVendor.TabIndex = 19;
@@ -239,7 +241,7 @@
             // 
             // btSaveVendors
             // 
-            this.btSaveVendors.Location = new System.Drawing.Point(885, 497);
+            this.btSaveVendors.Location = new System.Drawing.Point(491, 497);
             this.btSaveVendors.Name = "btSaveVendors";
             this.btSaveVendors.Size = new System.Drawing.Size(97, 23);
             this.btSaveVendors.TabIndex = 25;
@@ -259,15 +261,26 @@
             this.clPhone,
             this.clMobile,
             this.clLocation,
+            this.clPostCode,
             this.clIsDeleted});
-            this.dgVendors.Location = new System.Drawing.Point(0, 257);
+            this.dgVendors.Location = new System.Drawing.Point(12, 257);
             this.dgVendors.Name = "dgVendors";
             this.dgVendors.ReadOnly = true;
             this.dgVendors.RowHeadersVisible = false;
             this.dgVendors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgVendors.Size = new System.Drawing.Size(988, 234);
+            this.dgVendors.Size = new System.Drawing.Size(679, 234);
             this.dgVendors.TabIndex = 24;
             this.dgVendors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVendors_CellDoubleClick);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(594, 497);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(97, 23);
+            this.btnCancel.TabIndex = 27;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // clName
             // 
@@ -317,11 +330,19 @@
             this.clLocation.Name = "clLocation";
             this.clLocation.ReadOnly = true;
             // 
+            // clPostCode
+            // 
+            this.clPostCode.DataPropertyName = "PostCode";
+            this.clPostCode.HeaderText = "Post Code";
+            this.clPostCode.Name = "clPostCode";
+            this.clPostCode.ReadOnly = true;
+            this.clPostCode.Width = 90;
+            // 
             // clIsDeleted
             // 
             this.clIsDeleted.DataPropertyName = "IsDeleted";
             this.clIsDeleted.FalseValue = "0";
-            this.clIsDeleted.HeaderText = "Is deleted";
+            this.clIsDeleted.HeaderText = "Is Deleted?";
             this.clIsDeleted.IndeterminateValue = "0";
             this.clIsDeleted.Name = "clIsDeleted";
             this.clIsDeleted.ReadOnly = true;
@@ -334,7 +355,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 548);
+            this.ClientSize = new System.Drawing.Size(698, 524);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btSaveVendors);
             this.Controls.Add(this.dgVendors);
             this.Controls.Add(this.cbShowDeleted);
@@ -347,7 +369,8 @@
             this.MaximizeBox = false;
             this.Name = "frmVendorManagement";
             this.ShowInTaskbar = false;
-            this.Text = "frmVendorManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Manage Vendor";
             this.Load += new System.EventHandler(this.frmVendorManagement_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVendorManagement_KeyDown);
             this.gbContractorDetails.ResumeLayout(false);
@@ -380,12 +403,14 @@
         private System.Windows.Forms.Label lbFilter;
         private System.Windows.Forms.Button btSaveVendors;
         private System.Windows.Forms.DataGridView dgVendors;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn clMobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn clLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPostCode;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
     }
 }
