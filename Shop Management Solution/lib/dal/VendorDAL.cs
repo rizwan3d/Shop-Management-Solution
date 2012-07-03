@@ -270,6 +270,7 @@ namespace Shop_Management_Solution.lib.dal
             resultAdapter.UpdateCommand.Parameters.Add("@IsDeleted", OleDbType.Integer, 4, "IsDeleted");            
             resultAdapter.UpdateCommand.Parameters.Add("@ID", OleDbType.Integer, 4, "ID");
 
+
             return resultAdapter;
         }
 

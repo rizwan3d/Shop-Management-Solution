@@ -293,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="electronic-billing-machine.ico" />
+    <None Include="Resources\industry-icon.png" />
     <None Include="Resources\waiting_clock.gif" />
     <None Include="Resources\1_euro_rotating_lg_nwm1.gif" />
     <None Include="Resources\nor_5_coin_rotating_lg_nwm.gif" />

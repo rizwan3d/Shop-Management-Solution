@@ -71,8 +71,10 @@
             this.cbShowDeleted = new System.Windows.Forms.CheckBox();
             this.btnDeleteContactor = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbName
@@ -213,6 +215,7 @@
             this.cbDeleted.TabIndex = 18;
             this.cbDeleted.Text = "Is Deleted:           ";
             this.cbDeleted.UseVisualStyleBackColor = true;
+            this.cbDeleted.Visible = false;
             // 
             // combCountries
             // 
@@ -335,7 +338,6 @@
             this.dgContractors.Size = new System.Drawing.Size(691, 229);
             this.dgContractors.TabIndex = 15;
             this.dgContractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgContractors_CellDoubleClick);
-            this.dgContractors.SelectionChanged += new System.EventHandler(this.dgContractors_SelectionChanged);
             // 
             // clName
             // 
@@ -466,6 +468,7 @@
             this.cbShowDeleted.TabIndex = 18;
             this.cbShowDeleted.Text = "Show Deleted";
             this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.cbShowDeleted.Visible = false;
             this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
             // 
             // btnDeleteContactor
@@ -489,11 +492,21 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(7, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 56);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmContractorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 552);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDeleteContactor);
             this.Controls.Add(this.cbShowDeleted);
@@ -517,6 +530,7 @@
             this.gbContractorDetails.ResumeLayout(false);
             this.gbContractorDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,5 +580,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
         private System.Windows.Forms.Button btnDeleteContactor;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendorManagement));
             this.gbContractorDetails = new System.Windows.Forms.GroupBox();
             this.btClear = new System.Windows.Forms.Button();
             this.cbDeleted = new System.Windows.Forms.CheckBox();
@@ -48,7 +49,6 @@
             this.lbFilter = new System.Windows.Forms.Label();
             this.btSaveVendors = new System.Windows.Forms.Button();
             this.dgVendors = new System.Windows.Forms.DataGridView();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +57,11 @@
             this.clLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPostCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIsDeleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbContractorDetails
@@ -77,14 +80,14 @@
             this.gbContractorDetails.Controls.Add(this.txtName);
             this.gbContractorDetails.Location = new System.Drawing.Point(63, 23);
             this.gbContractorDetails.Name = "gbContractorDetails";
-            this.gbContractorDetails.Size = new System.Drawing.Size(628, 160);
+            this.gbContractorDetails.Size = new System.Drawing.Size(628, 136);
             this.gbContractorDetails.TabIndex = 2;
             this.gbContractorDetails.TabStop = false;
             this.gbContractorDetails.Text = "Please specify contractor detail(s)";
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(531, 120);
+            this.btClear.Location = new System.Drawing.Point(531, 100);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
@@ -272,16 +275,6 @@
             this.dgVendors.TabIndex = 24;
             this.dgVendors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVendors_CellDoubleClick);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(594, 497);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(97, 23);
-            this.btnCancel.TabIndex = 27;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // clName
             // 
             this.clName.DataPropertyName = "Name";
@@ -351,11 +344,31 @@
             this.clIsDeleted.TrueValue = "1";
             this.clIsDeleted.Width = 80;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(594, 497);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(97, 23);
+            this.btnCancel.TabIndex = 27;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Shop_Management_Solution.Properties.Resources.industry_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 51);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmVendorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 524);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btSaveVendors);
             this.Controls.Add(this.dgVendors);
@@ -365,6 +378,7 @@
             this.Controls.Add(this.txtNameFilter);
             this.Controls.Add(this.lbFilter);
             this.Controls.Add(this.gbContractorDetails);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmVendorManagement";
@@ -376,6 +390,7 @@
             this.gbContractorDetails.ResumeLayout(false);
             this.gbContractorDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,5 +427,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPostCode;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

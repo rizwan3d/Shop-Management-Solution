@@ -33,6 +33,7 @@ namespace Shop_Management_Solution
             combCountries.DataSource = CountryDAL.GetCountries();
             btAddNewContractor.Focus();
             _contractorAdapter = contractor.getContractorAdapter();
+            this.dgContractors.SelectionChanged += new EventHandler(dgContractors_SelectionChanged);
         }
 
         private void fillContractorControls()
@@ -47,6 +48,20 @@ namespace Shop_Management_Solution
             txtMobileNo.Text = dgContractors.CurrentRow.Cells["clMobile"].Value.ToString();
             txtEmail.Text = dgContractors.CurrentRow.Cells["clEmail"].Value.ToString();
             cbDeleted.Checked = dgContractors.CurrentRow.Cells["clIsDeleted"].Value.ToString() == "1";
+
+        }
+
+        private void fillContractorsControls(DataGridView dgView)
+        {
+            txtName.Text = dgView.CurrentRow.Cells["clName"].Value.ToString();
+            txtAddrLine1.Text = dgView.CurrentRow.Cells["clAddressLine1"].Value.ToString();
+            txtAddrLine2.Text = dgView.CurrentRow.Cells["clAddressLine2"].Value.ToString();
+            combCountries.SelectedValue = dgView.CurrentRow.Cells["clCountry"].Value.ToString();
+            txtPostCode.Text = dgView.CurrentRow.Cells["clPostCode"].Value.ToString();
+            txtCity.Text = dgView.CurrentRow.Cells["clCity"].Value.ToString();
+            txtPhoneNo.Text = dgView.CurrentRow.Cells["clPhone"].Value.ToString();
+            txtMobileNo.Text = dgView.CurrentRow.Cells["clMobile"].Value.ToString();
+            txtEmail.Text = dgView.CurrentRow.Cells["clEmail"].Value.ToString();
 
         }
 
@@ -319,8 +334,30 @@ namespace Shop_Management_Solution
 
         private void dgContractors_SelectionChanged(object sender, EventArgs e)
         {
+            DataGridView dgv = (DataGridView)sender;
+
+            //fillContractorControls();
+
+
+            //User selected WHOLE ROW (by clicking in the margin)
+            if (dgv.SelectedRows.Count > 0)
+            {
+                _contractorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
+                fillContractorControls();
+
+                //MessageBox.Show(dgv.SelectedRows[0].Cells[0].Value.ToString());
+            }
+            else if (dgv.SelectedCells.Count > 0) //User selected a cell (show the first cell in the row)
+            {
+                // MessageBox.Show(dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+            }
+            else if (dgv.SelectedCells.Count > 0) //User selected a cell, show that cell
+            {
+                //MessageBox.Show(dgv.SelectedCells[0].Value.ToString());
+            }
 
         }
+        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

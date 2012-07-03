@@ -200,6 +200,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap industry_icon {
+            get {
+                object obj = ResourceManager.GetObject("industry-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Information_icon {
             get {
                 object obj = ResourceManager.GetObject("Information-icon", resourceCulture);
