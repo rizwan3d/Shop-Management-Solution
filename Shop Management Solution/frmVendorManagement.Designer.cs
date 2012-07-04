@@ -59,6 +59,9 @@
             this.clIsDeleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDeleteVendor = new System.Windows.Forms.Button();
+            this.txtPostCode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +69,8 @@
             // 
             // gbContractorDetails
             // 
+            this.gbContractorDetails.Controls.Add(this.txtPostCode);
+            this.gbContractorDetails.Controls.Add(this.label1);
             this.gbContractorDetails.Controls.Add(this.btClear);
             this.gbContractorDetails.Controls.Add(this.cbDeleted);
             this.gbContractorDetails.Controls.Add(this.txtEmail);
@@ -80,14 +85,14 @@
             this.gbContractorDetails.Controls.Add(this.txtName);
             this.gbContractorDetails.Location = new System.Drawing.Point(63, 23);
             this.gbContractorDetails.Name = "gbContractorDetails";
-            this.gbContractorDetails.Size = new System.Drawing.Size(628, 136);
+            this.gbContractorDetails.Size = new System.Drawing.Size(628, 131);
             this.gbContractorDetails.TabIndex = 2;
             this.gbContractorDetails.TabStop = false;
             this.gbContractorDetails.Text = "Please specify contractor detail(s)";
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(531, 100);
+            this.btClear.Location = new System.Drawing.Point(531, 106);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
@@ -99,12 +104,13 @@
             // 
             this.cbDeleted.AutoSize = true;
             this.cbDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbDeleted.Location = new System.Drawing.Point(313, 86);
+            this.cbDeleted.Location = new System.Drawing.Point(9, 106);
             this.cbDeleted.Name = "cbDeleted";
             this.cbDeleted.Size = new System.Drawing.Size(110, 17);
             this.cbDeleted.TabIndex = 18;
             this.cbDeleted.Text = "Is Deleted:           ";
             this.cbDeleted.UseVisualStyleBackColor = true;
+            this.cbDeleted.Visible = false;
             // 
             // txtEmail
             // 
@@ -195,18 +201,19 @@
             // 
             this.cbShowDeleted.AutoSize = true;
             this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowDeleted.Location = new System.Drawing.Point(366, 195);
+            this.cbShowDeleted.Location = new System.Drawing.Point(366, 160);
             this.cbShowDeleted.Name = "cbShowDeleted";
             this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
             this.cbShowDeleted.TabIndex = 23;
             this.cbShowDeleted.Text = "Show Deleted";
             this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.cbShowDeleted.Visible = false;
             this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
             // 
             // btUpdateVendor
             // 
             this.btUpdateVendor.Enabled = false;
-            this.btUpdateVendor.Location = new System.Drawing.Point(144, 224);
+            this.btUpdateVendor.Location = new System.Drawing.Point(144, 189);
             this.btUpdateVendor.Name = "btUpdateVendor";
             this.btUpdateVendor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateVendor.TabIndex = 21;
@@ -216,17 +223,17 @@
             // 
             // btAddNewVendor
             // 
-            this.btAddNewVendor.Location = new System.Drawing.Point(63, 224);
+            this.btAddNewVendor.Location = new System.Drawing.Point(63, 189);
             this.btAddNewVendor.Name = "btAddNewVendor";
             this.btAddNewVendor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewVendor.TabIndex = 19;
-            this.btAddNewVendor.Text = "Add New";
+            this.btAddNewVendor.Text = "Add";
             this.btAddNewVendor.UseVisualStyleBackColor = true;
             this.btAddNewVendor.Click += new System.EventHandler(this.btAddNewVendor_Click);
             // 
             // txtNameFilter
             // 
-            this.txtNameFilter.Location = new System.Drawing.Point(152, 192);
+            this.txtNameFilter.Location = new System.Drawing.Point(152, 157);
             this.txtNameFilter.MaxLength = 30;
             this.txtNameFilter.Name = "txtNameFilter";
             this.txtNameFilter.Size = new System.Drawing.Size(208, 20);
@@ -236,7 +243,7 @@
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
-            this.lbFilter.Location = new System.Drawing.Point(74, 195);
+            this.lbFilter.Location = new System.Drawing.Point(74, 160);
             this.lbFilter.Name = "lbFilter";
             this.lbFilter.Size = new System.Drawing.Size(72, 13);
             this.lbFilter.TabIndex = 22;
@@ -244,7 +251,7 @@
             // 
             // btSaveVendors
             // 
-            this.btSaveVendors.Location = new System.Drawing.Point(491, 497);
+            this.btSaveVendors.Location = new System.Drawing.Point(491, 458);
             this.btSaveVendors.Name = "btSaveVendors";
             this.btSaveVendors.Size = new System.Drawing.Size(97, 23);
             this.btSaveVendors.TabIndex = 25;
@@ -266,7 +273,7 @@
             this.clLocation,
             this.clPostCode,
             this.clIsDeleted});
-            this.dgVendors.Location = new System.Drawing.Point(12, 257);
+            this.dgVendors.Location = new System.Drawing.Point(12, 218);
             this.dgVendors.Name = "dgVendors";
             this.dgVendors.ReadOnly = true;
             this.dgVendors.RowHeadersVisible = false;
@@ -274,6 +281,7 @@
             this.dgVendors.Size = new System.Drawing.Size(679, 234);
             this.dgVendors.TabIndex = 24;
             this.dgVendors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVendors_CellDoubleClick);
+            this.dgVendors.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgVendors_DataBindingComplete);
             // 
             // clName
             // 
@@ -342,11 +350,12 @@
             this.clIsDeleted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clIsDeleted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.clIsDeleted.TrueValue = "1";
+            this.clIsDeleted.Visible = false;
             this.clIsDeleted.Width = 80;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(594, 497);
+            this.btnCancel.Location = new System.Drawing.Point(594, 458);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 23);
             this.btnCancel.TabIndex = 27;
@@ -363,11 +372,39 @@
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDeleteVendor
+            // 
+            this.btnDeleteVendor.Enabled = false;
+            this.btnDeleteVendor.Location = new System.Drawing.Point(225, 189);
+            this.btnDeleteVendor.Name = "btnDeleteVendor";
+            this.btnDeleteVendor.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteVendor.TabIndex = 29;
+            this.btnDeleteVendor.Text = "Delete";
+            this.btnDeleteVendor.UseVisualStyleBackColor = true;
+            // 
+            // txtPostCode
+            // 
+            this.txtPostCode.Location = new System.Drawing.Point(406, 84);
+            this.txtPostCode.MaxLength = 100;
+            this.txtPostCode.Name = "txtPostCode";
+            this.txtPostCode.Size = new System.Drawing.Size(200, 20);
+            this.txtPostCode.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(314, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Post Code:";
+            // 
             // frmVendorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 524);
+            this.ClientSize = new System.Drawing.Size(699, 487);
+            this.Controls.Add(this.btnDeleteVendor);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btSaveVendors);
@@ -419,6 +456,7 @@
         private System.Windows.Forms.Button btSaveVendors;
         private System.Windows.Forms.DataGridView dgVendors;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clEmail;
@@ -427,6 +465,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPostCode;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDeleteVendor;
+        private System.Windows.Forms.TextBox txtPostCode;
+        private System.Windows.Forms.Label label1;
     }
 }

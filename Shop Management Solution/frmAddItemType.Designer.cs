@@ -41,6 +41,8 @@
             this.cmbUoM = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtExpectedSalePrice = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbVendor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +93,7 @@
             // 
             this.btn_Cancel.BackColor = System.Drawing.Color.White;
             this.btn_Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Cancel.Location = new System.Drawing.Point(337, 157);
+            this.btn_Cancel.Location = new System.Drawing.Point(335, 183);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(77, 25);
             this.btn_Cancel.TabIndex = 5;
@@ -103,7 +105,7 @@
             // 
             this.btn_Save.BackColor = System.Drawing.Color.White;
             this.btn_Save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Save.Location = new System.Drawing.Point(254, 157);
+            this.btn_Save.Location = new System.Drawing.Point(252, 183);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(77, 25);
             this.btn_Save.TabIndex = 4;
@@ -113,6 +115,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cmbVendor);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbUoM);
             this.groupBox1.Controls.Add(this.label3);
@@ -123,7 +127,7 @@
             this.groupBox1.Controls.Add(this.txtItemPrice);
             this.groupBox1.Location = new System.Drawing.Point(83, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 127);
+            this.groupBox1.Size = new System.Drawing.Size(330, 153);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Detail(s)";
@@ -163,12 +167,30 @@
             this.txtExpectedSalePrice.TabIndex = 5;
             this.txtExpectedSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExpectedSalePrice_KeyPress);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Vendor:";
+            // 
+            // cmbVendor
+            // 
+            this.cmbVendor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVendor.FormattingEnabled = true;
+            this.cmbVendor.Location = new System.Drawing.Point(122, 123);
+            this.cmbVendor.Name = "cmbVendor";
+            this.cmbVendor.Size = new System.Drawing.Size(197, 21);
+            this.cmbVendor.TabIndex = 8;
+            // 
             // frmAddItemType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(423, 194);
+            this.ClientSize = new System.Drawing.Size(416, 216);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Cancel);
@@ -202,5 +224,7 @@
         private System.Windows.Forms.TextBox txtExpectedSalePrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbUoM;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbVendor;
     }
 }

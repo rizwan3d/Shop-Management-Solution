@@ -118,6 +118,16 @@ namespace Shop_Management_Solution
                     cmbUoM.DataSource = ds.Tables[0];
                     cmbUoM.DisplayMember = "UoM_Name";
                     cmbUoM.ValueMember = "ID";
+
+                    DataSet dsVendor = VendorDAL.getContractorsDs();
+                    DataRow defaultRow = dsVendor.Tables[0].NewRow();
+                    defaultRow["ID"] = "0";
+                    defaultRow["Name"] = "------ Select Vendor  ------";
+                    dsVendor.Tables[0].Rows.InsertAt(defaultRow, 0);
+
+                    cmbVendor.DataSource = dsVendor.Tables[0];
+                    cmbVendor.DisplayMember = "Name";
+                    cmbVendor.ValueMember = "ID";
             }
             catch (IndexOutOfRangeException ex)
             {

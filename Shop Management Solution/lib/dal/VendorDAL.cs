@@ -199,7 +199,7 @@ namespace Shop_Management_Solution.lib.dal
         //    return contractors;
         //}
 
-        public DataSet getContractorsDs()
+        public static DataSet getContractorsDs()
         {
             OleDbConnection cnGet = new OleDbConnection(DBUtil.GetConnectionString());
             String query = "SELECT * FROM Vendor";
@@ -244,29 +244,31 @@ namespace Shop_Management_Solution.lib.dal
         public OleDbDataAdapter getVendorAdapter()
         {
             String query = "SELECT [v].[ID], [v].[Name], [v].[E-mail], [v].[Phone], [v].[Mobile],  " +
-                            "[v].[Location], [v].[IsDeleted] " +
+                            "[v].[Location], [v].[IsDeleted], [v].[PostCode] " +
                             "FROM Vendor v";
             OleDbConnection conn = new OleDbConnection(DBUtil.GetConnectionString()); //zbedne, polaczenie nie jest tu uzywane
             OleDbDataAdapter resultAdapter = new OleDbDataAdapter(query, DBUtil.GetConnectionString());
-            resultAdapter.InsertCommand = new OleDbCommand("INSERT INTO Vendor ([Name], [E-mail], [Phone], [Mobile], [Location], [IsDeleted]) " +
-                            "VALUES (@Name, @Email, @Phone, @Mobile, @Location, @IsDeleted) ", conn);
+            resultAdapter.InsertCommand = new OleDbCommand("INSERT INTO Vendor ([Name], [E-mail], [Phone], [Mobile], [Location], [PostCode], [IsDeleted]) " +
+                            "VALUES (@Name, @Email, @Phone, @Mobile, @Location, @PostCode, @IsDeleted) ", conn);
 
 
             resultAdapter.InsertCommand.Parameters.Add("@Name", OleDbType.VarChar, 255, "Name");
             resultAdapter.InsertCommand.Parameters.Add("@Email", OleDbType.VarChar, 100, "E-mail");
             resultAdapter.InsertCommand.Parameters.Add("@Phone", OleDbType.VarChar, 30, "Phone");
             resultAdapter.InsertCommand.Parameters.Add("@Mobile", OleDbType.VarChar, 30, "Mobile");
-            resultAdapter.InsertCommand.Parameters.Add("@Location", OleDbType.VarChar, 255, "Location");            
+            resultAdapter.InsertCommand.Parameters.Add("@Location", OleDbType.VarChar, 255, "Location");
+            resultAdapter.InsertCommand.Parameters.Add("@PostCode", OleDbType.VarChar, 255, "PostCode");  
             resultAdapter.InsertCommand.Parameters.Add("@IsDeleted", OleDbType.Integer, 4, "IsDeleted");            
 
-            resultAdapter.UpdateCommand = new OleDbCommand("UPDATE Vendor SET [Name] = @Name, [E-mail] = @Email, [Phone] = @Phone, [Mobile] = @Mobile, [Location] = @Location, " +
+            resultAdapter.UpdateCommand = new OleDbCommand("UPDATE Vendor SET [Name] = @Name, [E-mail] = @Email, [Phone] = @Phone, [Mobile] = @Mobile, [Location] = @Location, [PostCode] = @PostCode, " +
                         "[IsDeleted] = @IsDeleted WHERE [ID] = @ID ", conn);
 
             resultAdapter.UpdateCommand.Parameters.Add("@Name", OleDbType.VarChar, 255, "Name");
             resultAdapter.UpdateCommand.Parameters.Add("@Email", OleDbType.VarChar, 100, "E-mail");
             resultAdapter.UpdateCommand.Parameters.Add("@Phone", OleDbType.VarChar, 30, "Phone");
             resultAdapter.UpdateCommand.Parameters.Add("@Mobile", OleDbType.VarChar, 30, "Mobile");
-            resultAdapter.UpdateCommand.Parameters.Add("@Location", OleDbType.VarChar, 255, "Location");            
+            resultAdapter.UpdateCommand.Parameters.Add("@Location", OleDbType.VarChar, 255, "Location");
+            resultAdapter.UpdateCommand.Parameters.Add("@PostCode", OleDbType.VarChar, 255, "PostCode");
             resultAdapter.UpdateCommand.Parameters.Add("@IsDeleted", OleDbType.Integer, 4, "IsDeleted");            
             resultAdapter.UpdateCommand.Parameters.Add("@ID", OleDbType.Integer, 4, "ID");
 

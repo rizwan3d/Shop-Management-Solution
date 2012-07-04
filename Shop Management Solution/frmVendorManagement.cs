@@ -18,7 +18,7 @@ namespace Shop_Management_Solution
         private DataSet _vendorsDs;
         private int _vendorChangedId;
         private OleDbDataAdapter _vendorAdapter;
-
+        private bool isDirty;
         public frmVendorManagement()
         {
             InitializeComponent();
@@ -33,6 +33,30 @@ namespace Shop_Management_Solution
             dgVendors.DataSource = dv;            
             btAddNewVendor.Focus();
             _vendorAdapter = vendor.getVendorAdapter();
+            this.dgVendors.SelectionChanged += new EventHandler(dgVendors_SelectionChanged);
+            isDirty = false;
+        }
+
+        private void dgVendors_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+
+            //User selected WHOLE ROW (by clicking in the margin)
+            if (dgv.SelectedRows.Count > 0)
+            {
+                _vendorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
+                fillVendorControls();
+                btnDeleteVendor.Enabled = true;
+                btUpdateVendor.Enabled = true;
+
+            }
+            else
+            {
+                btnDeleteVendor.Enabled = false;
+                btUpdateVendor.Enabled = false;
+            }
+
+
         }
 
         private void fillVendorControls()
@@ -42,6 +66,7 @@ namespace Shop_Management_Solution
             txtPhoneNo.Text = dgVendors.CurrentRow.Cells["clPhone"].Value.ToString();
             txtMobileNo.Text = dgVendors.CurrentRow.Cells["clMobile"].Value.ToString();
             txtEmail.Text = dgVendors.CurrentRow.Cells["clEmail"].Value.ToString();
+            txtPostCode.Text = dgVendors.CurrentRow.Cells["clPostCode"].Value.ToString();
             cbDeleted.Checked = dgVendors.CurrentRow.Cells["clIsDeleted"].Value.ToString() == "1";
 
         }
@@ -68,7 +93,8 @@ namespace Shop_Management_Solution
                 newRow["E-mail"] = txtEmail.Text;
                 newRow["Phone"] = txtPhoneNo.Text;
                 newRow["Mobile"] = txtMobileNo.Text;
-                newRow["Location"] = txtLocation.Text;                
+                newRow["Location"] = txtLocation.Text;
+                newRow["PostCode"] = txtPostCode.Text;
                 newRow["IsDeleted"] = deleted;
 
                 _vendorsDs.Tables[0].Rows.Add(newRow);
@@ -99,7 +125,8 @@ namespace Shop_Management_Solution
                 rowsTab[0]["E-mail"] = txtEmail.Text;
                 rowsTab[0]["Phone"] = txtPhoneNo.Text;
                 rowsTab[0]["Mobile"] = txtMobileNo.Text;
-                rowsTab[0]["Location"] = txtLocation.Text;                
+                rowsTab[0]["Location"] = txtLocation.Text;
+                rowsTab[0]["PostCode"] = txtPostCode.Text;
                 rowsTab[0]["IsDeleted"] = deleted;
 
                 dgVendors.Refresh();
@@ -215,6 +242,7 @@ namespace Shop_Management_Solution
             txtPhoneNo.Text = "";
             txtMobileNo.Text = "";
             txtEmail.Text = "";
+            txtPostCode.Text = "";
             cbDeleted.Checked = false;
         }
 
@@ -261,7 +289,28 @@ namespace Shop_Management_Solution
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            isDirty = _vendorsDs.HasChanges();
+            if (isDirty)
+            {
+                if (MessageBox.Show("Do you want to exit without saving changes?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void dgVendors_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgVendors.SelectedRows.Count > 0)
+            {
+                dgVendors.SelectedRows[0].Selected = false;
+                btnDeleteVendor.Enabled = false;
+                btUpdateVendor.Enabled = false;
+            }
         }    
            
     }

@@ -17,6 +17,7 @@ namespace Shop_Management_Solution
         private DataSet _contractorsDs;
         private int _contractorChangedId;
         private OleDbDataAdapter _contractorAdapter;
+        private bool isDirty;
 
         public frmContractorManagement()
         {
@@ -34,6 +35,7 @@ namespace Shop_Management_Solution
             btAddNewContractor.Focus();
             _contractorAdapter = contractor.getContractorAdapter();
             this.dgContractors.SelectionChanged += new EventHandler(dgContractors_SelectionChanged);
+            isDirty = false;
         }
 
         private void fillContractorControls()
@@ -280,6 +282,10 @@ namespace Shop_Management_Solution
             txtMobileNo.Text = "";
             txtEmail.Text = "";
             cbDeleted.Checked = false;
+
+            btnDeleteContactor.Enabled = false;
+            btUpdateContractor.Enabled = false;
+
         }
 
         private void btSaveContractors_Click(object sender, EventArgs e)
@@ -313,15 +319,30 @@ namespace Shop_Management_Solution
 
         private void frmContractorManagement_KeyDown(object sender, KeyEventArgs e)
         {
+            isDirty = _contractorsDs.HasChanges();
             if ((Keys)e.KeyValue == Keys.Escape)
             {
-                if (checkIfThereIsDataLeft())
+                if (checkIfThereIsDataLeft() && !isDirty)
                 {
                     if (MessageBox.Show("There is some data left in the fields. Do you want to close window anyway?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                    {
                         this.Close();
+                    }
                 }
                 else
-                    this.Close();
+                {
+                    if (isDirty)
+                    {
+                        if (MessageBox.Show("Do you want to exit without saving changes?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
         }
 
@@ -344,24 +365,46 @@ namespace Shop_Management_Solution
             {
                 _contractorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
                 fillContractorControls();
+                btnDeleteContactor.Enabled = true;
+                btUpdateContractor.Enabled = true;
 
                 //MessageBox.Show(dgv.SelectedRows[0].Cells[0].Value.ToString());
             }
-            else if (dgv.SelectedCells.Count > 0) //User selected a cell (show the first cell in the row)
+            else 
             {
-                // MessageBox.Show(dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+                btnDeleteContactor.Enabled = false;
+                btUpdateContractor.Enabled = false;
             }
-            else if (dgv.SelectedCells.Count > 0) //User selected a cell, show that cell
-            {
-                //MessageBox.Show(dgv.SelectedCells[0].Value.ToString());
-            }
+            
 
         }
         
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            isDirty = _contractorsDs.HasChanges();
+            if (isDirty)
+            {
+                if (MessageBox.Show("Do you want to exit without saving changes?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
+            
+        }
+
+        private void dgContractors_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgContractors.SelectedRows.Count > 0)
+            {
+                dgContractors.SelectedRows[0].Selected = false;
+                btnDeleteContactor.Enabled = false;
+                btUpdateContractor.Enabled = false;
+            }
         }
     }
 }
