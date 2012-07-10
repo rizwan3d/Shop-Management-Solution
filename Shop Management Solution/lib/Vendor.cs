@@ -7,6 +7,11 @@ namespace Shop_Management_Solution.lib
 {
     class Vendor
     {
+        public Vendor()
+        {
+ 
+        }
+
         public Vendor(int id, string name, string email, string phoneNo, string mobileNo, string location)
         {
             _id = id;

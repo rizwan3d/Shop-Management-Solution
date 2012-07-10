@@ -199,7 +199,7 @@ namespace Shop_Management_Solution.lib.dal
             return contractors;
         }
 
-        public DataSet getContractorsDs()
+        public static DataSet getContractorsDs()
         {
             OleDbConnection cnGet = new OleDbConnection(DBUtil.GetConnectionString());
             String query = "SELECT * FROM Contractor";

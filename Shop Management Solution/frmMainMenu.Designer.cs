@@ -40,6 +40,7 @@
             this.addPurchasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saleItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchItemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contractorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendorsManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -193,6 +194,7 @@
             this.addPurchasesToolStripMenuItem,
             this.saleItemsToolStripMenuItem,
             this.searchItemToolStripMenuItem1,
+            this.manageItemToolStripMenuItem,
             this.contractorsToolStripMenuItem,
             this.vendorsManagementToolStripMenuItem,
             this.toolStripSeparator2,
@@ -232,6 +234,14 @@
             this.searchItemToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.searchItemToolStripMenuItem1.Text = "Search Item";
             this.searchItemToolStripMenuItem1.Click += new System.EventHandler(this.searchItemToolStripMenuItem_Click);
+            // 
+            // manageItemToolStripMenuItem
+            // 
+            this.manageItemToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.Misc_Box_icons;
+            this.manageItemToolStripMenuItem.Name = "manageItemToolStripMenuItem";
+            this.manageItemToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.manageItemToolStripMenuItem.Text = "Manage Item";
+            this.manageItemToolStripMenuItem.Click += new System.EventHandler(this.manageItemToolStripMenuItem_Click);
             // 
             // contractorsToolStripMenuItem
             // 
@@ -759,6 +769,7 @@
         private System.Windows.Forms.Label lblPaymentStatusText;
         private System.Windows.Forms.ToolStripMenuItem contractorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendorsManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageItemToolStripMenuItem;
 
     }
 }

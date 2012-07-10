@@ -256,6 +256,27 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Misc_Box_icon {
+            get {
+                object obj = ResourceManager.GetObject("Misc-Box-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Misc_Box_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Misc-Box-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Misc_Box_icons {
+            get {
+                object obj = ResourceManager.GetObject("Misc-Box-icons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap nor_5_coin_rotating_lg_nwm {
             get {
                 object obj = ResourceManager.GetObject("nor_5_coin_rotating_lg_nwm", resourceCulture);

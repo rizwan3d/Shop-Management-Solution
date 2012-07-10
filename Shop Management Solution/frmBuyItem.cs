@@ -36,6 +36,17 @@ namespace Shop_Management_Solution
                     cmbItemType.DisplayMember = "Name";
                     cmbItemType.ValueMember = "Type_ID";
                 }
+
+                DataSet dsContractor = ContractorDAL.getContractorsDs();
+                DataRow defaultRow = dsContractor.Tables[0].NewRow();
+                defaultRow["ID"] = "0";
+                defaultRow["Name"] = "------ Select Contractor  ------";
+                dsContractor.Tables[0].Rows.InsertAt(defaultRow, 0);
+
+                cmbContractor.DataSource = dsContractor.Tables[0];
+                cmbContractor.DisplayMember = "Name";
+                cmbContractor.ValueMember = "ID";
+
             }
             catch (IndexOutOfRangeException ex)
             {
@@ -56,16 +67,18 @@ namespace Shop_Management_Solution
             String dateofPurchase = txtDateofPurchase.Text;
             long itemQuantity = long.Parse(txtQuantity.Value.ToString()) ;
             long itemTypeId = long.Parse(cmbItemType.SelectedValue.ToString());
+            int contractorId = int.Parse(cmbContractor.SelectedValue.ToString());
+
             //MessageBox.Show(" Value for DB = " + dateofPurchase + " " + itemQuantity +" "+ itemTypeId);
             try
             {
-                if (String.IsNullOrEmpty(dateofPurchase) || itemQuantity < 1)
+                if (String.IsNullOrEmpty(dateofPurchase) || itemQuantity < 1 || contractorId == 0)
                 {
-                    MessageBox.Show(this, "Fill in date of purchase and quantity", "Error: Add new stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Fill in date of purchase, quantity and Contractor", "Error: Add new stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    bool isInserted = ShopDAL.AddPurchasedItem(dateofPurchase, itemTypeId, itemQuantity);
+                    bool isInserted = ShopDAL.AddPurchasedItem( dateofPurchase, itemTypeId, itemQuantity, contractorId);
                     if (isInserted)
                     {
                         this.Close();

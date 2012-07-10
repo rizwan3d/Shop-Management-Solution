@@ -17,7 +17,9 @@ namespace Shop_Management_Solution.lib.dal
             //Create the objects we need to insert a new record
             OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString());
             OleDbCommand cmdInsert = new OleDbCommand();
-            string query = "INSERT INTO ItemType(Name,Price,Sale_Price,UoM_ID) VALUES(@name,@price,@salePrice,@uomId)";
+            string query = " INSERT INTO ItemType(Name,Price, Sale_Price, UoM_ID, Vendor_ID) ";
+            query +=       " VALUES(@name, @price, @salePrice, @uomId, @vendorId)";
+
             int iSqlStatus;
 
             //Clear any parameters
@@ -37,6 +39,7 @@ namespace Shop_Management_Solution.lib.dal
                 cmdInsert.Parameters.AddWithValue("@price", item.Price);
                 cmdInsert.Parameters.AddWithValue("@salePrice", item.SalePrice);
                 cmdInsert.Parameters.AddWithValue("@uomId", item.Uom.Id);
+                cmdInsert.Parameters.AddWithValue("@vendorId", item.Vendor.Id);
 
                 //Set the connection of the object
                 cmdInsert.Connection = cnInsert;
@@ -118,7 +121,8 @@ namespace Shop_Management_Solution.lib.dal
             List<ItemType> itemtypes = new List<ItemType>();
 
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
-            string query = "SELECT ItemType.Type_ID, ItemType.Name,ItemType.Price FROM ItemType";
+            string query = "SELECT ItemType.Type_ID, ItemType.Name,ItemType.Price FROM ItemType " +
+                           "WHERE Is_Deleted = 0";
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
             DataSet ds = new DataSet();
 
@@ -155,7 +159,8 @@ namespace Shop_Management_Solution.lib.dal
         public DataSet GetItemsType()
         {
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
-            string query = "SELECT Type_ID, Name, Price FROM ItemType";
+            string query = "SELECT Type_ID, Name, Price FROM ItemType "+
+                           "WHERE Is_Deleted = 0";
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
             DataSet ds = new DataSet();
 
@@ -202,12 +207,14 @@ namespace Shop_Management_Solution.lib.dal
 
         }
 
-        public static bool AddPurchasedItem(string dateOfPurchase, long itemTypeId, long quantity)
+        public static bool AddPurchasedItem(string dateOfPurchase, long itemTypeId, long quantity, int contractorId)
         {
             //Create the objects we need to insert a new record
-            OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString());
+            OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString()); 
             OleDbCommand cmdInsert = new OleDbCommand();
-            string query = "INSERT INTO Purchase(Purchase_Date,Type_ID,Quantity) VALUES(@purcahseDate,@typeId, @quantity)";
+            string query = " INSERT INTO Purchase( Purchase_Date, Type_ID, Quantity, Contractor_ID ) ";
+            query +=        " VALUES( @purcahseDate, @typeId, @quantity, @contractorId ) ";
+
             int iSqlStatus;
 
             cmdInsert.Parameters.Clear();
@@ -219,6 +226,7 @@ namespace Shop_Management_Solution.lib.dal
                 cmdInsert.Parameters.AddWithValue("@purcahseDate", dateOfPurchase);
                 cmdInsert.Parameters.AddWithValue("@typeId", itemTypeId);
                 cmdInsert.Parameters.AddWithValue("@quantity", quantity);
+                cmdInsert.Parameters.AddWithValue("@contractorId", contractorId);
 
                 cmdInsert.Connection = cnInsert;
 

@@ -30,12 +30,13 @@ namespace Shop_Management_Solution
             String itemPrice = txtItemPrice.Text;
             String itemSalePrice = txtExpectedSalePrice.Text;
             String uom = cmbUoM.SelectedValue.ToString();
+            String vendorId = cmbVendor.SelectedValue.ToString();
 
             try
             {
-                if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice) || String.IsNullOrEmpty(itemSalePrice) || String.IsNullOrEmpty(uom))
+                if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice) || String.IsNullOrEmpty(itemSalePrice) || String.IsNullOrEmpty(uom) || vendorId == "0")
                 {
-                    MessageBox.Show(this, "Fill in item name, price, sale price and Unit of Measurement", "Error:Add Item Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Fill in item name, price, sale price,Unit of Measurement and Vendor", "Error:Add Item Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -51,6 +52,12 @@ namespace Shop_Management_Solution
                     objUoM.Id = int.Parse(uom);
                     
                     item.Uom = objUoM;
+
+                    Vendor objVendor = new Vendor();
+                    objVendor.Id = int.Parse(vendorId);
+                    item.Vendor = objVendor;
+
+
 
                     bool isInserted = ShopDAL.InsertNewItemType( item );
                     if (isInserted)
@@ -119,7 +126,7 @@ namespace Shop_Management_Solution
                     cmbUoM.DisplayMember = "UoM_Name";
                     cmbUoM.ValueMember = "ID";
 
-                    DataSet dsVendor = VendorDAL.getContractorsDs();
+                    DataSet dsVendor = VendorDAL.getVendorsDs();
                     DataRow defaultRow = dsVendor.Tables[0].NewRow();
                     defaultRow["ID"] = "0";
                     defaultRow["Name"] = "------ Select Vendor  ------";

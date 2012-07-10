@@ -12,6 +12,13 @@ namespace Shop_Management_Solution.lib
         private float price;
         private float salePrice;
         private UoM uom;
+        private Vendor vendor;
+
+        internal Vendor Vendor
+        {
+            get { return vendor; }
+            set { vendor = value; }
+        }
 
         internal UoM Uom
         {

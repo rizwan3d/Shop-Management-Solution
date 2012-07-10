@@ -262,5 +262,12 @@ namespace Shop_Management_Solution
             vm.ShowDialog();
         }
 
+        private void manageItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmItemManagement im = new frmItemManagement();
+            im.ShowDialog();
+
+        }
+
     }
 }

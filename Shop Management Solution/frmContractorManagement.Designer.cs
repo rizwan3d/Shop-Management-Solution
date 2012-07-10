@@ -54,12 +54,6 @@
             this.lbFilter = new System.Windows.Forms.Label();
             this.txtNameFilter = new System.Windows.Forms.TextBox();
             this.dgContractors = new System.Windows.Forms.DataGridView();
-            this.btUpdateContractor = new System.Windows.Forms.Button();
-            this.btSaveContractors = new System.Windows.Forms.Button();
-            this.cbShowDeleted = new System.Windows.Forms.CheckBox();
-            this.btnDeleteContactor = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +66,12 @@
             this.clCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIsDeleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btUpdateContractor = new System.Windows.Forms.Button();
+            this.btSaveContractors = new System.Windows.Forms.Button();
+            this.cbShowDeleted = new System.Windows.Forms.CheckBox();
+            this.btnDeleteContactor = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -340,69 +340,6 @@
             this.dgContractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgContractors_CellDoubleClick);
             this.dgContractors.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgContractors_DataBindingComplete);
             // 
-            // btUpdateContractor
-            // 
-            this.btUpdateContractor.Location = new System.Drawing.Point(144, 259);
-            this.btUpdateContractor.Name = "btUpdateContractor";
-            this.btUpdateContractor.Size = new System.Drawing.Size(75, 23);
-            this.btUpdateContractor.TabIndex = 4;
-            this.btUpdateContractor.Text = "Update";
-            this.btUpdateContractor.UseVisualStyleBackColor = true;
-            this.btUpdateContractor.Click += new System.EventHandler(this.btUpdateContractor_Click);
-            // 
-            // btSaveContractors
-            // 
-            this.btSaveContractors.Location = new System.Drawing.Point(491, 524);
-            this.btSaveContractors.Name = "btSaveContractors";
-            this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
-            this.btSaveContractors.TabIndex = 17;
-            this.btSaveContractors.Text = "Save Changes";
-            this.btSaveContractors.UseVisualStyleBackColor = true;
-            this.btSaveContractors.Click += new System.EventHandler(this.btSaveContractors_Click);
-            // 
-            // cbShowDeleted
-            // 
-            this.cbShowDeleted.AutoSize = true;
-            this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowDeleted.Location = new System.Drawing.Point(366, 236);
-            this.cbShowDeleted.Name = "cbShowDeleted";
-            this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
-            this.cbShowDeleted.TabIndex = 18;
-            this.cbShowDeleted.Text = "Show Deleted";
-            this.cbShowDeleted.UseVisualStyleBackColor = true;
-            this.cbShowDeleted.Visible = false;
-            this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
-            // 
-            // btnDeleteContactor
-            // 
-            this.btnDeleteContactor.Enabled = false;
-            this.btnDeleteContactor.Location = new System.Drawing.Point(225, 260);
-            this.btnDeleteContactor.Name = "btnDeleteContactor";
-            this.btnDeleteContactor.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteContactor.TabIndex = 20;
-            this.btnDeleteContactor.Text = "Delete";
-            this.btnDeleteContactor.UseVisualStyleBackColor = true;
-            this.btnDeleteContactor.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(594, 524);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(97, 23);
-            this.btnCancel.TabIndex = 21;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 56);
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            // 
             // clName
             // 
             this.clName.DataPropertyName = "Name";
@@ -503,6 +440,69 @@
             this.clIsDeleted.Visible = false;
             this.clIsDeleted.Width = 80;
             // 
+            // btUpdateContractor
+            // 
+            this.btUpdateContractor.Location = new System.Drawing.Point(144, 259);
+            this.btUpdateContractor.Name = "btUpdateContractor";
+            this.btUpdateContractor.Size = new System.Drawing.Size(75, 23);
+            this.btUpdateContractor.TabIndex = 4;
+            this.btUpdateContractor.Text = "Update";
+            this.btUpdateContractor.UseVisualStyleBackColor = true;
+            this.btUpdateContractor.Click += new System.EventHandler(this.btUpdateContractor_Click);
+            // 
+            // btSaveContractors
+            // 
+            this.btSaveContractors.Location = new System.Drawing.Point(491, 524);
+            this.btSaveContractors.Name = "btSaveContractors";
+            this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
+            this.btSaveContractors.TabIndex = 17;
+            this.btSaveContractors.Text = "Save Changes";
+            this.btSaveContractors.UseVisualStyleBackColor = true;
+            this.btSaveContractors.Click += new System.EventHandler(this.btSaveContractors_Click);
+            // 
+            // cbShowDeleted
+            // 
+            this.cbShowDeleted.AutoSize = true;
+            this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbShowDeleted.Location = new System.Drawing.Point(366, 236);
+            this.cbShowDeleted.Name = "cbShowDeleted";
+            this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
+            this.cbShowDeleted.TabIndex = 18;
+            this.cbShowDeleted.Text = "Show Deleted";
+            this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.cbShowDeleted.Visible = false;
+            this.cbShowDeleted.CheckStateChanged += new System.EventHandler(this.cbShowDeleted_CheckStateChanged);
+            // 
+            // btnDeleteContactor
+            // 
+            this.btnDeleteContactor.Enabled = false;
+            this.btnDeleteContactor.Location = new System.Drawing.Point(225, 260);
+            this.btnDeleteContactor.Name = "btnDeleteContactor";
+            this.btnDeleteContactor.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteContactor.TabIndex = 20;
+            this.btnDeleteContactor.Text = "Delete";
+            this.btnDeleteContactor.UseVisualStyleBackColor = true;
+            this.btnDeleteContactor.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(594, 524);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(97, 23);
+            this.btnCancel.TabIndex = 21;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(7, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 56);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmContractorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,6 +523,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmContractorManagement";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

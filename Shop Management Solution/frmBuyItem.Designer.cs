@@ -39,6 +39,8 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbContractor = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -115,7 +117,7 @@
             this.btn_Cancel.BackColor = System.Drawing.Color.White;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_Cancel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btn_Cancel.Location = new System.Drawing.Point(304, 118);
+            this.btn_Cancel.Location = new System.Drawing.Point(306, 142);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(81, 23);
             this.btn_Cancel.TabIndex = 9;
@@ -128,7 +130,7 @@
             this.btn_Save.BackColor = System.Drawing.Color.White;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_Save.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btn_Save.Location = new System.Drawing.Point(212, 118);
+            this.btn_Save.Location = new System.Drawing.Point(214, 142);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(81, 23);
             this.btn_Save.TabIndex = 8;
@@ -138,6 +140,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbContractor);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbItemType);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtQuantity);
@@ -146,17 +150,36 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(69, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 100);
+            this.groupBox1.Size = new System.Drawing.Size(316, 124);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase Item Detail(s)";
+            // 
+            // cmbContractor
+            // 
+            this.cmbContractor.BackColor = System.Drawing.Color.White;
+            this.cmbContractor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbContractor.FormattingEnabled = true;
+            this.cmbContractor.Location = new System.Drawing.Point(62, 93);
+            this.cmbContractor.Name = "cmbContractor";
+            this.cmbContractor.Size = new System.Drawing.Size(245, 21);
+            this.cmbContractor.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Contractor:";
             // 
             // frmBuyItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(389, 146);
+            this.ClientSize = new System.Drawing.Size(390, 171);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Cancel);
@@ -189,5 +212,7 @@
         private System.Windows.Forms.NumericUpDown txtQuantity;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cmbContractor;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendorManagement));
             this.gbContractorDetails = new System.Windows.Forms.GroupBox();
+            this.txtPostCode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btClear = new System.Windows.Forms.Button();
             this.cbDeleted = new System.Windows.Forms.CheckBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -60,8 +62,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDeleteVendor = new System.Windows.Forms.Button();
-            this.txtPostCode = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,6 +89,23 @@
             this.gbContractorDetails.TabIndex = 2;
             this.gbContractorDetails.TabStop = false;
             this.gbContractorDetails.Text = "Please specify contractor detail(s)";
+            // 
+            // txtPostCode
+            // 
+            this.txtPostCode.Location = new System.Drawing.Point(406, 84);
+            this.txtPostCode.MaxLength = 100;
+            this.txtPostCode.Name = "txtPostCode";
+            this.txtPostCode.Size = new System.Drawing.Size(200, 20);
+            this.txtPostCode.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(314, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Post Code:";
             // 
             // btClear
             // 
@@ -382,23 +399,6 @@
             this.btnDeleteVendor.Text = "Delete";
             this.btnDeleteVendor.UseVisualStyleBackColor = true;
             // 
-            // txtPostCode
-            // 
-            this.txtPostCode.Location = new System.Drawing.Point(406, 84);
-            this.txtPostCode.MaxLength = 100;
-            this.txtPostCode.Name = "txtPostCode";
-            this.txtPostCode.Size = new System.Drawing.Size(200, 20);
-            this.txtPostCode.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(314, 87);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Post Code:";
-            // 
             // frmVendorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +418,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmVendorManagement";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
