@@ -105,9 +105,9 @@
             this.groupBox1.Controls.Add(this.btn_BuyItems);
             this.groupBox1.Controls.Add(this.btnAddItemType);
             this.groupBox1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(525, 164);
+            this.groupBox1.Location = new System.Drawing.Point(528, 164);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 192);
+            this.groupBox1.Size = new System.Drawing.Size(192, 205);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tasks";
@@ -119,9 +119,9 @@
             this.btn_SearchItems.ForeColor = System.Drawing.Color.Black;
             this.btn_SearchItems.Image = global::Shop_Management_Solution.Properties.Resources.Search_icon_l;
             this.btn_SearchItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_SearchItems.Location = new System.Drawing.Point(17, 145);
+            this.btn_SearchItems.Location = new System.Drawing.Point(14, 150);
             this.btn_SearchItems.Name = "btn_SearchItems";
-            this.btn_SearchItems.Size = new System.Drawing.Size(146, 36);
+            this.btn_SearchItems.Size = new System.Drawing.Size(169, 36);
             this.btn_SearchItems.TabIndex = 4;
             this.btn_SearchItems.Text = "Search Sales";
             this.btn_SearchItems.UseVisualStyleBackColor = false;
@@ -134,9 +134,9 @@
             this.btn_SaleItem.ForeColor = System.Drawing.Color.Black;
             this.btn_SaleItem.Image = global::Shop_Management_Solution.Properties.Resources.cash_register_icon_m;
             this.btn_SaleItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_SaleItem.Location = new System.Drawing.Point(17, 103);
+            this.btn_SaleItem.Location = new System.Drawing.Point(14, 108);
             this.btn_SaleItem.Name = "btn_SaleItem";
-            this.btn_SaleItem.Size = new System.Drawing.Size(146, 36);
+            this.btn_SaleItem.Size = new System.Drawing.Size(169, 36);
             this.btn_SaleItem.TabIndex = 3;
             this.btn_SaleItem.Text = "Sale Item(s)";
             this.btn_SaleItem.UseVisualStyleBackColor = false;
@@ -149,9 +149,9 @@
             this.btn_BuyItems.ForeColor = System.Drawing.Color.Black;
             this.btn_BuyItems.Image = global::Shop_Management_Solution.Properties.Resources.full_shopping_cart_icon_m;
             this.btn_BuyItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_BuyItems.Location = new System.Drawing.Point(17, 61);
+            this.btn_BuyItems.Location = new System.Drawing.Point(14, 66);
             this.btn_BuyItems.Name = "btn_BuyItems";
-            this.btn_BuyItems.Size = new System.Drawing.Size(146, 36);
+            this.btn_BuyItems.Size = new System.Drawing.Size(169, 36);
             this.btn_BuyItems.TabIndex = 2;
             this.btn_BuyItems.Text = "Add Purchases";
             this.btn_BuyItems.UseVisualStyleBackColor = false;
@@ -167,11 +167,11 @@
             this.btnAddItemType.ForeColor = System.Drawing.Color.Black;
             this.btnAddItemType.Image = global::Shop_Management_Solution.Properties.Resources.item_type_m;
             this.btnAddItemType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddItemType.Location = new System.Drawing.Point(17, 19);
+            this.btnAddItemType.Location = new System.Drawing.Point(14, 24);
             this.btnAddItemType.Name = "btnAddItemType";
-            this.btnAddItemType.Size = new System.Drawing.Size(146, 36);
+            this.btnAddItemType.Size = new System.Drawing.Size(169, 36);
             this.btnAddItemType.TabIndex = 1;
-            this.btnAddItemType.Text = "Add Item Type";
+            this.btnAddItemType.Text = "Manage Item Type";
             this.btnAddItemType.UseVisualStyleBackColor = false;
             this.btnAddItemType.Click += new System.EventHandler(this.btnAddItemType_Click);
             // 
@@ -183,7 +183,7 @@
             this.helpToolStripMenuItem1});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(714, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(728, 24);
             this.mainMenuStrip.TabIndex = 1;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -449,7 +449,7 @@
             this.lblCurrentDateTime.BackColor = System.Drawing.Color.Black;
             this.lblCurrentDateTime.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentDateTime.ForeColor = System.Drawing.Color.Lime;
-            this.lblCurrentDateTime.Location = new System.Drawing.Point(532, 3);
+            this.lblCurrentDateTime.Location = new System.Drawing.Point(535, 3);
             this.lblCurrentDateTime.Name = "lblCurrentDateTime";
             this.lblCurrentDateTime.Size = new System.Drawing.Size(169, 22);
             this.lblCurrentDateTime.TabIndex = 2;
@@ -461,7 +461,7 @@
             this.lblCurrentDate.BackColor = System.Drawing.Color.Black;
             this.lblCurrentDate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentDate.ForeColor = System.Drawing.Color.Lime;
-            this.lblCurrentDate.Location = new System.Drawing.Point(10, 3);
+            this.lblCurrentDate.Location = new System.Drawing.Point(13, 3);
             this.lblCurrentDate.Name = "lblCurrentDate";
             this.lblCurrentDate.Size = new System.Drawing.Size(123, 22);
             this.lblCurrentDate.TabIndex = 3;
@@ -472,7 +472,7 @@
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.lblCurrentDate);
             this.panel1.Controls.Add(this.lblCurrentDateTime);
-            this.panel1.Location = new System.Drawing.Point(-1, 113);
+            this.panel1.Location = new System.Drawing.Point(2, 113);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(715, 35);
             this.panel1.TabIndex = 4;
@@ -483,7 +483,7 @@
             this.tsVisitUs});
             this.statusStrip1.Location = new System.Drawing.Point(0, 610);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(714, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(728, 22);
             this.statusStrip1.TabIndex = 6;
             // 
             // tsVisitUs
@@ -509,7 +509,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(6, 29);
+            this.label4.Location = new System.Drawing.Point(9, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 9;
@@ -517,7 +517,7 @@
             // 
             // txtMoneyPaid
             // 
-            this.txtMoneyPaid.Location = new System.Drawing.Point(126, 26);
+            this.txtMoneyPaid.Location = new System.Drawing.Point(129, 26);
             this.txtMoneyPaid.Name = "txtMoneyPaid";
             this.txtMoneyPaid.Size = new System.Drawing.Size(148, 28);
             this.txtMoneyPaid.TabIndex = 10;
@@ -530,7 +530,7 @@
             this.groupBox2.Controls.Add(this.txtMoneyPaid);
             this.groupBox2.Controls.Add(this.btnPaid);
             this.groupBox2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 164);
+            this.groupBox2.Location = new System.Drawing.Point(16, 164);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(284, 139);
             this.groupBox2.TabIndex = 13;
@@ -543,7 +543,7 @@
             this.btnChangeGiven.BackColor = System.Drawing.Color.LightGreen;
             this.btnChangeGiven.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeGiven.ForeColor = System.Drawing.Color.Black;
-            this.btnChangeGiven.Location = new System.Drawing.Point(11, 96);
+            this.btnChangeGiven.Location = new System.Drawing.Point(14, 96);
             this.btnChangeGiven.Name = "btnChangeGiven";
             this.btnChangeGiven.Size = new System.Drawing.Size(263, 30);
             this.btnChangeGiven.TabIndex = 12;
@@ -556,7 +556,7 @@
             this.btnPaid.BackColor = System.Drawing.Color.LightGreen;
             this.btnPaid.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaid.ForeColor = System.Drawing.Color.Black;
-            this.btnPaid.Location = new System.Drawing.Point(11, 60);
+            this.btnPaid.Location = new System.Drawing.Point(14, 60);
             this.btnPaid.Name = "btnPaid";
             this.btnPaid.Size = new System.Drawing.Size(263, 30);
             this.btnPaid.TabIndex = 11;
@@ -569,7 +569,7 @@
             this.lblPaymentStatusText.AutoSize = true;
             this.lblPaymentStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaymentStatusText.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPaymentStatusText.Location = new System.Drawing.Point(30, 309);
+            this.lblPaymentStatusText.Location = new System.Drawing.Point(33, 309);
             this.lblPaymentStatusText.Name = "lblPaymentStatusText";
             this.lblPaymentStatusText.Size = new System.Drawing.Size(0, 24);
             this.lblPaymentStatusText.TabIndex = 15;
@@ -584,7 +584,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lblTotalPrice);
             this.panel2.ForeColor = System.Drawing.Color.Chartreuse;
-            this.panel2.Location = new System.Drawing.Point(0, 535);
+            this.panel2.Location = new System.Drawing.Point(3, 535);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(717, 72);
             this.panel2.TabIndex = 8;
@@ -593,7 +593,7 @@
             // 
             this.lblTotalGiven.AutoSize = true;
             this.lblTotalGiven.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGiven.Location = new System.Drawing.Point(350, -2);
+            this.lblTotalGiven.Location = new System.Drawing.Point(353, -2);
             this.lblTotalGiven.Name = "lblTotalGiven";
             this.lblTotalGiven.Size = new System.Drawing.Size(0, 19);
             this.lblTotalGiven.TabIndex = 13;
@@ -602,7 +602,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(275, 0);
+            this.label3.Location = new System.Drawing.Point(278, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 18);
             this.label3.TabIndex = 12;
@@ -613,7 +613,7 @@
             this.lblChangeToBePaid.AutoSize = true;
             this.lblChangeToBePaid.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChangeToBePaid.ForeColor = System.Drawing.Color.Red;
-            this.lblChangeToBePaid.Location = new System.Drawing.Point(350, 22);
+            this.lblChangeToBePaid.Location = new System.Drawing.Point(353, 22);
             this.lblChangeToBePaid.Name = "lblChangeToBePaid";
             this.lblChangeToBePaid.Size = new System.Drawing.Size(0, 19);
             this.lblChangeToBePaid.TabIndex = 11;
@@ -623,7 +623,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(275, 24);
+            this.label2.Location = new System.Drawing.Point(278, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 18);
             this.label2.TabIndex = 10;
@@ -633,7 +633,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 24);
             this.label1.TabIndex = 9;
@@ -643,7 +643,7 @@
             // 
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(113, -2);
+            this.lblTotalPrice.Location = new System.Drawing.Point(116, -2);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(0, 25);
             this.lblTotalPrice.TabIndex = 8;
@@ -651,7 +651,7 @@
             // picStatusPayment
             // 
             this.picStatusPayment.Image = global::Shop_Management_Solution.Properties.Resources.waiting_clock;
-            this.picStatusPayment.Location = new System.Drawing.Point(303, 164);
+            this.picStatusPayment.Location = new System.Drawing.Point(306, 164);
             this.picStatusPayment.Name = "picStatusPayment";
             this.picStatusPayment.Size = new System.Drawing.Size(205, 195);
             this.picStatusPayment.TabIndex = 14;
@@ -660,7 +660,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Shop_Management_Solution.Properties.Resources.sms_header_new;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 22);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(715, 91);
             this.pictureBox1.TabIndex = 5;
@@ -672,7 +672,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(714, 632);
+            this.ClientSize = new System.Drawing.Size(728, 632);
             this.Controls.Add(this.lblPaymentStatusText);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.picStatusPayment);

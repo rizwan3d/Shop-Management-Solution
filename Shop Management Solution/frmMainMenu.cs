@@ -28,8 +28,10 @@ namespace Shop_Management_Solution
 
         private void btnAddItemType_Click(object sender, EventArgs e)
         {
-            frmAddItemType frmItemType = new frmAddItemType();
-            frmItemType.ShowDialog();
+            //frmAddItemType frmItemType = new frmAddItemType();
+            //frmItemType.ShowDialog();
+            frmItemManagement objItemManagement = new frmItemManagement();
+            objItemManagement.ShowDialog();
         }
 
         private void btn_SaleItem_Click(object sender, EventArgs e)
