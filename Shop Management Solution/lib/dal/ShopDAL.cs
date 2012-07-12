@@ -183,7 +183,7 @@ namespace Shop_Management_Solution.lib.dal
 
             }
         }
-        private static bool insertValueOfStockInHand(OleDbConnection connection, long itemTypeId)
+        public static bool insertValueOfStockInHand(OleDbConnection connection, long itemTypeId)
         {
             OleDbCommand cmdInsert = new OleDbCommand();
             string query = "INSERT INTO Stock_In_Hand(Type_ID,Quantity) VALUES(@itemTypeId,0)";

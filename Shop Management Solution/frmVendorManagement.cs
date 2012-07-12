@@ -44,7 +44,11 @@ namespace Shop_Management_Solution
             //User selected WHOLE ROW (by clicking in the margin)
             if (dgv.SelectedRows.Count > 0)
             {
-                _vendorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
+                if (!String.IsNullOrEmpty(dgv.CurrentRow.Cells[0].Value.ToString()))
+                {
+                    _vendorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
+                }
+                
                 fillVendorControls();
                 btnDeleteVendor.Enabled = true;
                 btUpdateVendor.Enabled = true;
@@ -244,6 +248,10 @@ namespace Shop_Management_Solution
             txtEmail.Text = "";
             txtPostCode.Text = "";
             cbDeleted.Checked = false;
+            _vendorChangedId = -1;
+
+            btnDeleteVendor.Enabled = false;
+            btUpdateVendor.Enabled = false;
         }
 
         private void btSaveVendors_Click(object sender, EventArgs e)
@@ -311,6 +319,25 @@ namespace Shop_Management_Solution
                 btnDeleteVendor.Enabled = false;
                 btUpdateVendor.Enabled = false;
             }
+        }
+
+        private void btnDeleteVendor_Click(object sender, EventArgs e)
+        {
+            if (dgVendors.SelectedRows.Count > 0)
+            {
+                if (!String.IsNullOrEmpty(_vendorChangedId.ToString()) && _vendorChangedId > 0)
+                {
+                    DataRow[] rowsTab = _vendorsDs.Tables[0].Select("ID = " + _vendorChangedId);
+                    rowsTab[0]["IsDeleted"] = "1";
+                    dgVendors.Refresh();
+                }
+                else
+                {
+                    dgVendors.Rows.RemoveAt(dgVendors.SelectedRows[0].Index);
+                }
+                
+            }
+           
         }    
            
     }

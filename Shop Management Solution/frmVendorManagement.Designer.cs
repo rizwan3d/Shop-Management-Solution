@@ -398,6 +398,7 @@
             this.btnDeleteVendor.TabIndex = 29;
             this.btnDeleteVendor.Text = "Delete";
             this.btnDeleteVendor.UseVisualStyleBackColor = true;
+            this.btnDeleteVendor.Click += new System.EventHandler(this.btnDeleteVendor_Click);
             // 
             // frmVendorManagement
             // 

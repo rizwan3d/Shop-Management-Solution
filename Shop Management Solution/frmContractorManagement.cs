@@ -283,6 +283,7 @@ namespace Shop_Management_Solution
             txtEmail.Text = "";
             cbDeleted.Checked = false;
 
+            _contractorChangedId = -1;
             btnDeleteContactor.Enabled = false;
             btUpdateContractor.Enabled = false;
 
@@ -348,9 +349,21 @@ namespace Shop_Management_Solution
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataRow[] rowsTab = _contractorsDs.Tables[0].Select("ID = " + _contractorChangedId);
-            rowsTab[0]["IsDeleted"] = "1";
-            dgContractors.Refresh();
+            if (dgContractors.SelectedRows.Count > 0)
+            {
+                if (!String.IsNullOrEmpty(_contractorChangedId.ToString()) && _contractorChangedId > 0)
+                {
+                    DataRow[] rowsTab = _contractorsDs.Tables[0].Select("ID = " + _contractorChangedId);
+                    rowsTab[0]["IsDeleted"] = "1";
+                    dgContractors.Refresh();
+                }
+                else
+                {
+                    dgContractors.Rows.RemoveAt(dgContractors.SelectedRows[0].Index);
+                }
+
+            }
+
         }
 
         private void dgContractors_SelectionChanged(object sender, EventArgs e)
@@ -363,7 +376,10 @@ namespace Shop_Management_Solution
             //User selected WHOLE ROW (by clicking in the margin)
             if (dgv.SelectedRows.Count > 0)
             {
-                _contractorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
+                if (!String.IsNullOrEmpty(dgv.CurrentRow.Cells[0].Value.ToString()))
+                {
+                    _contractorChangedId = int.Parse(dgv.CurrentRow.Cells[0].Value.ToString());
+                }
                 fillContractorControls();
                 btnDeleteContactor.Enabled = true;
                 btUpdateContractor.Enabled = true;

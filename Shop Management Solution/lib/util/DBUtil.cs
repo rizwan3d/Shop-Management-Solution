@@ -92,6 +92,33 @@ namespace Shop_Management_Solution.lib.util
 
         }
 
+        public static long GetMaxIDWithConnection(String idName, String tableName, OleDbConnection conn)
+        {
+            long maxId = -1;
+            string query = "SELECT MAX(" + idName + ") As MaxID FROM " + tableName;
+
+            OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, conn);
+            DataSet ds = new DataSet();
+
+            try
+            {
+
+                DataAdapter.Fill(ds);
+
+                maxId = long.Parse(ds.Tables[0].Rows[0][0].ToString());
+                return maxId;
+
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+                //throw new Exception("Failed to Execute :" + query + "\n" + ex.Message);
+
+            }
+
+        }
+
         public static long GetNextID(String idName, String tableName)
         {
             long nextId = -1;
