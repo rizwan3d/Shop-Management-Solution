@@ -97,7 +97,7 @@
             // 
             // cmb_itemType
             // 
-            this.cmb_itemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_itemType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmb_itemType.FormattingEnabled = true;
             this.cmb_itemType.Items.AddRange(new object[] {
             "CD-Software",
@@ -108,6 +108,7 @@
             this.cmb_itemType.TabIndex = 1;
             this.cmb_itemType.SelectedIndexChanged += new System.EventHandler(this.onItemTypeChange);
             this.cmb_itemType.SelectedValueChanged += new System.EventHandler(this.onItemTypeValueChange);
+            this.cmb_itemType.TextChanged += new System.EventHandler(this.cmb_itemType_TextChanged);
             // 
             // label3
             // 

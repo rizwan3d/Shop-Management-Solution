@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemManagement));
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblVendor = new System.Windows.Forms.Label();
@@ -156,7 +157,7 @@
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
             this.btClear.Text = "Reset";
-            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.UseVisualStyleBackColor = false;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // gbContractorDetails
@@ -225,12 +226,14 @@
             this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
             this.cbShowDeleted.TabIndex = 35;
             this.cbShowDeleted.Text = "Show Deleted";
-            this.cbShowDeleted.UseVisualStyleBackColor = true;
+            this.cbShowDeleted.UseVisualStyleBackColor = false;
             this.cbShowDeleted.Visible = false;
             // 
             // dgItem
             // 
             this.dgItem.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.dgItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clID,
@@ -327,7 +330,7 @@
             this.btnCancel.Size = new System.Drawing.Size(97, 23);
             this.btnCancel.TabIndex = 42;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btSaveItems
@@ -337,7 +340,7 @@
             this.btSaveItems.Size = new System.Drawing.Size(97, 23);
             this.btSaveItems.TabIndex = 41;
             this.btSaveItems.Text = "Save Changes";
-            this.btSaveItems.UseVisualStyleBackColor = true;
+            this.btSaveItems.UseVisualStyleBackColor = false;
             this.btSaveItems.Click += new System.EventHandler(this.btSaveItems_Click);
             // 
             // btnDeleteItem
@@ -348,7 +351,7 @@
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 45;
             this.btnDeleteItem.Text = "Delete";
-            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.UseVisualStyleBackColor = false;
             this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // btUpdateItem
@@ -359,7 +362,7 @@
             this.btUpdateItem.Size = new System.Drawing.Size(75, 23);
             this.btUpdateItem.TabIndex = 44;
             this.btUpdateItem.Text = "Update";
-            this.btUpdateItem.UseVisualStyleBackColor = true;
+            this.btUpdateItem.UseVisualStyleBackColor = false;
             this.btUpdateItem.Click += new System.EventHandler(this.btUpdateItem_Click);
             // 
             // btAddNewItem
@@ -369,7 +372,7 @@
             this.btAddNewItem.Size = new System.Drawing.Size(75, 23);
             this.btAddNewItem.TabIndex = 43;
             this.btAddNewItem.Text = "Add";
-            this.btAddNewItem.UseVisualStyleBackColor = true;
+            this.btAddNewItem.UseVisualStyleBackColor = false;
             this.btAddNewItem.Click += new System.EventHandler(this.btAddNewItem_Click);
             // 
             // pictureBox1
@@ -385,6 +388,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(694, 495);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btUpdateItem);

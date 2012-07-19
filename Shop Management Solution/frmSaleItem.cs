@@ -117,6 +117,10 @@ namespace Shop_Management_Solution
                     cmb_itemType.DisplayMember = "Name";
                     cmb_itemType.ValueMember = "Type_ID";
                     cmb_itemType.SelectedIndex = 0;
+
+                    cmb_itemType.AutoCompleteMode = AutoCompleteMode.Append;
+                    cmb_itemType.AutoCompleteSource = AutoCompleteSource.ListItems;
+
                     lstView_sales.Columns[0].Width = 0;
                     lblItemCount.Text = "0";
                     lblTotalPrice.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
@@ -722,6 +726,19 @@ namespace Shop_Management_Solution
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message.ToString(), "Error: Sale Item(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmb_itemType_TextChanged(object sender, EventArgs e)
+        {
+            if (cmb_itemType.SelectedIndex <= 0)
+            {
+                cmb_itemType.BackColor = Color.Pink;
+
+            }
+            else
+            {
+                cmb_itemType.BackColor = Color.White;
             }
         }
 

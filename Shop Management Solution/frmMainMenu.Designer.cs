@@ -36,7 +36,6 @@
             this.btnAddItemType = new System.Windows.Forms.Button();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addItemTypeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addPurchasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saleItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchItemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -190,7 +189,6 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addItemTypeToolStripMenuItem1,
             this.addPurchasesToolStripMenuItem,
             this.saleItemsToolStripMenuItem,
             this.searchItemToolStripMenuItem1,
@@ -202,14 +200,6 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
-            // 
-            // addItemTypeToolStripMenuItem1
-            // 
-            this.addItemTypeToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.item_type;
-            this.addItemTypeToolStripMenuItem1.Name = "addItemTypeToolStripMenuItem1";
-            this.addItemTypeToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.addItemTypeToolStripMenuItem1.Text = "Add Item Type";
-            this.addItemTypeToolStripMenuItem1.Click += new System.EventHandler(this.addItemTypeToolStripMenuItem_Click);
             // 
             // addPurchasesToolStripMenuItem
             // 
@@ -311,20 +301,20 @@
             // 
             this.updatesToolStripMenuItem.Image = global::Shop_Management_Solution.Properties.Resources.satellite_Vista_icon;
             this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.updatesToolStripMenuItem.Text = "Updates";
+            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.updatesToolStripMenuItem.Text = "Check for updates";
             this.updatesToolStripMenuItem.Click += new System.EventHandler(this.mb_update_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(167, 6);
             // 
             // aboutUsToolStripMenuItem1
             // 
             this.aboutUsToolStripMenuItem1.Image = global::Shop_Management_Solution.Properties.Resources.Information_icon;
             this.aboutUsToolStripMenuItem1.Name = "aboutUsToolStripMenuItem1";
-            this.aboutUsToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.aboutUsToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
             this.aboutUsToolStripMenuItem1.Text = "About us";
             this.aboutUsToolStripMenuItem1.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click_1);
             // 
@@ -751,7 +741,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currencySettingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addItemTypeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addPurchasesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saleItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchItemToolStripMenuItem1;

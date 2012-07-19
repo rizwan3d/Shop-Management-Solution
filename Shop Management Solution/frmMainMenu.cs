@@ -5,8 +5,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using Shop_Management_Solution.lib.util;
+using Shop_Management_Solution.lib.dal;
+
 namespace Shop_Management_Solution
 {
     public partial class frmMainMenu : Form
@@ -14,7 +18,8 @@ namespace Shop_Management_Solution
         private Timer objTimer = new Timer();
         private double subTotal = 0;
         private long lastInvoiceID = 0;
-  
+
+
         public frmMainMenu()
         {
             InitializeComponent();
@@ -23,7 +28,16 @@ namespace Shop_Management_Solution
             btnChangeGiven.Enabled = false;
             lblPaymentStatusText.Text = "Ready! For Next Sale";
             lblPaymentStatusText.ForeColor = Color.Red;
-             
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            UpdateDAL.RegisterClient();
+        }
+
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            if (e.IsAvailable)
+            {
+                UpdateDAL.RegisterClient();
+            }
         }
 
         private void btnAddItemType_Click(object sender, EventArgs e)
@@ -110,8 +124,9 @@ namespace Shop_Management_Solution
             lblChangeToBePaid.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00";
             txtMoneyPaid.Enabled = false;
             objTimer.Tick += new EventHandler(_Timer_Tick);
-
             objTimer.Start();
+
+            
         }
         private void _Timer_Tick(object sender, EventArgs e)
         {
@@ -154,11 +169,13 @@ namespace Shop_Management_Solution
         private void tsUpdates_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.xtrawebapps.com/");
+            
         }
 
         private void mb_update_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.xtrawebapps.com/downloads/shop-management-solution");
+           UpdateDAL.checkForUpdates();
+
         }
 
         private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)

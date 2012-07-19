@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendorManagement));
             this.gbContractorDetails = new System.Windows.Forms.GroupBox();
             this.txtPostCode = new System.Windows.Forms.TextBox();
@@ -114,7 +115,7 @@
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
             this.btClear.Text = "Reset";
-            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.UseVisualStyleBackColor = false;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // cbDeleted
@@ -235,7 +236,7 @@
             this.btUpdateVendor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateVendor.TabIndex = 21;
             this.btUpdateVendor.Text = "Update";
-            this.btUpdateVendor.UseVisualStyleBackColor = true;
+            this.btUpdateVendor.UseVisualStyleBackColor = false;
             this.btUpdateVendor.Click += new System.EventHandler(this.btUpdateVendor_Click);
             // 
             // btAddNewVendor
@@ -245,7 +246,7 @@
             this.btAddNewVendor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewVendor.TabIndex = 19;
             this.btAddNewVendor.Text = "Add";
-            this.btAddNewVendor.UseVisualStyleBackColor = true;
+            this.btAddNewVendor.UseVisualStyleBackColor = false;
             this.btAddNewVendor.Click += new System.EventHandler(this.btAddNewVendor_Click);
             // 
             // txtNameFilter
@@ -273,13 +274,15 @@
             this.btSaveVendors.Size = new System.Drawing.Size(97, 23);
             this.btSaveVendors.TabIndex = 25;
             this.btSaveVendors.Text = "Save Changes";
-            this.btSaveVendors.UseVisualStyleBackColor = true;
+            this.btSaveVendors.UseVisualStyleBackColor = false;
             this.btSaveVendors.Click += new System.EventHandler(this.btSaveVendors_Click);
             // 
             // dgVendors
             // 
             this.dgVendors.AllowUserToAddRows = false;
             this.dgVendors.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.dgVendors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgVendors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVendors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clName,
@@ -377,7 +380,7 @@
             this.btnCancel.Size = new System.Drawing.Size(97, 23);
             this.btnCancel.TabIndex = 27;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBox1
@@ -397,13 +400,14 @@
             this.btnDeleteVendor.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteVendor.TabIndex = 29;
             this.btnDeleteVendor.Text = "Delete";
-            this.btnDeleteVendor.UseVisualStyleBackColor = true;
+            this.btnDeleteVendor.UseVisualStyleBackColor = false;
             this.btnDeleteVendor.Click += new System.EventHandler(this.btnDeleteVendor_Click);
             // 
             // frmVendorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(699, 487);
             this.Controls.Add(this.btnDeleteVendor);
             this.Controls.Add(this.pictureBox1);

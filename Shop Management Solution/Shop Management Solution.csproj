@@ -131,6 +131,12 @@
     <Compile Include="frmBuyItem.Designer.cs">
       <DependentUpon>frmBuyItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmItemManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,7 @@
     <Compile Include="lib\dal\ItemDAL.cs" />
     <Compile Include="lib\dal\ShopDAL.cs" />
     <Compile Include="lib\dal\UoMDAL.cs" />
+    <Compile Include="lib\dal\UpdateDAL.cs" />
     <Compile Include="lib\dal\VendorDAL.cs" />
     <Compile Include="lib\ItemType.cs" />
     <Compile Include="lib\Sale.cs" />
@@ -186,6 +193,7 @@
     <Compile Include="lib\util\ConfigurationDAL.cs" />
     <Compile Include="lib\util\DBUtil.cs" />
     <Compile Include="lib\util\DebugUtil.cs" />
+    <Compile Include="lib\util\NetworkUtil.cs" />
     <Compile Include="lib\util\NumberUtils.cs" />
     <Compile Include="lib\util\PCPrint.cs">
       <SubType>Component</SubType>
@@ -219,6 +227,9 @@
     <EmbeddedResource Include="frmBuyItem.resx">
       <DependentUpon>frmBuyItem.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemManagement.resx">
       <DependentUpon>frmItemManagement.cs</DependentUpon>

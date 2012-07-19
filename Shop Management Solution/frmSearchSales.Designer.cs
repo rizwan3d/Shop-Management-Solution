@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchSales));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmb_itemType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -213,6 +214,8 @@
             this.dgSearchResults.AllowUserToDeleteRows = false;
             this.dgSearchResults.AllowUserToResizeColumns = false;
             this.dgSearchResults.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.dgSearchResults.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgSearchResults.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgSearchResults.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -259,7 +262,7 @@
             this.lbPageInfo.TabIndex = 11;
             this.lbPageInfo.Text = "Page 1 of 1";
             // 
-            // frmSearchItem
+            // frmSearchSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,7 +285,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmSearchItem";
+            this.Name = "frmSearchSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Search Sales";
             this.Load += new System.EventHandler(this.frmSearchItem_Load);

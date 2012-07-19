@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContractorManagement));
             this.lbName = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -202,7 +203,7 @@
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 17;
             this.btClear.Text = "Reset";
-            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.UseVisualStyleBackColor = false;
             this.btClear.Click += new System.EventHandler(this.btClearContractor_Click);
             // 
             // cbDeleted
@@ -291,7 +292,7 @@
             this.btAddNewContractor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewContractor.TabIndex = 2;
             this.btAddNewContractor.Text = "Add";
-            this.btAddNewContractor.UseVisualStyleBackColor = true;
+            this.btAddNewContractor.UseVisualStyleBackColor = false;
             this.btAddNewContractor.Click += new System.EventHandler(this.btAddNew_Click);
             // 
             // lbFilter
@@ -316,6 +317,10 @@
             // 
             this.dgContractors.AllowUserToAddRows = false;
             this.dgContractors.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.dgContractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgContractors.BackgroundColor = System.Drawing.Color.Snow;
+            this.dgContractors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgContractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgContractors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clName,
@@ -447,7 +452,7 @@
             this.btUpdateContractor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateContractor.TabIndex = 4;
             this.btUpdateContractor.Text = "Update";
-            this.btUpdateContractor.UseVisualStyleBackColor = true;
+            this.btUpdateContractor.UseVisualStyleBackColor = false;
             this.btUpdateContractor.Click += new System.EventHandler(this.btUpdateContractor_Click);
             // 
             // btSaveContractors
@@ -457,7 +462,7 @@
             this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
             this.btSaveContractors.TabIndex = 17;
             this.btSaveContractors.Text = "Save Changes";
-            this.btSaveContractors.UseVisualStyleBackColor = true;
+            this.btSaveContractors.UseVisualStyleBackColor = false;
             this.btSaveContractors.Click += new System.EventHandler(this.btSaveContractors_Click);
             // 
             // cbShowDeleted
@@ -481,7 +486,7 @@
             this.btnDeleteContactor.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteContactor.TabIndex = 20;
             this.btnDeleteContactor.Text = "Delete";
-            this.btnDeleteContactor.UseVisualStyleBackColor = true;
+            this.btnDeleteContactor.UseVisualStyleBackColor = false;
             this.btnDeleteContactor.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
@@ -491,7 +496,7 @@
             this.btnCancel.Size = new System.Drawing.Size(97, 23);
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBox1
@@ -507,6 +512,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(698, 552);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
