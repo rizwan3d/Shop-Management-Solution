@@ -193,6 +193,7 @@
     <Compile Include="lib\util\ConfigurationDAL.cs" />
     <Compile Include="lib\util\DBUtil.cs" />
     <Compile Include="lib\util\DebugUtil.cs" />
+    <Compile Include="lib\util\ImageUtilities.cs" />
     <Compile Include="lib\util\NetworkUtil.cs" />
     <Compile Include="lib\util\NumberUtils.cs" />
     <Compile Include="lib\util\PCPrint.cs">
@@ -314,6 +315,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="electronic-billing-machine.ico" />
+    <None Include="Resources\feedback-icon.png" />
+    <None Include="Resources\ladybird-icon.png" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\network_offline.png" />
+    <None Include="Resources\gnome_network_idle.png" />
     <None Include="Resources\Misc-Box-icons.png" />
     <None Include="Resources\Misc-Box-icon1.png" />
     <None Include="Resources\Misc-Box-icon.png" />

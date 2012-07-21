@@ -125,6 +125,41 @@ namespace Shop_Management_Solution.lib.util
             return macAddresses;
         }
 
+        public static bool isNetworkAvailable()
+        {
+            //long minimumSpeed
+            if (!NetworkInterface.GetIsNetworkAvailable())
+                return false;
+
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                // discard because of standard reasons
+                if ((ni.OperationalStatus != OperationalStatus.Up) ||
+                    (ni.NetworkInterfaceType == NetworkInterfaceType.Loopback) ||
+                    (ni.NetworkInterfaceType == NetworkInterfaceType.Tunnel))
+                {
+                    continue;
+                }
+                    
+
+                // this allow to filter modems, serial, etc.
+                // I use 10000000 as a minimum speed for most cases
+                //if (ni.Speed < minimumSpeed)
+                    //continue;
+
+                // discard virtual cards (virtual box, virtual pc, etc.)
+                if ((ni.Description.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    (ni.Name.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0))
+                {
+                    continue;
+                }
+                    
+
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

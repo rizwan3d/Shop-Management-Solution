@@ -13,7 +13,12 @@ namespace Shop_Management_Solution.lib.util
         public static string CURRENCY = "Currency";
         public static string ADMINISTRATOR = "Administrator";
         public static string SHOPNAME = "ShopName";
+        public static string ADDRESS = "Address";
 
+        public static string GetCurrentAddress()
+        {
+            return ConfigurationDAL.GetConfigurationByName(ConfigurationDAL.ADDRESS);
+        }
         public static string GetCurrentCurrency()
         {
             return ConfigurationDAL.GetConfigurationByName(ConfigurationDAL.CURRENCY);        

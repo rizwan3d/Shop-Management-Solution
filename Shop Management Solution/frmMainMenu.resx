@@ -155,6 +155,9 @@
         9aP7DvDYuzRWidvdi6S01NTsEwezajmcxHTWlLRd4+Z3f9zEr1LrM4SaLWkZAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>152, 17</value>
+  </metadata>
   <data name="addItemTypeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -366,9 +369,6 @@
         JLoxT7pE/Tg2tobdEzdq/jNO/3sJkyom8mvPwP+Q/lXzG/xKss8RjJAFAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>152, 17</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAA4AMDAQAAEABABoBgAA5gAAACAgEAABAAQA6AIAAE4HAAAYGBAAAQAEAOgBAAA2CgAAEBAQAAEA

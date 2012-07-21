@@ -28,15 +28,54 @@ namespace Shop_Management_Solution
             btnChangeGiven.Enabled = false;
             lblPaymentStatusText.Text = "Ready! For Next Sale";
             lblPaymentStatusText.ForeColor = Color.Red;
-            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
-            UpdateDAL.RegisterClient();
+            picNetworkActivity.Image = null; //global::Shop_Management_Solution.Properties.Resources.loading;
+            try
+            {
+                bool isAvailable = NetworkUtil.isNetworkAvailable();
+                if (isAvailable)
+                {
+                    picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.gnome_network_idle;
+                    
+                    
+                }
+                else
+                {
+                    picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.network_offline;
+                    
+                }
+                NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+                UpdateDAL.RegisterClient();
+            }
+            catch (Exception e)
+            {
+                //picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.network_offline;
+               // tipConnectivity.SetToolTip(picConnectivity, "Disconnected");
+            }
+            
         }
 
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
-            if (e.IsAvailable)
+
+            try
             {
-                UpdateDAL.RegisterClient();
+                if (e.IsAvailable)
+                {
+                    picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.gnome_network_idle;
+                    
+                    UpdateDAL.RegisterClient();
+                }
+                else
+                {
+                    picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.network_offline;
+                    
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.network_offline;
+                //tipConnectivity.SetToolTip(picConnectivity, "Disconnected");
             }
         }
 
@@ -174,7 +213,17 @@ namespace Shop_Management_Solution
 
         private void mb_update_Click(object sender, EventArgs e)
         {
-           UpdateDAL.checkForUpdates();
+            try
+            {
+                picNetworkActivity.Image = global::Shop_Management_Solution.Properties.Resources.loading;
+                UpdateDAL.checkForUpdates();
+                picNetworkActivity.Image = null;
+            }
+            catch (Exception ex)
+            {
+                picNetworkActivity.Image = null;
+            }
+            
 
         }
 

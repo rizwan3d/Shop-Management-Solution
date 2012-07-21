@@ -421,6 +421,14 @@ namespace Shop_Management_Solution
                         cellShopName.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(cellShopName);
 
+
+                        PdfPCell cellAddress = new PdfPCell(new Paragraph("Address: " + ConfigurationDAL.GetCurrentAddress()));
+                        cellAddress.Colspan = 6;
+                        cellAddress.BackgroundColor = new BaseColor(204, 204, 204);
+                        cellAddress.BorderColor = new BaseColor(204, 204, 204);
+                        cellAddress.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cellAddress);
+
                         PdfPCell cellCurrentDate = new PdfPCell(new Paragraph("Dated: " + displayDate));
                         cellCurrentDate.Colspan = 6;
                         cellCurrentDate.BackgroundColor = new BaseColor(204, 204, 204);
@@ -551,7 +559,7 @@ namespace Shop_Management_Solution
 
             //Titles and Image of invoice:
             invoiceTitle = ConfigurationDAL.GetShopName(); // "International Food Company";
-            invoiceSubTitle1 = "Dated :" + displayDate.ToString();
+            invoiceSubTitle1 = "Address:" + ConfigurationDAL.GetCurrentAddress() + "\nDated :" + displayDate.ToString();
             invoiceImage = Application.StartupPath + @"\Images\" + "Header.jpg";
         }
 

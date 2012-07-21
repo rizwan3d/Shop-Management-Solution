@@ -37,19 +37,32 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFileImage = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.picHeaderImage = new System.Windows.Forms.PictureBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeaderImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtAddress);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.picHeaderImage);
+            this.groupBox1.Controls.Add(this.btnBrowse);
+            this.groupBox1.Controls.Add(this.txtFileImage);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtShopName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCurrencySybmol);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(76, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(308, 86);
+            this.groupBox1.Size = new System.Drawing.Size(393, 320);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings Detail(s)";
@@ -58,7 +71,7 @@
             // 
             this.txtShopName.Location = new System.Drawing.Point(97, 48);
             this.txtShopName.Name = "txtShopName";
-            this.txtShopName.Size = new System.Drawing.Size(202, 20);
+            this.txtShopName.Size = new System.Drawing.Size(284, 20);
             this.txtShopName.TabIndex = 3;
             // 
             // label2
@@ -74,7 +87,7 @@
             // 
             this.txtCurrencySybmol.Location = new System.Drawing.Point(97, 22);
             this.txtCurrencySybmol.Name = "txtCurrencySybmol";
-            this.txtCurrencySybmol.Size = new System.Drawing.Size(202, 20);
+            this.txtCurrencySybmol.Size = new System.Drawing.Size(284, 20);
             this.txtCurrencySybmol.TabIndex = 1;
             // 
             // label1
@@ -99,7 +112,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(298, 104);
+            this.btnCancel.Location = new System.Drawing.Point(385, 338);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 24);
             this.btnCancel.TabIndex = 2;
@@ -111,7 +124,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.White;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(207, 104);
+            this.btnSave.Location = new System.Drawing.Point(294, 338);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(85, 24);
             this.btnSave.TabIndex = 1;
@@ -119,12 +132,65 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Header Image:";
+            // 
+            // txtFileImage
+            // 
+            this.txtFileImage.Location = new System.Drawing.Point(96, 151);
+            this.txtFileImage.Name = "txtFileImage";
+            this.txtFileImage.ReadOnly = true;
+            this.txtFileImage.Size = new System.Drawing.Size(202, 20);
+            this.txtFileImage.TabIndex = 5;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.BackColor = System.Drawing.Color.White;
+            this.btnBrowse.Location = new System.Drawing.Point(305, 147);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 6;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // picHeaderImage
+            // 
+            this.picHeaderImage.Location = new System.Drawing.Point(97, 182);
+            this.picHeaderImage.Name = "picHeaderImage";
+            this.picHeaderImage.Size = new System.Drawing.Size(283, 127);
+            this.picHeaderImage.TabIndex = 7;
+            this.picHeaderImage.TabStop = false;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(97, 79);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(284, 62);
+            this.txtAddress.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Address:";
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(387, 138);
+            this.ClientSize = new System.Drawing.Size(476, 371);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -134,11 +200,12 @@
             this.MinimizeBox = false;
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Currency / Shop Setting";
+            this.Text = "Currency / Shop Name / Header Setting";
             this.Load += new System.EventHandler(this.frmSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeaderImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,5 +220,11 @@
         private System.Windows.Forms.TextBox txtShopName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtFileImage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.PictureBox picHeaderImage;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label4;
     }
 }

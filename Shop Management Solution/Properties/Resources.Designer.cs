@@ -151,6 +151,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap feedback_icon {
+            get {
+                object obj = ResourceManager.GetObject("feedback-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap final_sms {
             get {
                 object obj = ResourceManager.GetObject("final-sms", resourceCulture);
@@ -189,6 +196,13 @@ namespace Shop_Management_Solution.Properties {
         internal static System.Drawing.Bitmap get_change {
             get {
                 object obj = ResourceManager.GetObject("get_change", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap gnome_network_idle {
+            get {
+                object obj = ResourceManager.GetObject("gnome_network_idle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -242,6 +256,20 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap ladybird_icon {
+            get {
+                object obj = ResourceManager.GetObject("ladybird-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap loading {
+            get {
+                object obj = ResourceManager.GetObject("loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Log_Out_icon {
             get {
                 object obj = ResourceManager.GetObject("Log-Out-icon", resourceCulture);
@@ -273,6 +301,13 @@ namespace Shop_Management_Solution.Properties {
         internal static System.Drawing.Bitmap Misc_Box_icons {
             get {
                 object obj = ResourceManager.GetObject("Misc-Box-icons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap network_offline {
+            get {
+                object obj = ResourceManager.GetObject("network_offline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
