@@ -30,8 +30,8 @@ namespace Shop_Management_Solution
                 bool isExist = ShopDAL.isItemTypeExists();
                 if (isExist)
                 {
-                    ShopDAL db = new ShopDAL();
-                    DataSet ds = db.GetItemsType();
+                    ShopDAL dal = new ShopDAL();
+                    DataSet ds = dal.GetItemsType();
                     cmbItemType.DataSource = ds.Tables[0];
                     cmbItemType.DisplayMember = "Name";
                     cmbItemType.ValueMember = "Type_ID";

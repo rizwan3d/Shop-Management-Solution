@@ -158,6 +158,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap feedback_iconl {
+            get {
+                object obj = ResourceManager.GetObject("feedback-iconl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap final_sms {
             get {
                 object obj = ResourceManager.GetObject("final-sms", resourceCulture);
@@ -259,6 +266,13 @@ namespace Shop_Management_Solution.Properties {
         internal static System.Drawing.Bitmap ladybird_icon {
             get {
                 object obj = ResourceManager.GetObject("ladybird-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ladybird_iconl {
+            get {
+                object obj = ResourceManager.GetObject("ladybird-iconl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

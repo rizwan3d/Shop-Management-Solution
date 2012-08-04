@@ -261,6 +261,10 @@ namespace Shop_Management_Solution
                 _vendorAdapter.Update(_vendorsDs);
                 this.Close();
             }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void txtNameFilter_TextChanged(object sender, EventArgs e)

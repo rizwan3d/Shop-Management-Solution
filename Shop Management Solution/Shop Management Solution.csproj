@@ -143,6 +143,18 @@
     <Compile Include="frmItemManagement.Designer.cs">
       <DependentUpon>frmItemManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportBug.Designer.cs">
+      <DependentUpon>frmReportBug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSendUsFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSendUsFeedback.Designer.cs">
+      <DependentUpon>frmSendUsFeedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +191,8 @@
     <Compile Include="frmVendorManagement.Designer.cs">
       <DependentUpon>frmVendorManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="lib\Bug.cs" />
+    <Compile Include="lib\Comment.cs" />
     <Compile Include="lib\Contractor.cs" />
     <Compile Include="lib\dal\ContractorDAL.cs" />
     <Compile Include="lib\dal\CountryDAL.cs" />
@@ -234,6 +248,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemManagement.resx">
       <DependentUpon>frmItemManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportBug.resx">
+      <DependentUpon>frmReportBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSendUsFeedback.resx">
+      <DependentUpon>frmSendUsFeedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
@@ -315,6 +335,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="electronic-billing-machine.ico" />
+    <None Include="Resources\ladybird-iconl.png" />
+    <None Include="Resources\feedback-iconl.png" />
     <None Include="Resources\feedback-icon.png" />
     <None Include="Resources\ladybird-icon.png" />
     <None Include="Resources\loading.gif" />

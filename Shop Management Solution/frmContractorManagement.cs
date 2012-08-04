@@ -296,6 +296,10 @@ namespace Shop_Management_Solution
                 _contractorAdapter.Update(_contractorsDs);
                 this.Close();
             }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void txtNameFilter_TextChanged(object sender, EventArgs e)

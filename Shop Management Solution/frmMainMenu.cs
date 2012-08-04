@@ -46,7 +46,7 @@ namespace Shop_Management_Solution
                 NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
                 UpdateDAL.RegisterClient();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 //picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.network_offline;
                // tipConnectivity.SetToolTip(picConnectivity, "Disconnected");
@@ -335,6 +335,18 @@ namespace Shop_Management_Solution
             frmItemManagement im = new frmItemManagement();
             im.ShowDialog();
 
+        }
+
+        private void reportABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportBug rb = new frmReportBug();
+            rb.ShowDialog();
+        }
+
+        private void sendUsFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSendUsFeedback sf = new frmSendUsFeedback();
+            sf.ShowDialog();
         }
 
     }

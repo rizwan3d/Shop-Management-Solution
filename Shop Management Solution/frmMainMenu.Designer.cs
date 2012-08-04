@@ -426,11 +426,12 @@
             // 
             this.picNetworkActivity.BackColor = System.Drawing.Color.Transparent;
             this.picNetworkActivity.Image = global::Shop_Management_Solution.Properties.Resources.loading;
-            this.picNetworkActivity.Location = new System.Drawing.Point(664, 613);
+            this.picNetworkActivity.Location = new System.Drawing.Point(663, 612);
             this.picNetworkActivity.Name = "picNetworkActivity";
             this.picNetworkActivity.Size = new System.Drawing.Size(23, 22);
             this.picNetworkActivity.TabIndex = 17;
             this.picNetworkActivity.TabStop = false;
+            this.picNetworkActivity.Tag = "";
             // 
             // picConnectivity
             // 
@@ -440,6 +441,7 @@
             this.picConnectivity.Size = new System.Drawing.Size(27, 25);
             this.picConnectivity.TabIndex = 16;
             this.picConnectivity.TabStop = false;
+            this.picConnectivity.Visible = false;
             // 
             // picStatusPayment
             // 
@@ -608,6 +610,7 @@
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
             this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.reportABugToolStripMenuItem.Text = "Report a Bug";
+            this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.reportABugToolStripMenuItem_Click);
             // 
             // sendUsFeedbackToolStripMenuItem
             // 
@@ -615,6 +618,7 @@
             this.sendUsFeedbackToolStripMenuItem.Name = "sendUsFeedbackToolStripMenuItem";
             this.sendUsFeedbackToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.sendUsFeedbackToolStripMenuItem.Text = "Send us Feedback";
+            this.sendUsFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendUsFeedbackToolStripMenuItem_Click);
             // 
             // aboutUsToolStripMenuItem1
             // 
