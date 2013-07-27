@@ -34,6 +34,7 @@ namespace Shop_Management_Solution
                     objComment.Name = txtName.Text.ToString();
                     objComment.Email = txtEmail.Text.ToString();
                     objComment.Comments = txtComments.Text.ToString();
+                    objComment.Rating = cmbRating.SelectedValue.ToString();
                     string result = UpdateDAL.postComments(objComment);
                     MessageBox.Show(this, result, "Send us feedback", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -107,6 +108,11 @@ namespace Shop_Management_Solution
             }
 
            
+        }
+
+        private void frmSendUsFeedback_Load(object sender, EventArgs e)
+        {
+            cmbRating.SelectedItem = "Excellent";
         }
     }
 }

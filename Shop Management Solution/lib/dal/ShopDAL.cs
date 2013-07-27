@@ -207,7 +207,7 @@ namespace Shop_Management_Solution.lib.dal
 
         }
 
-        public static bool AddPurchasedItem(string dateOfPurchase, long itemTypeId, long quantity, int contractorId)
+        public static bool AddPurchasedItem(string dateOfPurchase, long itemTypeId, float quantity, float contractorId)
         {
             //Create the objects we need to insert a new record
             OleDbConnection cnInsert = new OleDbConnection(DBUtil.GetConnectionString()); 
@@ -255,15 +255,15 @@ namespace Shop_Management_Solution.lib.dal
             {
                 //Now close the connection
                 DBUtil.HandleConnection(cnInsert);
-                long currentQuantity = ShopDAL.getStockInHandQuantity(itemTypeId);
-                long newQuantity = currentQuantity + quantity;
+                float currentQuantity = ShopDAL.getStockInHandQuantity(itemTypeId);
+                float newQuantity = currentQuantity + quantity;
                 ShopDAL.updateStockQuantity(cnInsert, itemTypeId, newQuantity);
             }
         }
 
-        public static long getStockInHandQuantity(long typeId)
+        public static float getStockInHandQuantity(long typeId)
         {
-            long quantity = 0;
+            float quantity = 0;
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
             string query = "SELECT Quantity FROM Stock_In_Hand WHERE Type_ID = " + typeId;
 
@@ -272,7 +272,7 @@ namespace Shop_Management_Solution.lib.dal
             try
             {
                 DataAdapter.Fill(ds);
-                quantity = long.Parse(ds.Tables[0].Rows[0][0].ToString());
+                quantity = float.Parse(ds.Tables[0].Rows[0][0].ToString());
                 return quantity;
             }
             catch (Exception ex)
@@ -299,7 +299,7 @@ namespace Shop_Management_Solution.lib.dal
                 throw new Exception("Please add an Item Type");
             }
         }
-        private static bool updateStockQuantity(OleDbConnection connection, long itemTypeId, long quantity)
+        private static bool updateStockQuantity(OleDbConnection connection, long itemTypeId, float quantity)
         {
             OleDbCommand cmdUpdate = new OleDbCommand();
             string query = "UPDATE Stock_In_Hand SET Quantity = @quantity WHERE Type_ID = @itemTypeId";
@@ -353,13 +353,13 @@ namespace Shop_Management_Solution.lib.dal
                     cmdInsert.Parameters.AddWithValue("@typeId", item.ItemTypeId);
                     cmdInsert.Parameters.AddWithValue("@quantity", item.Quantity);
                     cmdInsert.Parameters.AddWithValue("@price", item.SalePrice);
-                    long avaliableQuantity = ShopDAL.getStockInHandQuantity(item.ItemTypeId);
+                    float avaliableQuantity = ShopDAL.getStockInHandQuantity(item.ItemTypeId);
                     if (avaliableQuantity < item.Quantity)
                     {
                         saleTransaction.Rollback();
                         throw new Exception("Error: Low available quantity " + item.ItemName + " has only " + avaliableQuantity);
                     }
-                    long newQuantity = avaliableQuantity - item.Quantity;
+                    float newQuantity = avaliableQuantity - item.Quantity;
                     ShopDAL.updateStockQuantityTransaction(cnInsert, saleTransaction, item.ItemTypeId, newQuantity);
                     iSqlStatus = cmdInsert.ExecuteNonQuery();
                     if (iSqlStatus == 0)
@@ -383,7 +383,7 @@ namespace Shop_Management_Solution.lib.dal
                 DBUtil.HandleConnection(cnInsert);
             }
         }
-        private static bool updateStockQuantityTransaction(OleDbConnection connection, OleDbTransaction transction, long itemTypeId, long quantity)
+        private static bool updateStockQuantityTransaction(OleDbConnection connection, OleDbTransaction transction, long itemTypeId, float quantity)
         {
             OleDbCommand cmdUpdate = new OleDbCommand();
             cmdUpdate.Transaction = transction;
@@ -418,29 +418,28 @@ namespace Shop_Management_Solution.lib.dal
                 query = "SELECT ItemType.Name, Sum(Sales.Quantity) AS Sold_Quantity, ItemType.Price AS Actual_Price, Avg(Sales.Sale_Price) AS Sold_Price, Stock_In_Hand.Quantity AS Remaining_Quantity, ((Sold_Quantity*Sold_Price)-(Actual_Price*Sold_Quantity)) AS Proft, (Sold_Price*Sold_Quantity) AS Total_Sale_Price,(Actual_Price*Sold_Quantity) AS Total_Purchase_Price   FROM (ItemType INNER JOIN Sales ON ItemType.Type_ID=Sales.Type_ID) INNER JOIN Stock_In_Hand ON ItemType.Type_ID=Stock_In_Hand.Type_ID GROUP BY ItemType.Name, Stock_In_Hand.Quantity, ItemType.Price, ItemType.Type_ID, Sales.Sale_Date, Sales.Sale_Price HAVING (((ItemType.Type_ID)=" + itemTypeId + ") And ((Sales.Sale_Date)  = #" + startDate + "#))";
             }
 
-
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
 
             DataSet ds = new DataSet();
             DataTable resultTable;
-            
+
             try
             {
                 resultTable = ds.Tables.Add();
                 DataAdapter.Fill(startRecord, noOfRecords, resultTable);
                 int x = resultTable.Rows.Count;
+
                 return ds;
             }
-
             catch (Exception ex)
             {
-                DebugUtil.genericShow(ex.Message.ToString());
-                return ds;
+                throw new Exception("No result found for this criteria");
+                //DebugUtil.genericShow(ex.Message.ToString());
             }
         }
 
         //function returns number of rows found and sets referenced arguments to contain total sold quantity and total profit
-        public static int SearchTotalProfitSummary(String startDate, String endDate, long itemTypeId, ref int totalSoldQuantity, ref decimal totalProfit)
+        public static int SearchTotalProfitSummary(String startDate, String endDate, long itemTypeId, ref double totalSoldQuantity, ref decimal totalProfit)
         {
             OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
             string query = "SELECT ItemType.Name, Sum(Sales.Quantity) AS Sold_Quantity, ItemType.Price AS Actual_Price, Avg(Sales.Sale_Price) AS Sold_Price, Stock_In_Hand.Quantity AS Remaining_Quantity, ((Sold_Quantity*Sold_Price)-(Actual_Price*Sold_Quantity)) AS Proft, (Sold_Price*Sold_Quantity) AS Total_Sale_Price,(Actual_Price*Sold_Quantity) AS Total_Purchase_Price   FROM (ItemType INNER JOIN Sales ON ItemType.Type_ID=Sales.Type_ID) INNER JOIN Stock_In_Hand ON ItemType.Type_ID=Stock_In_Hand.Type_ID GROUP BY ItemType.Name, Stock_In_Hand.Quantity, ItemType.Price, ItemType.Type_ID, Sales.Sale_Date, Sales.Sale_Price HAVING (((ItemType.Type_ID)=" + itemTypeId + ") And ((Sales.Sale_Date) Between #" + startDate + "# And #" + endDate + "#))";
@@ -464,8 +463,8 @@ namespace Shop_Management_Solution.lib.dal
 
             catch (Exception ex)
             {
-                DebugUtil.genericShow(ex.Message.ToString());
-                return 0;
+                throw new Exception("No transaction found for this criteria");
+                
             }
         }
 

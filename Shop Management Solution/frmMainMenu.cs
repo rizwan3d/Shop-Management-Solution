@@ -35,8 +35,6 @@ namespace Shop_Management_Solution
                 if (isAvailable)
                 {
                     picConnectivity.Image = global::Shop_Management_Solution.Properties.Resources.gnome_network_idle;
-                    
-                    
                 }
                 else
                 {
@@ -348,6 +346,19 @@ namespace Shop_Management_Solution
             frmSendUsFeedback sf = new frmSendUsFeedback();
             sf.ShowDialog();
         }
+
+        private void btnAddUoM_Click(object sender, EventArgs e)
+        {
+            frmAddUnit au = new frmAddUnit();
+            au.ShowDialog();
+        }
+
+        private void addUnitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUnit au = new frmAddUnit();
+            au.ShowDialog();
+        }
+
 
     }
 }

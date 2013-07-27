@@ -74,6 +74,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap About_Us {
+            get {
+                object obj = ResourceManager.GetObject("About Us", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap add_icon {
             get {
                 object obj = ResourceManager.GetObject("add-icon", resourceCulture);
@@ -298,6 +305,13 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap MainHeader {
+            get {
+                object obj = ResourceManager.GetObject("MainHeader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Misc_Box_icon {
             get {
                 object obj = ResourceManager.GetObject("Misc-Box-icon", resourceCulture);
@@ -438,9 +452,37 @@ namespace Shop_Management_Solution.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap SplashScreen {
+            get {
+                object obj = ResourceManager.GetObject("SplashScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Synchronize_icon {
             get {
                 object obj = ResourceManager.GetObject("Synchronize-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Units_2_icon {
+            get {
+                object obj = ResourceManager.GetObject("Units-2-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Units_2_iconl {
+            get {
+                object obj = ResourceManager.GetObject("Units-2-iconl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Units_2_icons {
+            get {
+                object obj = ResourceManager.GetObject("Units-2-icons", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

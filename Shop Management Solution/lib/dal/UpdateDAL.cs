@@ -16,8 +16,8 @@ namespace Shop_Management_Solution.lib.dal
             float currentVersion = float.Parse(frmAbout.AssemblyVersion.Substring(0, 3));
             string sVersion = frmAbout.AssemblyVersion.Substring(0, 3);
 
-            string postData = "name=" + objComment.Name + "&comment=" + objComment.Comments + "&email=" + objComment.Email + "&version=" + sVersion;
-            string result = NetworkUtil.generatePostCall("http://solution.xtrawebapps.com/web/registerComments.php", postData);
+            string postData = "name=" + objComment.Name + "&comment=" + objComment.Comments + "&email=" + objComment.Email + "&version=" + sVersion + "&rating=" + objComment.Rating;
+            string result = NetworkUtil.generatePostCall( ApplicationConstant.WEB_URL + "/web/registerComments.php", postData);
             return result;
 
         }
@@ -29,14 +29,14 @@ namespace Shop_Management_Solution.lib.dal
             string sVersion = frmAbout.AssemblyVersion.Substring(0, 3);
 
             string postData = "title=" + objBug.Title + "&description=" + objBug.Description + "&module=" + objBug.Module + "&serverity=" + objBug.Serverity + "&version=" + sVersion;
-            string result = NetworkUtil.generatePostCall("http://solution.xtrawebapps.com/web/reportABug.php", postData);
+            string result = NetworkUtil.generatePostCall( ApplicationConstant.WEB_URL + "/web/reportABug.php", postData);
             return result;
 
         }
         public static void RegisterClient()
         {
             string info = UpdateDAL.getSystemInfo();
-            string result = NetworkUtil.generatePostCall("http://solution.xtrawebapps.com/web/registerClient.php", info);
+            string result = NetworkUtil.generatePostCall( ApplicationConstant.WEB_URL + "/web/registerClient.php", info);
             
         }
 
@@ -46,13 +46,13 @@ namespace Shop_Management_Solution.lib.dal
             float currentVersion = float.Parse(frmAbout.AssemblyVersion.Substring(0, 3));
 
             string postData = "getClient";
-            string result = NetworkUtil.generatePostCall("http://solution.xtrawebapps.com/web/getLatestVersion.php", postData);
+            string result = NetworkUtil.generatePostCall(ApplicationConstant.WEB_URL + "/web/getLatestVersion.php", postData);
             float serverVersion = float.Parse(result);
 
             if (serverVersion > currentVersion)
             {
                 MessageBox.Show("New Version:" + serverVersion + " is available");
-                System.Diagnostics.Process.Start("https://sourceforge.net/projects/shopmanagement/files/latest/download");
+                System.Diagnostics.Process.Start( ApplicationConstant.SOURCE_FORGE_URL );
             }
             else
             {

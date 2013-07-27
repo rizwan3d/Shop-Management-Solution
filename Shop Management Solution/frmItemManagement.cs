@@ -70,7 +70,7 @@ namespace Shop_Management_Solution
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message.ToString(), "Error:Add New Stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.StackTrace.ToString(), "Error:Add New Stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
 
@@ -111,6 +111,7 @@ namespace Shop_Management_Solution
         private void fillItemControls()
         {
             txtName.Text = dgItem.CurrentRow.Cells["clName"].Value.ToString();
+            txtBarcode.Text = dgItem.CurrentRow.Cells["clBarcode"].Value.ToString();
             txtPurchasePrice.Text = dgItem.CurrentRow.Cells["clPurchasePrice"].Value.ToString();
             txtExpectedSalePrice.Text = dgItem.CurrentRow.Cells["clSalePrice"].Value.ToString();
             if (!String.IsNullOrEmpty(dgItem.CurrentRow.Cells["clUoMID"].Value.ToString()))
@@ -134,6 +135,7 @@ namespace Shop_Management_Solution
 
                 DataRow newRow = _itemsDs.Tables[0].NewRow();
                 newRow["ItemType_Name"] = txtName.Text;
+                newRow["Item_Barcode"] = txtBarcode.Text;
                 newRow["Price"] = txtPurchasePrice.Text;
                 newRow["Sale_Price"] = txtExpectedSalePrice.Text;
                 newRow["UoM_ID"] = cmbUoM.SelectedValue.ToString();
@@ -185,6 +187,7 @@ namespace Shop_Management_Solution
         private void clearData()
         {
             txtName.Text = "";
+            txtBarcode.Text = "";
             txtExpectedSalePrice.Text = "";
             txtPurchasePrice.Text = "";
             cmbUoM.SelectedIndex = 0;
@@ -284,6 +287,7 @@ namespace Shop_Management_Solution
                 DataRow[] rowsTab = _itemsDs.Tables[0].Select("Type_ID = " + _itemChangedId);
 
                 rowsTab[0]["ItemType_Name"] = txtName.Text;
+                rowsTab[0]["Item_Barcode"] = txtBarcode.Text;
                 rowsTab[0]["Price"] = txtPurchasePrice.Text;
                 rowsTab[0]["Sale_Price"] = txtExpectedSalePrice.Text;
                 rowsTab[0]["UoM_ID"] = cmbUoM.SelectedValue.ToString();
@@ -325,11 +329,17 @@ namespace Shop_Management_Solution
 
         private void btSaveItems_Click(object sender, EventArgs e)
         {
-            
-            if (_itemsDs.HasChanges())
+            try
             {
-                _itemAdapter.Update(_itemsDs);
-                this.Close();
+                if (_itemsDs.HasChanges())
+                {
+                    _itemAdapter.Update(_itemsDs);
+                    this.Close();
+                }
+            }
+            catch (OleDbException oleEx)
+            {
+                DebugUtil.genericShow(oleEx.Message.ToString());
             }
         }
 
@@ -408,6 +418,16 @@ namespace Shop_Management_Solution
                 dv.RowFilter = "Is_Deleted = 0 and ItemType_Name LIKE '*" + txtNameFilter.Text + "*'";
             }
                 
+        }
+
+        private void gbContractorDetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPurchasePrice_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -77,7 +77,7 @@ namespace Shop_Management_Solution.lib.dal
         public DataSet getItemsPresentationDs()
         {
             OleDbConnection cnGet = new OleDbConnection(DBUtil.GetConnectionString());
-            String query = "SELECT ItemType.Type_ID, ItemType.Name AS ItemType_Name, ItemType.Price, ItemType.Sale_Price, ItemType.Is_Deleted, UoM.ID AS UoM_ID,  UoM.UoM_Name, Vendor.ID AS Vendor_ID, Vendor.Name AS Vendor_Name  " +
+            String query = "SELECT ItemType.Type_ID, ItemType.Name AS ItemType_Name, ItemType.Barcode AS Item_Barcode, ItemType.Price, ItemType.Sale_Price, ItemType.Is_Deleted, UoM.ID AS UoM_ID,  UoM.UoM_Name, Vendor.ID AS Vendor_ID, Vendor.Name AS Vendor_Name  " +
                            "FROM Vendor RIGHT JOIN (UoM RIGHT JOIN ItemType ON UoM.[ID] = ItemType.[UoM_ID]) ON Vendor.[ID] = ItemType.[Vendor_ID]";
 
             OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, cnGet);
@@ -98,26 +98,28 @@ namespace Shop_Management_Solution.lib.dal
 
         public OleDbDataAdapter getItemAdapter()
         {
-            String query = "SELECT ItemType.Type_ID, ItemType.Name AS ItemType_Name, ItemType.Price, ItemType.Sale_Price, ItemType.Is_Deleted, UoM.ID AS UoM_ID,  UoM.UoM_Name, Vendor.ID AS Vendor_ID, Vendor.Name AS Vendor_Name  " +
+            String query = "SELECT ItemType.Type_ID, ItemType.Name AS ItemType_Name, ItemType.Barcode As Item_Barcode, ItemType.Price, ItemType.Sale_Price, ItemType.Is_Deleted, UoM.ID AS UoM_ID,  UoM.UoM_Name, Vendor.ID AS Vendor_ID, Vendor.Name AS Vendor_Name  " +
                            "FROM Vendor RIGHT JOIN (UoM RIGHT JOIN ItemType ON UoM.[ID] = ItemType.[UoM_ID]) ON Vendor.[ID] = ItemType.[Vendor_ID]";
 
             OleDbConnection conn = new OleDbConnection(DBUtil.GetConnectionString()); 
             OleDbDataAdapter resultAdapter = new OleDbDataAdapter(query, DBUtil.GetConnectionString());
-            resultAdapter.InsertCommand = new OleDbCommand("INSERT INTO ItemType ([Name], [Price], [Sale_Price], [Vendor_ID], [UoM_ID], [Is_Deleted]) " +
-                            "VALUES (@Name, @Price, @SalePrice, @VendorID, @UoMID, @IsDeleted) ", conn);
+            resultAdapter.InsertCommand = new OleDbCommand( "INSERT INTO ItemType ([Name], [Barcode], [Price], [Sale_Price], [Vendor_ID], [UoM_ID], [Is_Deleted]) " +
+                                                            "VALUES (@Name, @Barcode, @Price, @SalePrice, @VendorID, @UoMID, @IsDeleted) ", conn);
 
 
             resultAdapter.InsertCommand.Parameters.Add("@Name", OleDbType.VarChar, 255, "ItemType_Name");
+            resultAdapter.InsertCommand.Parameters.Add("@Barcode", OleDbType.VarChar, 255, "Item_Barcode");
             resultAdapter.InsertCommand.Parameters.Add("@Price", OleDbType.Double, 11, "Price");
             resultAdapter.InsertCommand.Parameters.Add("@SalePrice", OleDbType.Double, 11, "Sale_Price");
             resultAdapter.InsertCommand.Parameters.Add("@VendorID", OleDbType.Integer, 7, "Vendor_ID");
             resultAdapter.InsertCommand.Parameters.Add("@UoMID", OleDbType.Integer, 7, "UoM_ID");
             resultAdapter.InsertCommand.Parameters.Add("@IsDeleted", OleDbType.Integer, 4, "Is_Deleted");
 
-            resultAdapter.UpdateCommand = new OleDbCommand("UPDATE ItemType SET [Name] = @Name, [Price] = @Price, [Sale_Price] = @SalePrice, [Vendor_ID] = @VendorID, [UoM_ID] = @UoMID, " +
-                        "[Is_Deleted] = @IsDeleted WHERE [Type_ID] = @ID ", conn);
+            resultAdapter.UpdateCommand = new OleDbCommand("UPDATE ItemType SET [Name] = @Name, [Barcode] = @Barcode, [Price] = @Price,  [Sale_Price] = @SalePrice, [Vendor_ID] = @VendorID, [UoM_ID] = @UoMID, [Is_Deleted] = @IsDeleted " +
+                                                            " WHERE [Type_ID] = @ID ", conn);
 
             resultAdapter.UpdateCommand.Parameters.Add("@Name", OleDbType.VarChar, 255, "ItemType_Name");
+            resultAdapter.UpdateCommand.Parameters.Add("@Barcode", OleDbType.VarChar, 255, "Item_Barcode");
             resultAdapter.UpdateCommand.Parameters.Add("@Price", OleDbType.Double, 11, "Price");
             resultAdapter.UpdateCommand.Parameters.Add("@SalePrice", OleDbType.Double, 11, "Sale_Price");
             resultAdapter.UpdateCommand.Parameters.Add("@VendorID", OleDbType.VarChar, 30, "Vendor_ID");

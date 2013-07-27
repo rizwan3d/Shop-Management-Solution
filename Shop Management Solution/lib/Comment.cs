@@ -29,5 +29,13 @@ namespace Shop_Management_Solution.lib
             set { comments = value; }
         }
 
+        private string rating;
+
+        public string Rating
+        {
+            get { return rating; }
+            set { rating = value; }
+        }
+
     }
 }

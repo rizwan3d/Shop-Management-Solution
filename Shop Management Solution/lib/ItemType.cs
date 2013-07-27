@@ -9,10 +9,13 @@ namespace Shop_Management_Solution.lib
     {
         private int itemId;
         private string itemName;
+        private string barcode;
         private float price;
         private float salePrice;
         private UoM uom;
         private Vendor vendor;
+
+        
 
         internal Vendor Vendor
         {
@@ -26,6 +29,11 @@ namespace Shop_Management_Solution.lib
             set { uom = value; }
         }
 
+        public string Barcode
+        {
+            get { return barcode; }
+            set { barcode = value; }
+        }
 
         public float SalePrice
         {

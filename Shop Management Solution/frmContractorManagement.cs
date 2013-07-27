@@ -190,6 +190,7 @@ namespace Shop_Management_Solution
             {
                 lbEmail.Font = new Font(lbEmail.Font, FontStyle.Bold);
                 lbEmail.ForeColor = Color.Red;
+                
             }
             else
             {

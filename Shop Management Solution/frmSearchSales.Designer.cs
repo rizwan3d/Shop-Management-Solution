@@ -71,12 +71,13 @@
             // 
             // cmb_itemType
             // 
-            this.cmb_itemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_itemType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmb_itemType.FormattingEnabled = true;
             this.cmb_itemType.Location = new System.Drawing.Point(114, 46);
             this.cmb_itemType.Name = "cmb_itemType";
             this.cmb_itemType.Size = new System.Drawing.Size(252, 21);
             this.cmb_itemType.TabIndex = 5;
+            this.cmb_itemType.Leave += new System.EventHandler(this.cmb_itemType_Leave);
             // 
             // label3
             // 

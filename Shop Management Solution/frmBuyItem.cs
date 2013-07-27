@@ -65,7 +65,7 @@ namespace Shop_Management_Solution
         private void btn_Save_Click(object sender, EventArgs e)
         {
             String dateofPurchase = txtDateofPurchase.Text;
-            long itemQuantity = long.Parse(txtQuantity.Value.ToString()) ;
+            float itemQuantity = NumberUtils.SafeParse(txtQuantity.Value.ToString()) ;
             long itemTypeId = long.Parse(cmbItemType.SelectedValue.ToString());
             int contractorId = int.Parse(cmbContractor.SelectedValue.ToString());
 

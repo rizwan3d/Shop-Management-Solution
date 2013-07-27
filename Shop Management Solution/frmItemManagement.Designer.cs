@@ -41,6 +41,8 @@
             this.cbDeleted = new System.Windows.Forms.CheckBox();
             this.btClear = new System.Windows.Forms.Button();
             this.gbContractorDetails = new System.Windows.Forms.GroupBox();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmbUoM = new System.Windows.Forms.ComboBox();
             this.cmbVendor = new System.Windows.Forms.ComboBox();
             this.lbFilter = new System.Windows.Forms.Label();
@@ -49,6 +51,7 @@
             this.dgItem = new System.Windows.Forms.DataGridView();
             this.clID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clUoMID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +65,11 @@
             this.btUpdateItem = new System.Windows.Forms.Button();
             this.btAddNewItem = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,9 +97,9 @@
             this.lblSalePrice.AutoSize = true;
             this.lblSalePrice.Location = new System.Drawing.Point(6, 57);
             this.lblSalePrice.Name = "lblSalePrice";
-            this.lblSalePrice.Size = new System.Drawing.Size(106, 13);
+            this.lblSalePrice.Size = new System.Drawing.Size(58, 13);
             this.lblSalePrice.TabIndex = 4;
-            this.lblSalePrice.Text = "Expected Sale Price:";
+            this.lblSalePrice.Text = "Sale Price:";
             // 
             // lblPurchasePrice
             // 
@@ -101,15 +109,16 @@
             this.lblPurchasePrice.Size = new System.Drawing.Size(81, 13);
             this.lblPurchasePrice.TabIndex = 3;
             this.lblPurchasePrice.Text = "Purchase price:";
+            this.lblPurchasePrice.Click += new System.EventHandler(this.lblPurchasePrice_Click);
             // 
             // lblUoM
             // 
             this.lblUoM.AutoSize = true;
-            this.lblUoM.Location = new System.Drawing.Point(314, 57);
+            this.lblUoM.Location = new System.Drawing.Point(314, 83);
             this.lblUoM.Name = "lblUoM";
-            this.lblUoM.Size = new System.Drawing.Size(108, 13);
+            this.lblUoM.Size = new System.Drawing.Size(40, 13);
             this.lblUoM.TabIndex = 1;
-            this.lblUoM.Text = "Unit of Measurement:";
+            this.lblUoM.Text = "Unit(s):";
             // 
             // lbName
             // 
@@ -162,6 +171,13 @@
             // 
             // gbContractorDetails
             // 
+            this.gbContractorDetails.Controls.Add(this.label6);
+            this.gbContractorDetails.Controls.Add(this.label5);
+            this.gbContractorDetails.Controls.Add(this.label4);
+            this.gbContractorDetails.Controls.Add(this.label3);
+            this.gbContractorDetails.Controls.Add(this.label2);
+            this.gbContractorDetails.Controls.Add(this.txtBarcode);
+            this.gbContractorDetails.Controls.Add(this.label1);
             this.gbContractorDetails.Controls.Add(this.cmbUoM);
             this.gbContractorDetails.Controls.Add(this.cmbVendor);
             this.gbContractorDetails.Controls.Add(this.btClear);
@@ -180,12 +196,30 @@
             this.gbContractorDetails.TabIndex = 30;
             this.gbContractorDetails.TabStop = false;
             this.gbContractorDetails.Text = "Please specify item detail(s)";
+            this.gbContractorDetails.Enter += new System.EventHandler(this.gbContractorDetails_Enter);
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Location = new System.Drawing.Point(427, 50);
+            this.txtBarcode.MaxLength = 30;
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(178, 20);
+            this.txtBarcode.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(313, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Barcode:";
             // 
             // cmbUoM
             // 
             this.cmbUoM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUoM.FormattingEnabled = true;
-            this.cmbUoM.Location = new System.Drawing.Point(428, 57);
+            this.cmbUoM.Location = new System.Drawing.Point(427, 79);
             this.cmbUoM.Name = "cmbUoM";
             this.cmbUoM.Size = new System.Drawing.Size(179, 21);
             this.cmbUoM.TabIndex = 20;
@@ -238,6 +272,7 @@
             this.dgItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clID,
             this.clName,
+            this.clBarcode,
             this.clPurchasePrice,
             this.clSalePrice,
             this.clUoMID,
@@ -268,6 +303,13 @@
             this.clName.HeaderText = "Name";
             this.clName.Name = "clName";
             this.clName.ReadOnly = true;
+            // 
+            // clBarcode
+            // 
+            this.clBarcode.DataPropertyName = "Item_Barcode";
+            this.clBarcode.HeaderText = "Barcode";
+            this.clBarcode.Name = "clBarcode";
+            this.clBarcode.ReadOnly = true;
             // 
             // clPurchasePrice
             // 
@@ -384,6 +426,56 @@
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(101, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(11, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(411, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(411, 79);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(11, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(101, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(11, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(101, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(11, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "*";
+            // 
             // frmItemManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,8 +534,11 @@
         private System.Windows.Forms.Button btAddNewItem;
         private System.Windows.Forms.ComboBox cmbUoM;
         private System.Windows.Forms.ComboBox cmbVendor;
+        private System.Windows.Forms.TextBox txtBarcode;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPurchasePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSalePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clUoMID;
@@ -451,6 +546,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clVendorID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clVendor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsDeleted;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
 
     }
 }

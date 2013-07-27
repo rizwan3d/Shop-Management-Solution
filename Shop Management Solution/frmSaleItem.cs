@@ -21,7 +21,7 @@ namespace Shop_Management_Solution
 {
     public partial class frmSaleItem : Form
     {
-        private long saleCounter;
+        private double saleCounter;
         private double saleTotalPrice;
         private Dictionary<string, string> quantitiesLeft;
         private long invoiceID;
@@ -199,7 +199,7 @@ namespace Shop_Management_Solution
             {
                 long itemTypeId = long.Parse(lvi.SubItems[0].Text);
                 string itemTypeName = lvi.SubItems[1].Text;
-                long quantity = long.Parse(lvi.SubItems[2].Text);
+                float quantity = NumberUtils.SafeParse(lvi.SubItems[2].Text);
                 double price = NumberUtils.SafeParse( lvi.SubItems[3].Text );
                 string uom = lvi.SubItems[4].Text;
 
@@ -218,7 +218,7 @@ namespace Shop_Management_Solution
         {
 
 
-            long actualQuantity = long.Parse(quantity);
+            float actualQuantity = float.Parse(quantity);
             float actualPrice = NumberUtils.SafeParse(price);
 
             double totalPrice = actualPrice * actualQuantity;
@@ -311,7 +311,7 @@ namespace Shop_Management_Solution
                 }
                 else
                 {
-                    long availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
+                    float availableQuantity = ShopDAL.getStockInHandQuantity(itemId);
                     float salePrice =  ShopDAL.getItemTypeSalePrice(itemId);
                     string uomName = ShopDAL.getItemTypeUoM(itemId);
 
@@ -447,7 +447,7 @@ namespace Shop_Management_Solution
 
                         // Printing Items
 
-                        PdfPCell cellItemHeader = new PdfPCell(new Paragraph("Item Name"));
+                        PdfPCell cellItemHeader = new PdfPCell(new Paragraph("Item"));
                         cellItemHeader.Colspan = 2;
                         table.AddCell(cellItemHeader);
 
@@ -455,7 +455,7 @@ namespace Shop_Management_Solution
                         cellQuantityHeader.Colspan = 2;
                         table.AddCell(cellQuantityHeader);
 
-                        PdfPCell cellPriceHeader = new PdfPCell(new Paragraph("Price"));
+                        PdfPCell cellPriceHeader = new PdfPCell(new Paragraph("Unit Price"));
                         cellPriceHeader.Colspan = 2;
                         table.AddCell(cellPriceHeader);
 
@@ -499,7 +499,7 @@ namespace Shop_Management_Solution
                         table.AddCell(cellTotalPriceValue);
 
                         // Printing XtraWebApps Footer 
-                        PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.XtraWebApps.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
+                        PdfPCell cellFooter = new PdfPCell(new Paragraph("Shop Management Solution by www.DeluxeWebApps.com", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
                         cellFooter.Colspan = 6;
                         cellFooter.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(cellFooter);
@@ -674,7 +674,7 @@ namespace Shop_Management_Solution
         private void setinvoiceTotal(Graphics g)
         {
             string fieldValue = "";
-            string totalQuantity = this.saleCounter.ToString();
+            string totalQuantity = this.saleCounter.ToString("0.00");
             string totalPrice = ConfigurationDAL.GetCurrentCurrency() + " " + this.saleTotalPrice.ToString(); this.saleCounter.ToString();
             
             // Draw line:
@@ -747,6 +747,27 @@ namespace Shop_Management_Solution
             else
             {
                 cmb_itemType.BackColor = Color.White;
+            }
+        }
+
+        private void cmb_itemType_Leave(object sender, EventArgs e)
+        {
+            ComboBox cbo = (sender as ComboBox);
+            if (cbo.Text.Length > 0)
+            {
+                Int32 rowIndex = cbo.FindString(cbo.Text.Trim());
+                if (rowIndex != -1)
+                {
+                    cbo.SelectedIndex = rowIndex;
+                }
+                else
+                {
+                    cbo.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                cbo.SelectedIndex = 0;
             }
         }
 

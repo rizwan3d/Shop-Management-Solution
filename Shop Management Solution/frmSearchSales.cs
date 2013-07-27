@@ -34,9 +34,16 @@ namespace Shop_Management_Solution
                 {
                     ShopDAL db = new ShopDAL();
                     DataSet ds = db.GetItemsType();
+
+                    DataRow defaultRow = ds.Tables[0].NewRow();
+                    defaultRow["Type_ID"] = "0";
+                    defaultRow["Name"] = "---------------- Select Item Type ----------------";
+                    ds.Tables[0].Rows.InsertAt(defaultRow, 0);
+
                     cmb_itemType.DataSource = ds.Tables[0];
                     cmb_itemType.DisplayMember = "Name";
                     cmb_itemType.ValueMember = "Type_ID";
+                    cmb_itemType.SelectedIndex = 0;
                 }
             }
             catch (IndexOutOfRangeException ex)
@@ -56,27 +63,36 @@ namespace Shop_Management_Solution
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            setSummaryData();
-            performSearch(0, recordsPerPage);
-            if (totalRecords > recordsPerPage)
+            try
             {
-                btNext.Enabled = true;
-                btPrev.Enabled = false;
-                totalPages = totalRecords / recordsPerPage;
-                if ((totalRecords % recordsPerPage) > 0)
-                    totalPages++;
-                currentPage = 1;
-                lbPageInfo.Text = "Page 1 of " + totalPages;
+                resetForm();
+                setSummaryData();
+                performSearch(0, recordsPerPage);
+                if (totalRecords > recordsPerPage)
+                {
+                    btNext.Enabled = true;
+                    btPrev.Enabled = false;
+                    totalPages = totalRecords / recordsPerPage;
+                    if ((totalRecords % recordsPerPage) > 0)
+                        totalPages++;
+                    currentPage = 1;
+                    lbPageInfo.Text = "Page 1 of " + totalPages;
+                }
+                else
+                {
+                    currentPage = 1;
+                    totalPages = 1;
+                    btNext.Enabled = false;
+                    btPrev.Enabled = false;
+                    lbPageInfo.Text = "Page 1 of 1";
+                }
+                lbPageInfo.Visible = true;
             }
-            else
+            catch (Exception ex)
             {
-                currentPage = 1;
-                totalPages = 1;
-                btNext.Enabled = false;
-                btPrev.Enabled = false;
-                lbPageInfo.Text = "Page 1 of 1";
+                MessageBox.Show( ex.Message.ToString(), "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            lbPageInfo.Visible = true;
+            
             
         }
 
@@ -92,6 +108,19 @@ namespace Shop_Management_Solution
             btNext.Enabled = false;
             lbPageInfo.Visible = false;
 
+        }
+
+        private void resetForm()
+        {
+            dgSearchResults.Rows.Clear();
+            dgSearchResults.Columns.Clear();
+            setupGridColumns();
+            setupColumnsWidth();
+            lblSoldQuantity.Text = "0";
+            lblTotalProfit.Text = ConfigurationDAL.GetCurrentCurrency() + " 0.00 ";
+            btPrev.Enabled = false;
+            btNext.Enabled = false;
+            lbPageInfo.Visible = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -149,7 +178,7 @@ namespace Shop_Management_Solution
                 long itemTypeId = long.Parse(cmb_itemType.SelectedValue.ToString());
                 DataTable resultTable = ShopDAL.SearchTotalProfitDS(startDate, endDate, itemTypeId, startRecordNo, noOfRecords).Tables[0];
                 String[] dataFromTable;
-                //DebugUtil.displayDataSetContents(ds);
+                //DebugUtil.displayDataSetContents(resultTable.DataSet);
 
                 dgSearchResults.Columns.Clear();
                 dgSearchResults.Columns.Add("dcNo", "S.No.");
@@ -178,9 +207,10 @@ namespace Shop_Management_Solution
             }
             catch (Exception ex)
             {
+                dgSearchResults.ClearSelection();
                 MessageBox.Show(ex.Message);
             }
-            dgSearchResults.ClearSelection();
+            
         }
 
         private void btPrev_Click(object sender, EventArgs e)
@@ -213,7 +243,7 @@ namespace Shop_Management_Solution
 
         private void setSummaryData()
         {
-            int totalSoldQuantity = 0;
+            double totalSoldQuantity = 0;
             decimal totalProfit = 0;
             String startDate = dpStartDate.Value.ToShortDateString();
             String endDate = dpEndDate.Value.ToShortDateString();
@@ -223,6 +253,27 @@ namespace Shop_Management_Solution
             lblSoldQuantity.Text = totalSoldQuantity.ToString();
             lblTotalProfit.Text = ConfigurationDAL.GetCurrentCurrency() + " " + totalProfit.ToString();
 
+        }
+
+        private void cmb_itemType_Leave(object sender, EventArgs e)
+        {
+            ComboBox cbo = (sender as ComboBox);
+            if (cbo.Text.Length > 0)
+            {
+                Int32 rowIndex = cbo.FindString(cbo.Text.Trim());
+                if (rowIndex != -1)
+                {
+                    cbo.SelectedIndex = rowIndex;
+                }
+                else
+                {
+                    cbo.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                cbo.SelectedIndex = 0;
+            }
         }
              
     }

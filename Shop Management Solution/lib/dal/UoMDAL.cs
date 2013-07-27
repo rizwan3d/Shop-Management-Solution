@@ -12,6 +12,52 @@ namespace Shop_Management_Solution.lib.dal
 {
     class UoMDAL
     {
+
+        public static bool addUoM(UoM objUom)
+        {
+            OleDbConnection conn = new OleDbConnection(DBUtil.GetConnectionString());
+            OleDbCommand cmdInsert = new OleDbCommand();
+            String query = "INSERT INTO Uom ( UoM_Name ) " +
+                           "VALUES( @Name )";
+
+            int iSqlStatus;
+            cmdInsert.Parameters.Clear();
+            try
+            {
+                bool isAlreadyExist = DBUtil.IsReferenceExists( "Uom", "UoM_Name",objUom.Name );
+                if (isAlreadyExist)
+                {
+                    throw new Exception("Unit already exists");
+                }
+
+                cmdInsert.CommandText = query;
+                cmdInsert.CommandType = CommandType.Text;
+
+                cmdInsert.Parameters.AddWithValue("@Name", objUom.Name);
+
+                cmdInsert.Connection = conn;
+                DBUtil.HandleConnection(conn);
+                iSqlStatus = cmdInsert.ExecuteNonQuery();
+
+                if (iSqlStatus == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Now close the connection
+                DBUtil.HandleConnection(conn);
+
+                throw new Exception(ex.Message.ToString());
+            }
+
+        }
+
         public static List<UoM> GetUoMList()
         {
             List<UoM> uoms = new List<UoM>();

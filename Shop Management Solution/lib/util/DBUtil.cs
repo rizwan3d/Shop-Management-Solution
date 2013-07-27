@@ -130,6 +130,43 @@ namespace Shop_Management_Solution.lib.util
             return nextId;
         }
 
+        public static bool IsReferenceExists( String tableName, String colName, String value)
+        {
+            OleDbConnection connectionString = new OleDbConnection(DBUtil.GetConnectionString());
+            string query = "SELECT " + colName + " FROM " + tableName + " WHERE " + colName + " = \"" + value+"\"";
+            //DebugUtil.genericShow(query);
+            OleDbDataAdapter DataAdapter = new OleDbDataAdapter(query, connectionString);
+            DataSet ds = new DataSet();
+
+            try
+            {
+
+                DataAdapter.Fill(ds);
+
+                string cellValue = ds.Tables[0].Rows[0][0].ToString();
+                if( String.IsNullOrEmpty( cellValue ) )
+                {
+                    //DebugUtil.genericShow(cellValue);
+                    return false;
+                }
+                else
+                {
+                    //DebugUtil.genericShow(cellValue);
+                    return true;
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                //DebugUtil.genericShow(ex.Message.ToString());
+                return false;
+
+            }
+
+        }
+
         public static BindingSource GetBindingSource(OleDbCommand cmd, OleDbConnection conn)
         {
             //declare our binding source

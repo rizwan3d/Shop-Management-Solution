@@ -39,6 +39,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbRating = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +56,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbRating);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtComments);
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.txtName);
@@ -62,14 +66,14 @@
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Location = new System.Drawing.Point(72, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 260);
+            this.groupBox1.Size = new System.Drawing.Size(413, 283);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Please specify your comment detail(s)";
             // 
             // txtComments
             // 
-            this.txtComments.Location = new System.Drawing.Point(69, 75);
+            this.txtComments.Location = new System.Drawing.Point(69, 98);
             this.txtComments.Multiline = true;
             this.txtComments.Name = "txtComments";
             this.txtComments.Size = new System.Drawing.Size(327, 168);
@@ -92,7 +96,7 @@
             // lblComments
             // 
             this.lblComments.AutoSize = true;
-            this.lblComments.Location = new System.Drawing.Point(4, 75);
+            this.lblComments.Location = new System.Drawing.Point(4, 98);
             this.lblComments.Name = "lblComments";
             this.lblComments.Size = new System.Drawing.Size(59, 13);
             this.lblComments.TabIndex = 11;
@@ -118,7 +122,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(411, 278);
+            this.btnCancel.Location = new System.Drawing.Point(410, 301);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 18;
@@ -128,7 +132,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(325, 278);
+            this.btnSend.Location = new System.Drawing.Point(324, 301);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(75, 23);
             this.btnSend.TabIndex = 17;
@@ -136,12 +140,35 @@
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Rating:";
+            // 
+            // cmbRating
+            // 
+            this.cmbRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRating.FormattingEnabled = true;
+            this.cmbRating.Items.AddRange(new object[] {
+            "Excellent",
+            "Good",
+            "Normal",
+            "Bad"});
+            this.cmbRating.Location = new System.Drawing.Point(69, 71);
+            this.cmbRating.Name = "cmbRating";
+            this.cmbRating.Size = new System.Drawing.Size(327, 21);
+            this.cmbRating.TabIndex = 16;
+            // 
             // frmSendUsFeedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(495, 312);
+            this.ClientSize = new System.Drawing.Size(495, 332);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.groupBox1);
@@ -152,6 +179,7 @@
             this.Name = "frmSendUsFeedback";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Send us feedback";
+            this.Load += new System.EventHandler(this.frmSendUsFeedback_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -171,5 +199,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.ComboBox cmbRating;
+        private System.Windows.Forms.Label label1;
     }
 }

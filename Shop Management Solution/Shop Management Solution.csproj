@@ -95,6 +95,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUnit.Designer.cs">
+      <DependentUpon>frmAddUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmContractorManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,7 @@
     <Compile Include="lib\ItemType.cs" />
     <Compile Include="lib\Sale.cs" />
     <Compile Include="lib\UoM.cs" />
+    <Compile Include="lib\util\ApplicationConstant.cs" />
     <Compile Include="lib\util\ConfigurationDAL.cs" />
     <Compile Include="lib\util\DBUtil.cs" />
     <Compile Include="lib\util\DebugUtil.cs" />
@@ -220,6 +227,9 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUnit.resx">
+      <DependentUpon>frmAddUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmContractorManagement.resx">
       <DependentUpon>frmContractorManagement.cs</DependentUpon>
@@ -335,6 +345,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="electronic-billing-machine.ico" />
+    <None Include="Resources\About Us.jpg" />
+    <None Include="Resources\MainHeader.jpg" />
+    <None Include="Resources\SplashScreen.jpg" />
+    <None Include="Resources\Units-2-iconl.png" />
+    <None Include="Resources\Units-2-icon.png" />
+    <None Include="Resources\Units-2-icons.png" />
     <None Include="Resources\ladybird-iconl.png" />
     <None Include="Resources\feedback-iconl.png" />
     <None Include="Resources\feedback-icon.png" />

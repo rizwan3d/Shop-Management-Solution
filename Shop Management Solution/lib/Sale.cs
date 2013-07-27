@@ -9,7 +9,7 @@ namespace Shop_Management_Solution.lib
     {
         private long itemTypeId;        
         private string itemName;        
-        private long quantity;      
+        private float quantity;      
         private double salePrice;
         private string uomName;
 
@@ -30,7 +30,7 @@ namespace Shop_Management_Solution.lib
             get { return itemName; }
             set { itemName = value; }
         }
-        public long Quantity
+        public float Quantity
         {
             get { return quantity; }
             set { quantity = value; }

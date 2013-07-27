@@ -28,6 +28,7 @@ namespace Shop_Management_Solution
         {
             String itemName = txtItemName.Text;
             String itemPrice = txtItemPrice.Text;
+            String itemBarcode = txtBarcode.Text;
             String itemSalePrice = txtExpectedSalePrice.Text;
             String uom = cmbUoM.SelectedValue.ToString();
             String vendorId = cmbVendor.SelectedValue.ToString();
@@ -47,6 +48,7 @@ namespace Shop_Management_Solution
                     item.ItemName = itemName;
                     item.Price = price;
                     item.SalePrice = saleprice;
+                    item.Barcode = itemBarcode;
 
                     UoM objUoM = new UoM();
                     objUoM.Id = int.Parse(uom);

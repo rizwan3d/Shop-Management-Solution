@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContractorManagement));
             this.lbName = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -73,6 +73,15 @@
             this.btnDeleteContactor = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.gbContractorDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgContractors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,7 +99,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(314, 87);
+            this.lbEmail.Location = new System.Drawing.Point(314, 143);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(38, 13);
             this.lbEmail.TabIndex = 1;
@@ -101,18 +110,18 @@
             this.lbPhone.AutoSize = true;
             this.lbPhone.Location = new System.Drawing.Point(314, 27);
             this.lbPhone.Name = "lbPhone";
-            this.lbPhone.Size = new System.Drawing.Size(81, 13);
+            this.lbPhone.Size = new System.Drawing.Size(61, 13);
             this.lbPhone.TabIndex = 2;
-            this.lbPhone.Text = "Phone Number:";
+            this.lbPhone.Text = "Phone No.:";
             // 
             // lbMobile
             // 
             this.lbMobile.AutoSize = true;
-            this.lbMobile.Location = new System.Drawing.Point(314, 57);
+            this.lbMobile.Location = new System.Drawing.Point(314, 113);
             this.lbMobile.Name = "lbMobile";
-            this.lbMobile.Size = new System.Drawing.Size(81, 13);
+            this.lbMobile.Size = new System.Drawing.Size(61, 13);
             this.lbMobile.TabIndex = 3;
-            this.lbMobile.Text = "Mobile Number:";
+            this.lbMobile.Text = "Mobile No.:";
             // 
             // lbAddrLine1
             // 
@@ -152,6 +161,15 @@
             // 
             // gbContractorDetails
             // 
+            this.gbContractorDetails.Controls.Add(this.label9);
+            this.gbContractorDetails.Controls.Add(this.label8);
+            this.gbContractorDetails.Controls.Add(this.label7);
+            this.gbContractorDetails.Controls.Add(this.label6);
+            this.gbContractorDetails.Controls.Add(this.label5);
+            this.gbContractorDetails.Controls.Add(this.label4);
+            this.gbContractorDetails.Controls.Add(this.label3);
+            this.gbContractorDetails.Controls.Add(this.label1);
+            this.gbContractorDetails.Controls.Add(this.label2);
             this.gbContractorDetails.Controls.Add(this.txtCity);
             this.gbContractorDetails.Controls.Add(this.lbCity);
             this.gbContractorDetails.Controls.Add(this.btClear);
@@ -174,7 +192,7 @@
             this.gbContractorDetails.Controls.Add(this.txtName);
             this.gbContractorDetails.Location = new System.Drawing.Point(63, 23);
             this.gbContractorDetails.Name = "gbContractorDetails";
-            this.gbContractorDetails.Size = new System.Drawing.Size(628, 202);
+            this.gbContractorDetails.Size = new System.Drawing.Size(628, 214);
             this.gbContractorDetails.TabIndex = 1;
             this.gbContractorDetails.TabStop = false;
             this.gbContractorDetails.Text = "Please specify contractor detail(s)";
@@ -210,7 +228,7 @@
             // 
             this.cbDeleted.AutoSize = true;
             this.cbDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbDeleted.Location = new System.Drawing.Point(313, 116);
+            this.cbDeleted.Location = new System.Drawing.Point(317, 173);
             this.cbDeleted.Name = "cbDeleted";
             this.cbDeleted.Size = new System.Drawing.Size(110, 17);
             this.cbDeleted.TabIndex = 18;
@@ -231,7 +249,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(406, 84);
+            this.txtEmail.Location = new System.Drawing.Point(406, 140);
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
@@ -239,7 +257,7 @@
             // 
             // txtMobileNo
             // 
-            this.txtMobileNo.Location = new System.Drawing.Point(406, 54);
+            this.txtMobileNo.Location = new System.Drawing.Point(406, 110);
             this.txtMobileNo.MaxLength = 30;
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(200, 20);
@@ -266,7 +284,7 @@
             this.txtAddrLine2.Location = new System.Drawing.Point(89, 84);
             this.txtAddrLine2.MaxLength = 255;
             this.txtAddrLine2.Name = "txtAddrLine2";
-            this.txtAddrLine2.Size = new System.Drawing.Size(208, 20);
+            this.txtAddrLine2.Size = new System.Drawing.Size(525, 20);
             this.txtAddrLine2.TabIndex = 10;
             // 
             // txtAddrLine1
@@ -274,7 +292,7 @@
             this.txtAddrLine1.Location = new System.Drawing.Point(89, 54);
             this.txtAddrLine1.MaxLength = 255;
             this.txtAddrLine1.Name = "txtAddrLine1";
-            this.txtAddrLine1.Size = new System.Drawing.Size(208, 20);
+            this.txtAddrLine1.Size = new System.Drawing.Size(525, 20);
             this.txtAddrLine1.TabIndex = 9;
             // 
             // txtName
@@ -287,7 +305,7 @@
             // 
             // btAddNewContractor
             // 
-            this.btAddNewContractor.Location = new System.Drawing.Point(63, 259);
+            this.btAddNewContractor.Location = new System.Drawing.Point(58, 266);
             this.btAddNewContractor.Name = "btAddNewContractor";
             this.btAddNewContractor.Size = new System.Drawing.Size(75, 23);
             this.btAddNewContractor.TabIndex = 2;
@@ -298,7 +316,7 @@
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
-            this.lbFilter.Location = new System.Drawing.Point(69, 237);
+            this.lbFilter.Location = new System.Drawing.Point(64, 244);
             this.lbFilter.Name = "lbFilter";
             this.lbFilter.Size = new System.Drawing.Size(72, 13);
             this.lbFilter.TabIndex = 9;
@@ -306,7 +324,7 @@
             // 
             // txtNameFilter
             // 
-            this.txtNameFilter.Location = new System.Drawing.Point(152, 234);
+            this.txtNameFilter.Location = new System.Drawing.Point(147, 241);
             this.txtNameFilter.MaxLength = 30;
             this.txtNameFilter.Name = "txtNameFilter";
             this.txtNameFilter.Size = new System.Drawing.Size(208, 20);
@@ -317,8 +335,8 @@
             // 
             this.dgContractors.AllowUserToAddRows = false;
             this.dgContractors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
-            this.dgContractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.dgContractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgContractors.BackgroundColor = System.Drawing.Color.Snow;
             this.dgContractors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgContractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -335,7 +353,7 @@
             this.clCountryName,
             this.clCity,
             this.clIsDeleted});
-            this.dgContractors.Location = new System.Drawing.Point(0, 289);
+            this.dgContractors.Location = new System.Drawing.Point(0, 296);
             this.dgContractors.Name = "dgContractors";
             this.dgContractors.ReadOnly = true;
             this.dgContractors.RowHeadersVisible = false;
@@ -447,7 +465,7 @@
             // 
             // btUpdateContractor
             // 
-            this.btUpdateContractor.Location = new System.Drawing.Point(144, 259);
+            this.btUpdateContractor.Location = new System.Drawing.Point(139, 266);
             this.btUpdateContractor.Name = "btUpdateContractor";
             this.btUpdateContractor.Size = new System.Drawing.Size(75, 23);
             this.btUpdateContractor.TabIndex = 4;
@@ -457,7 +475,7 @@
             // 
             // btSaveContractors
             // 
-            this.btSaveContractors.Location = new System.Drawing.Point(491, 524);
+            this.btSaveContractors.Location = new System.Drawing.Point(492, 531);
             this.btSaveContractors.Name = "btSaveContractors";
             this.btSaveContractors.Size = new System.Drawing.Size(97, 23);
             this.btSaveContractors.TabIndex = 17;
@@ -469,7 +487,7 @@
             // 
             this.cbShowDeleted.AutoSize = true;
             this.cbShowDeleted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowDeleted.Location = new System.Drawing.Point(366, 236);
+            this.cbShowDeleted.Location = new System.Drawing.Point(361, 243);
             this.cbShowDeleted.Name = "cbShowDeleted";
             this.cbShowDeleted.Size = new System.Drawing.Size(93, 17);
             this.cbShowDeleted.TabIndex = 18;
@@ -481,7 +499,7 @@
             // btnDeleteContactor
             // 
             this.btnDeleteContactor.Enabled = false;
-            this.btnDeleteContactor.Location = new System.Drawing.Point(225, 260);
+            this.btnDeleteContactor.Location = new System.Drawing.Point(220, 267);
             this.btnDeleteContactor.Name = "btnDeleteContactor";
             this.btnDeleteContactor.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteContactor.TabIndex = 20;
@@ -491,7 +509,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(594, 524);
+            this.btnCancel.Location = new System.Drawing.Point(595, 531);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 23);
             this.btnCancel.TabIndex = 21;
@@ -508,12 +526,102 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(76, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(11, 13);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(395, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 13);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(77, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 13);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(77, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(11, 13);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(76, 114);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(11, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(395, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(11, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(77, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(11, 13);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(76, 173);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(11, 13);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(395, 140);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(11, 13);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "*";
+            // 
             // frmContractorManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(698, 552);
+            this.ClientSize = new System.Drawing.Size(699, 561);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDeleteContactor);
@@ -590,5 +698,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clCountryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clCity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clIsDeleted;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
